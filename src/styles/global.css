@@ -2,7 +2,6 @@
 @import './tokens.css';
 
 /* Google Fonts — Inter */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
 /* ============================================================
    GLOBAL BASE STYLES
    ============================================================ */
@@ -14,6 +13,11 @@ body {
   line-height: var(--line-height-normal);
   color: var(--color-text-primary-light);
   background-color: var(--color-light-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  line-height: var(--line-height-tight);
 }
 
 /* Focus visible — keyboard navigation */

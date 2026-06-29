@@ -1,10 +1,9 @@
-// RootLayout wraps every page with the Navbar and Footer.
-// These components will be added in their respective milestones.
+import Navbar from '../components/sections/Navbar'
 
 function RootLayout({ children }) {
   return (
     <>
-      {/* <Navbar /> will go here */}
+      <Navbar />
       {children}
       {/* <Footer /> will go here */}
     </>
