@@ -2,11 +2,11 @@
 // This keeps components clean and makes copy changes trivial.
 
 export const NAV_LINKS = [
-  { label: 'About Us', href: '#about' },
-  { label: 'Training', href: '#training' },
-  { label: 'Industry Solutions', href: '#solutions' },
-  { label: 'Resources', href: '#resources' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'ABOUT US', href: '#about' },
+  { label: 'TRAINING', href: '#training' },
+  { label: 'INDUSTRY SOLUTIONS', href: '#solutions' },
+  { label: 'RESOURCES', href: '#resources' },
+  { label: 'CONTACT US', href: '#contact' },
 ]
 
 export const SITE_NAME = 'Bezimeni Resources'
