@@ -152,61 +152,60 @@
     transform: translateY(-7px) rotate(-45deg);
   }
   
-  /* ---- Mobile Menu ---- */
+  /* ---- Mobile Menu — narrow right-side drawer ---- */
   .mobileMenu {
     display: block;
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
+    width: 260px;
     background-color: var(--color-light-bg);
-    padding: var(--space-24) var(--space-6) var(--space-8);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.10);
+    padding: var(--space-20) var(--space-6) var(--space-8);
     transform: translateX(100%);
     transition: transform var(--transition-slow);
     z-index: var(--z-overlay);
     overflow-y: auto;
-    
   }
-  
+
   .mobileMenuOpen {
     transform: translateX(0);
   }
-  
+
   .mobileNavList {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
-    margin-bottom: var(--space-8);
+    gap: 0;
+    margin-bottom: var(--space-6);
   }
-  
+
   .mobileNavLink {
     display: block;
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-code);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--color-text-primary-light);
     padding: var(--space-4) 0;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08);
     transition: color var(--transition-fast);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
-  
+
   .mobileNavLink:hover {
     color: var(--color-brand-green-muted);
   }
-  
+
   .mobileCta {
-    margin-top: var(--space-8);
+    margin-top: var(--space-6);
   }
-  
 
   /* ============================================================
      DESKTOP — 1024px+
      Show full nav, hide hamburger
      ============================================================ */
-  @media (min-width: 1280px) {
+  @media (min-width: 1024px) {
     .nav {
       display: flex;
       flex: 1;
@@ -226,8 +225,56 @@
     }
   }
 
+  /* ── Scale nav + button down as screen narrows toward 1024px ── */
+
+  /* 1024–1280px: medium reduction */
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    .inner {
+      padding-left: var(--space-8);
+      padding-right: var(--space-8);
+    }
+
+    .navList {
+      gap: var(--space-5);
+    }
+
+    .navLink {
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* Button slight reduction */
+    .cta > * {
+      font-size: var(--font-size-xs);
+      padding: var(--space-2) var(--space-5);
+    }
+  }
+
+  /* 1024–1120px: tightest reduction */
+  @media (min-width: 1024px) and (max-width: 1120px) {
+    .inner {
+      padding-left: var(--space-6);
+      padding-right: var(--space-6);
+      gap: var(--space-3);
+    }
+
+    .navList {
+      gap: var(--space-4);
+    }
+
+    .navLink {
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.03em;
+    }
+
+    .cta > * {
+      font-size: 0.7rem;
+      padding: var(--space-2) var(--space-4);
+    }
+  }
+
   /* Tablet & mobile: shrink logo slightly */
-  @media (max-width: 1279px) {
+  @media (max-width: 1023px) {
     .logoImage {
       width: 150px;
     }

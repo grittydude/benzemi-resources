@@ -20,7 +20,7 @@ function Navbar() {
   // Close mobile menu when viewport widens to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1280) {
+      if (window.innerWidth >= 1024) {
         setMenuOpen(false);
       }
     };
