@@ -1,0 +1,215 @@
+/* ============================================================
+   TESTIMONIALS SECTION
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-brand-green);
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-20) var(--container-padding);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+/* ── Left: badge + headline ── */
+.left {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+/* Badge — white pill on dark bg */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: var(--space-8);
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* Large display headline */
+.headline {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 3.5vw, 3.75rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  font-style: normal;
+}
+
+.accent {
+  font-style: normal;
+  color: var(--color-brand-green-muted);
+}
+
+/* ── Right: testimonial list ── */
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Individual testimonial — no box, just spacing */
+.item {
+  padding: var(--space-8) 0;
+}
+
+/* Divider between items */
+.itemDivided {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Quote text */
+.quote {
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  border: none;
+}
+
+.quote p {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Footer row: avatar | name | role */
+.itemFooter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Initials avatar */
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: rgba(105, 170, 44, 0.3);
+  border: 1.5px solid var(--color-brand-green-muted);
+  color: var(--color-brand-green-muted);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+}
+
+/* Person name */
+.name {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-black);
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* Role — lime green, code font */
+.role {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.04em;
+  color: var(--color-brand-green-muted);
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding: var(--space-24) var(--container-padding);
+  }
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    gap: var(--space-12);
+  }
+
+  .left {
+    flex: 0 0 38%;
+    max-width: 38%;
+  }
+
+  .headline {
+    font-size: clamp(1.75rem, 3vw, 3rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    padding: var(--space-12) var(--space-6);
+    gap: var(--space-10);
+  }
+
+  .left {
+    flex: none;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .badge {
+    margin: 0 auto var(--space-8);
+    font-size: 0.6875rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .headline {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    text-align: center;
+  }
+
+  .quote p {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4);
+    gap: var(--space-8);
+  }
+
+  .headline {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .item {
+    padding: var(--space-6) 0;
+  }
+
+  .role {
+    display: none; /* hide on tiny screens; name is enough */
+  }
+}

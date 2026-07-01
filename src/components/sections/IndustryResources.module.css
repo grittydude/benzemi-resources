@@ -1,0 +1,278 @@
+/* ============================================================
+   INDUSTRY RESOURCES SECTION
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: #f0f0ee;
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+}
+
+/* ── Badge — sits above heading on its own row ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  border: 1px solid rgba(10, 10, 10, 0.18);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary-light);
+  margin-bottom: var(--space-8);
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* ── Heading + CTA on the same row ── */
+.headingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 3vw, 3.25rem);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary-light);
+  margin: 0;
+}
+
+/* ── Header CTA — Button + arrow ── */
+.headerCta {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 44px;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ============================================================
+   RESOURCE CARDS
+   ============================================================ */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: 0 0 var(--radius-xxll) 0;
+  min-height: 260px;
+}
+
+/* ── Card color variants ── */
+.card--green {
+  background-color: #cee88a;
+  color: var(--color-text-primary-light);
+}
+
+.card--dark {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+}
+
+.card--light {
+  background-color: #ffffff;
+  color: var(--color-text-primary-light);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+/* ── Card top: type badge + date ── */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.type {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background-color: rgba(247, 247, 245, 0.4);
+  padding: 3px var(--space-2);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Square dot before type label */
+.typeDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.card--dark .type {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.date {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+/* ── Card title ── */
+.cardTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Card bottom: read label + arrow ── */
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: var(--space-3);
+}
+
+.readLabel {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.readLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+  color: white;
+  border-radius: 50% 0 50% 0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color var(--transition-fast);
+}
+
+.readLink:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding: var(--space-20) var(--container-padding);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cards {
+    gap: var(--space-3);
+  }
+
+  .card {
+    padding: var(--space-5);
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headingRow {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+    text-align: center;
+  }
+
+  .badge {
+    align-self: center;
+    font-size: 0.6875rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    text-align: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .heading {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .card {
+    padding: var(--space-4);
+  }
+}

@@ -1,0 +1,156 @@
+/* ============================================================
+   GROWING CTA SECTION
+   White outer section, contained dark green card inside
+   Mobile-first
+   ============================================================ */
+
+/* Outer section — white background */
+.section {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 0 var(--container-padding) var(--space-16);
+}
+
+/* ── Dark green card (contained, not full width) ── */
+.card {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  background-color: var(--color-brand-green);
+  border-radius: 24px;
+  padding: var(--space-12) var(--space-12) var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  align-self: flex-start;
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* Large body text — 56px desktop, bold */
+.text {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.75rem, 4vw, 3.0rem); /* 3.5rem = 56px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* CTA row */
+.actions {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+/* Arrow button — lime green */
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 44px;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green-light);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (min-width: 1280px) {
+  .section {
+    padding: 0 var(--container-padding) var(--space-20);
+  }
+
+  .card {
+    padding: var(--space-16) var(--space-16) var(--space-20);
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    gap: var(--space-6);
+  }
+
+  .text {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0 var(--space-6) var(--space-12);
+  }
+
+  .card {
+    padding: var(--space-8);
+    border-radius: 16px;
+    gap: var(--space-6);
+    align-items: center;
+    text-align: center;
+  }
+
+  .badge {
+    font-size: 0.6875rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .text {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 0 var(--space-4) var(--space-10);
+  }
+
+  .card {
+    padding: var(--space-6);
+    border-radius: 12px;
+  }
+
+  .text {
+    font-size: clamp(1.125rem, 5vw, 1.5rem);
+  }
+}

@@ -1,0 +1,244 @@
+/* ---- Outer section: full viewport width ---- */
+.section {
+  position: relative;
+  z-index: var(--z-raised);
+  margin-top: -40px; /* pull up by the border-radius amount to overlap the hero */
+  overflow: hidden;
+  min-height: 580px;
+  max-height: 840px;
+  background-color: var(--color-dark-bg);
+  border-radius: 40px 40px 0 0;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  
+}
+
+.section:focus-visible {
+  outline: 2px solid var(--color-brand-green-muted);
+  outline-offset: 4px;
+}
+
+/* ---- Slide track ---- */
+.track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  transition: transform 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Disable transition while finger/mouse is moving */
+.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+/* ---- Individual slide ---- */
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+/* ---- Background image ---- */
+.imagePlaceholder {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Fallback if image hasn't loaded */
+  background-color: #0e1a0b;
+}
+
+/* ---- Dark overlay for text legibility ---- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5, 10, 5, 0.70) 0%,
+    rgba(5, 10, 5, 0.40) 60%,
+    rgba(5, 10, 5, 0.55) 100%
+  );
+}
+
+/* ---- Content layer ---- */
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8) var(--container-padding);
+  pointer-events: none; /* let drag events pass through to section */
+}
+
+/* ---- Top row: badge + horizontal rule ---- */
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* ---- Tab indicator row ---- */
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-10);
+  pointer-events: auto; /* override parent pointer-events: none */
+}
+
+.tab {
+  flex: 1;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.20);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+/* Extend the click target without changing visual height */
+.tab::before {
+  content: '';
+  display: block;
+  height: 20px;
+  margin-top: -9px;
+}
+
+.tabActive {
+  background-color: rgba(255, 255, 255, 0.90);
+}
+
+/* ---- Slide counter ---- */
+.counter {
+  margin-top: var(--space-4);
+  display: inline-flex;
+  align-self: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---- Headline wrapper (handles vertical centering + 40% left offset) ---- */
+.headlineWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 30%;
+  padding-bottom: 10%;
+}
+
+/* ---- Headline (plain block — no flex, so inline text flows correctly) ---- */
+.headline {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-snug);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  max-width: 820px;
+  margin: 0;
+}
+
+.accent {
+  color: var(--color-brand-green-muted);
+}
+
+/* ---- Dot indicators ---- */
+.dots {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-2);
+  pointer-events: all;
+  z-index: 10;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.30);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color var(--transition-base), width var(--transition-base);
+}
+
+.dotActive {
+  width: 24px;
+  background-color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .headline {
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headlineWrap {
+    padding-left: 10%;
+    padding-bottom: 70%;
+  }
+
+  .section {
+    margin-top: -20px; /* pull up by the border-radius amount to overlap the hero */
+    max-height: 300px;
+   
+    
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .headline {
+    font-size: clamp(1.5rem, 7vw, 2.25rem);
+  }
+}

@@ -1,0 +1,314 @@
+/* ============================================================
+   WHAT WE DO SECTION
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: #F7F7F5;
+  width: 100%;
+}
+
+/* ---- Inner container ---- */
+.inner {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+}
+
+/* ---- Badge — top left ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid rgba(10, 10, 10, 0.20);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary-light);
+  margin-bottom: var(--space-12);
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* ---- Content block — offset 40% from left on desktop ---- */
+.content {
+  margin-left: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ---- Heading ---- */
+.heading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.line1 {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  color: var(--color-text-primary-light);
+}
+
+.line2 {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  color: var(--color-brand-green-muted);
+}
+
+/* ---- Body copy ---- */
+.description {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary-light);
+  max-width: 580px;
+  margin: 0;
+}
+
+/* ---- CTA row ---- */
+.cta {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* Arrow button — mirrors Hero's arrowBtn */
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 44px;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green-light);
+}
+
+/* ============================================================
+   CAPABILITY CARDS
+   ============================================================ */
+
+/* Full viewport width — sits outside .inner */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 80px 0 ;
+  padding: var(--space-10);
+  min-height: 380px;
+}
+
+/* ── Card variants ── */
+.card--green {
+  background-color: #CEE88A;
+  color: var(--color-text-primary-light);
+  border-radius: 0 0 80px 0 ;
+}
+
+.card--dark {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+  border-radius: 0 0 80px 0 ;
+}
+
+.card--gray {
+  background-color: #E5E5E3;
+  color: var(--color-text-primary-light);
+}
+
+/* ── Card icon ── */
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  margin-bottom: auto; /* pushes title/desc to bottom */
+}
+
+.cardIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Default: dark icon → grey */
+  filter: grayscale(1) opacity(0.35);
+}
+
+/* Dark card needs a light icon to stay visible */
+.card--dark .cardIcon img {
+  filter: grayscale(1) brightness(6) opacity(0.55);
+}
+
+.cardTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+  margin: var(--space-8) 0 var(--space-3);
+}
+
+.cardDesc {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  opacity: 0.75;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Large desktop */
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .content {
+    margin-left: 30%;
+  }
+
+  .badge {
+    margin-bottom: var(--space-10);
+  }
+
+  .cards {
+    gap: var(--space-3);
+    padding: 0 0 var(--space-12);
+  }
+
+  .card {
+    padding: var(--space-8);
+    min-height: 320px;
+  }
+
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Small tablet — stack cards vertically */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    gap: var(--space-5);
+    align-items: center;
+    text-align: center;
+  }
+
+  .badge {
+    margin-bottom: var(--space-8);
+    align-self: center;
+    font-size: 0.6875rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .line1,
+  .line2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .description {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .cta {
+    justify-content: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 0 0 var(--space-10);
+    gap: var(--space-3);
+  }
+
+  .card {
+    min-height: auto;
+    padding: var(--space-10) var(--space-8);
+  }
+
+  .cardIcon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .cardTitle {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    margin-top: var(--space-6);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .inner {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .line1,
+  .line2 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .badge {
+    margin-bottom: var(--space-6);
+  }
+
+  .cards {
+    padding: 0 0 var(--space-8);
+    gap: var(--space-2);
+  }
+
+  .card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .cardIcon {
+    width: 44px;
+    height: 44px;
+  }
+}
