@@ -4,11 +4,12 @@
    Reference these variables everywhere — never hardcode values.
    ============================================================ */
 
-:root {
+:root { 
   /* --- Colors --- */
   --color-brand-green: #222F30; /* Primary lime accent */
   --color-brand-green-light: #4B8145; /* Light green section backgrounds */
   --color-brand-green-muted: #69AA2C; /* Muted green for logos/icons */
+  --color-brand-card: #CEF79E; /* */
 
   --color-dark-bg: #0a0a0a; /* Hero / dark section backgrounds */
   --color-dark-surface: #141414; /* Card surfaces on dark bg */
@@ -80,6 +81,7 @@
   --radius-lg: 12px;
   --radius-xl: 20px;
   --radius-xxl: 24px;
+  --radius-xxll: 48px;
   --radius-full: 9999px;
 
   /* --- Transitions --- */
