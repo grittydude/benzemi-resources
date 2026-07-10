@@ -1,0 +1,30 @@
+/* ============================================================
+   TAG CHIP  – green dot + label pill
+   ============================================================ */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  background-color: var(--color-badge-bg); /* #F7F7F5 default */
+  border-radius: 4px;
+  padding: 8px;
+  width: fit-content;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.label {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  color: #222F30;
+}

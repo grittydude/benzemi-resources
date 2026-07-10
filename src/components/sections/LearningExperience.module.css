@@ -1,0 +1,163 @@
+/* ============================================================
+   LEARNING EXPERIENCE  – Training page numbered pillars
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-brand-green);
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+/* ── Header ── */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8) var(--space-16);
+  align-items: start;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  grid-column: 1 / -1;
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.badge span:last-child {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+  font-style: normal;
+}
+
+.accent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+.description {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  align-self: end;
+}
+
+/* ── Numbered points ── */
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-1);
+}
+
+.point {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pointCounter {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.pointNum {
+  font-family: var(--font-family-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.pointTotal {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.pointLabel {
+  font-family: var(--font-family-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+}
+
+@media (max-width: 1024px) {
+  .points {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: var(--space-12) var(--space-4);
+    gap: var(--space-10);
+  }
+
+  .points {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .points {
+    grid-template-columns: 1fr;
+  }
+}

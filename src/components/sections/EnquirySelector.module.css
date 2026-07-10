@@ -1,0 +1,216 @@
+/* ============================================================
+   ENQUIRY SELECTOR  – heading + 3 full-width cards
+   Contact page
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: #F7F7F5;
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+/* ── Tag row — full width, left-aligned ── */
+.tagRow {
+  padding: var(--space-16) var(--container-padding) 0;
+}
+
+/* ── Heading row — uses 3-col grid so heading starts at col 2 ── */
+.headingRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: var(--space-6) 0 var(--space-12);
+}
+
+.headingSpacer {
+  /* col 1 — empty, aligns heading with second card */
+}
+
+.heading {
+  grid-column: 2 / 4;
+  font-family: var(--font-family-display);
+  font-size: 3.5rem; /* 56px */
+  font-weight: var(--font-weight-regular); /* 400 */
+  line-height: 1.2; /* 120% */
+  letter-spacing: -0.02em; /* -2% */
+  color: var(--color-text-primary-light);
+  margin: 0;
+  font-style: normal;
+  padding-right: var(--container-padding);
+}
+
+.headingAccent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+/* ── Cards grid — full viewport width, no gap ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  width: 100%;
+}
+
+/* ── Base card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: 40px;
+  border: none;
+  border-radius: 0 0 64px 0; /* bottom-right only */
+  text-align: left;
+  cursor: pointer;
+  min-height: 280px;
+  transition: filter var(--transition-fast);
+}
+
+.card:hover {
+  filter: brightness(0.96);
+}
+
+/* ── Variants ── */
+.card--lime {
+  background-color: #CEF79E;
+}
+
+.card--dark {
+  background-color: #222F30;
+}
+
+.card--gray {
+  background-color: #EEEEEE;
+}
+
+/* ── Card content ── */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+}
+
+.label {
+  font-family: var(--font-family-display);
+  font-size: 2rem; /* 32px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  margin: 0;
+}
+
+.card--lime .label,
+.card--gray .label {
+  color: var(--color-text-primary-light);
+}
+
+.card--dark .label {
+  color: #ffffff;
+}
+
+.description {
+  font-family: var(--font-family-body);
+  font-size: 1.25rem; /* 20px */
+  font-weight: 300;
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.card--lime .description,
+.card--gray .description {
+  color: #222F30;
+}
+
+.card--dark .description {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Card bottom ── */
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.cta {
+  font-family: var(--font-family-code);
+  font-size: 1rem; /* 16px */
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+}
+
+.card--lime .cta,
+.card--gray .cta {
+  color: #222F30;
+}
+
+.card--dark .cta {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 16px;
+  box-sizing: border-box;
+  /* top-left + bottom-right rounded per Figma */
+  border-radius: 24px 0 24px 0;
+  background-color: var(--color-brand-green-muted);
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowIcon {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card:hover .arrow {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .tagRow {
+    padding: var(--space-12) var(--space-6) 0;
+  }
+
+  .headingRow {
+    display: block;
+    padding: var(--space-6) var(--space-6) var(--space-8);
+  }
+
+  .headingSpacer {
+    display: none;
+  }
+
+  .heading {
+    padding-right: 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    border-radius: 0 0 40px 0;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .tagRow {
+    padding: var(--space-10) var(--space-4) 0;
+  }
+
+  .card {
+    padding: var(--space-8);
+  }
+}

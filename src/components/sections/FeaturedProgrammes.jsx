@@ -1,4 +1,5 @@
 import { FEATURED_PROGRAMMES } from '../../constants'
+import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import iconOilGas from '../../assets/icons/oil-gas.svg'
 import iconProcess from '../../assets/icons/process-prod.svg'
 import iconHse from '../../assets/icons/hse.svg'
@@ -37,7 +38,7 @@ function FeaturedProgrammes() {
               {cta.label}
             </Button>
             <a href={cta.href} className={styles.arrowBtn} aria-label={cta.label}>
-              <span aria-hidden="true">→</span>
+              <img src={arrowIcon} alt="" />
             </a>
           </div>
         </div>

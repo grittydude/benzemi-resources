@@ -1,4 +1,5 @@
 import Button from '../ui/Button'
+import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import { GROWING_CTA } from '../../constants'
 import styles from './GrowingCTA.module.css'
 
@@ -24,7 +25,7 @@ function GrowingCTA() {
             {cta.label}
           </Button>
           <a href={cta.href} className={styles.arrowBtn} aria-label={cta.label}>
-            <span aria-hidden="true">→</span>
+            <img src={arrowIcon} alt="" />
           </a>
         </div>
 

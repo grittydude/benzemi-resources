@@ -1,0 +1,229 @@
+/* ============================================================
+   PAGE HERO  – shared hero used by all pages
+   Mobile-first
+   ============================================================ */
+
+.section {
+  position: relative;
+  padding-top: 80px; /* navbar height */
+  background-color: var(--color-light-bg);
+  overflow: hidden;
+}
+
+/* Green radial gradient — matches home hero, slightly thicker */
+.gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse 20% 80% at 100% 0%,
+      rgba(105, 170, 44, 0.38) 0%,
+      rgba(105, 170, 44, 0.18) 40%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 85% 105% at 100% 100%,
+      rgba(105, 170, 44, 0.24) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 85% 105% at 90% 100%,
+      rgba(105, 170, 44, 0.22) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 85% 105% at 100% 100%,
+      rgba(105, 170, 44, 0.22) 0%,
+      transparent 60%
+    );
+}
+
+/* Thicker bottom variant — used by About Us */
+.gradientThickBottom {
+  background:
+    radial-gradient(
+      ellipse 20% 80% at 100% 0%,
+      rgba(105, 170, 44, 0.38) 0%,
+      rgba(105, 170, 44, 0.18) 40%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 100% 130% at 100% 100%,
+      rgba(105, 170, 44, 0.42) 0%,
+      rgba(105, 170, 44, 0.22) 40%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 100% 130% at 85% 100%,
+      rgba(105, 170, 44, 0.36) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 100% 130% at 100% 100%,
+      rgba(105, 170, 44, 0.36) 0%,
+      transparent 60%
+    );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-20) var(--container-padding) var(--space-24);
+}
+
+/* ── Breadcrumb tag row ── */
+.tagsRow {
+  margin: 0 0 var(--space-10);
+}
+
+/* ── Main heading ── */
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2.5rem, 5.5vw, 5rem); /* 80px at full width */
+  font-weight: var(--font-weight-medium);  /* 500 per Figma */
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary-light);
+  margin: 0;
+  font-style: normal;
+}
+
+.accent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+/* ── Optional CTA row ── */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--color-brand-green);
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 0 0 var(--radius-xxl) 0;
+  transition: background-color var(--transition-fast);
+}
+
+.ctaBtn:hover {
+  background-color: var(--color-brand-green-muted);
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 48px;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Optional full-width hero image ── */
+.imageWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 520px;
+  overflow: hidden;
+  border-radius: 40px 40px  0 0;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-24);
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: var(--space-12) var(--space-6) var(--space-16);
+  }
+
+  .heading {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .gradient {
+    background:
+      radial-gradient(
+        ellipse 90% 65% at 100% 0%,
+        rgba(105, 170, 44, 0.32) 0%,
+        rgba(105, 170, 44, 0.14) 50%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 75% 55% at 100% 100%,
+        rgba(105, 170, 44, 0.20) 0%,
+        transparent 60%
+      );
+  }
+
+  .imageWrap {
+    max-height: 320px;
+  }
+
+  .heroImage {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4) var(--space-12);
+  }
+
+  .heading {
+    font-size: clamp(1.875rem, 9vw, 2.25rem);
+  }
+
+  .imageWrap {
+    max-height: 220px;
+  }
+
+  .heroImage {
+    max-height: 220px;
+  }
+}

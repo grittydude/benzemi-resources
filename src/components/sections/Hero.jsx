@@ -1,4 +1,5 @@
 import Button from '../ui/Button'
+import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import styles from './Hero.module.css'
 
 function Hero() {
@@ -67,7 +68,7 @@ function Hero() {
               className={styles.arrowBtn}
               aria-label="Get started"
             >
-              <span aria-hidden="true">→</span>
+              <img src={arrowIcon} alt="" />
             </a>
           </div>
 

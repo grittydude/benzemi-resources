@@ -1,0 +1,280 @@
+/* ============================================================
+   PROGRAMME CARDS  – Training page, alternating dark/light cards
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-light-bg);
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-4) var(--container-padding) var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ── Base card ── */
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 320px;
+}
+
+/* Reverse column order for odd cards to alternate body/meta sides */
+.cardReverse {
+  direction: rtl;
+}
+
+.cardReverse > * {
+  direction: ltr;
+}
+
+/* ── Variants ── */
+.card--dark {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+}
+
+.card--light {
+  background-color: #f0f0ee;
+  color: var(--color-text-primary-light);
+}
+
+/* ── Card body (left/right alternate) ── */
+.cardBody {
+  padding: var(--space-10) var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card--light .cardBody {
+  border-right-color: rgba(34, 47, 48, 0.08);
+}
+
+.cardNum {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  opacity: 0.45;
+}
+
+.cardTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.card--dark .cardTitle {
+  color: #ffffff;
+}
+
+.card--light .cardTitle {
+  color: var(--color-text-primary-light);
+}
+
+.cardDesc {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  opacity: 0.75;
+  flex: 1;
+}
+
+/* ── Card meta (right/left alternate) ── */
+.cardMeta {
+  padding: var(--space-10) var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  justify-content: center;
+}
+
+.price {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-black);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.card--dark .price {
+  color: var(--color-brand-green-muted);
+}
+
+.card--light .price {
+  color: var(--color-brand-green-muted);
+}
+
+.metaList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  gap: var(--space-4);
+}
+
+.card--light .metaRow {
+  border-bottom-color: rgba(34, 47, 48, 0.1);
+}
+
+.metaLabel {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.metaValue {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-align: right;
+}
+
+/* ── Certified badge ── */
+.certBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.certDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
+
+.card--dark .certBadge {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.card--light .certBadge {
+  color: rgba(34, 47, 48, 0.55);
+}
+
+/* ── CTA row ── */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+
+.enrolBtn {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.card--dark .enrolBtn {
+  background-color: #ffffff;
+  color: var(--color-brand-green);
+}
+
+.card--dark .enrolBtn:hover {
+  background-color: var(--color-brand-card);
+}
+
+.card--light .enrolBtn {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+}
+
+.card--light .enrolBtn:hover {
+  background-color: var(--color-brand-green-muted);
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 44px;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .cardReverse {
+    direction: ltr;
+  }
+
+  .cardBody {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .card--light .cardBody {
+    border-bottom-color: rgba(34, 47, 48, 0.1);
+  }
+
+  .cardMeta {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-4) var(--space-4) var(--space-12);
+  }
+}

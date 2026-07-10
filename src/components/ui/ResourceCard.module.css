@@ -1,0 +1,138 @@
+/* ============================================================
+   RESOURCE CARD  — shared by IndustryResources, ResourcesGrid,
+   RelatedPublications.  Sections control the grid layout; this
+   file owns only the individual card appearance.
+   ============================================================ */
+
+/* ── Base card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: 0 0 var(--radius-xxll) 0;
+  min-height: 240px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Interactive variant: cursor + hover lift */
+.cardClickable {
+  cursor: pointer;
+}
+
+.cardClickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cardClickable:focus-visible {
+  outline: 2px solid var(--color-brand-green-muted);
+  outline-offset: 4px;
+}
+
+/* ── Color variants ── */
+.card--green {
+  background-color: #cee88a;
+  color: var(--color-text-primary-light);
+}
+
+.card--dark {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+}
+
+.card--light {
+  background-color: #f7f7f5;
+  color: var(--color-text-primary-light);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+/* ── Card top: type badge + date ── */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.type {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background-color: rgba(247, 247, 245, 0.4);
+  padding: 3px var(--space-2);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Square green dot before type label */
+.typeDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* Dark card overrides type badge to white-on-translucent */
+.card--dark .type {
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.date {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+/* ── Card title ── */
+.cardTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(0.95rem, 1.3vw, 1.125rem);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Card bottom: read label + arrow button ── */
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: var(--space-3);
+}
+
+.readLabel {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.readArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  border-radius: 50% 0 50% 0;
+  font-size: 0.9rem;
+  transition: background-color var(--transition-fast);
+}
+
+.cardClickable:hover .readArrow {
+  background-color: var(--color-brand-green);
+}

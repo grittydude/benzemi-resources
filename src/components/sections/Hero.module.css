@@ -25,25 +25,26 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       ellipse 20% 80% at 100% 0%,
-      rgba(105, 170, 44, 0.3) 0%,
-      rgba(105, 170, 44, 0.14) 40%,
+      rgba(105, 170, 44, 0.38) 0%,
+      rgba(105, 170, 44, 0.18) 40%,
       transparent 68%
     ),
     radial-gradient(
-      ellipse 80% 100% at 100% 100%,
-      rgba(105, 170, 44, 0.18) 0%,
+      ellipse 85% 105% at 100% 100%,
+      rgba(105, 170, 44, 0.24) 0%,
       transparent 60%
     ),
     radial-gradient(
-      ellipse 80% 100% at 90% 100%,
-      rgba(105, 170, 44, 0.18) 0%,
+      ellipse 85% 105% at 90% 100%,
+      rgba(105, 170, 44, 0.22) 0%,
       transparent 60%
     ),
     radial-gradient(
-      ellipse 80% 100% at 100% 100%,
-      rgba(105, 170, 44, 0.18) 0%,
+      ellipse 85% 105% at 100% 100%,
+      rgba(105, 170, 44, 0.22) 0%,
       transparent 60%
     );
 }
@@ -254,15 +255,16 @@
 
   /* On small screens widen the spread so green covers more of the right */
   .gradient {
-    background: radial-gradient(
+    background:
+      radial-gradient(
         ellipse 90% 65% at 100% 0%,
-        rgba(105, 170, 44, 0.26) 0%,
-        rgba(105, 170, 44, 0.1) 50%,
+        rgba(105, 170, 44, 0.32) 0%,
+        rgba(105, 170, 44, 0.14) 50%,
         transparent 72%
       ),
       radial-gradient(
-        ellipse 70% 50% at 100% 100%,
-        rgba(105, 170, 44, 0.14) 0%,
+        ellipse 75% 55% at 100% 100%,
+        rgba(105, 170, 44, 0.20) 0%,
         transparent 60%
       );
   }

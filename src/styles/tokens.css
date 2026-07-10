@@ -8,6 +8,7 @@
   /* --- Colors --- */
   --color-brand-green: #222F30; /* Primary lime accent */
   --color-brand-green-light: #4B8145; /* Light green section backgrounds */
+  --color-brand-badge-dot: #A7E26E; /* Light green section backgrounds */
   --color-brand-green-muted: #69AA2C; /* Muted green for logos/icons */
   --color-brand-card: #CEF79E; /* */
 
@@ -43,6 +44,7 @@
   --font-size-5xl: 3.75rem; /* 60px */
   --font-size-6xl: 4.5rem; /* 72px */
 
+  --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;

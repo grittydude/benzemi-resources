@@ -1,4 +1,5 @@
 import Button from '../ui/Button'
+import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import { WHAT_WE_DO } from '../../constants'
 import styles from './WhatWeDo.module.css'
 import iconDevelop from '../../assets/icons/develop_icon.svg'
@@ -39,7 +40,7 @@ function WhatWeDo() {
               {cta.label}
             </Button>
             <a href={cta.href} className={styles.arrowBtn} aria-label={cta.label}>
-              <span aria-hidden="true">→</span>
+              <img src={arrowIcon} alt="" />
             </a>
           </div>
         </div>
