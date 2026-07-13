@@ -1,4 +1,5 @@
 import { TESTIMONIALS } from '../../constants'
+import avatarImg from '../../assets/images/team_photo.webp'
 import styles from './Testimonials.module.css'
 
 function Testimonials() {
@@ -25,16 +26,16 @@ function Testimonials() {
 
         {/* ── Right: testimonial list (no boxes) ── */}
         <div className={styles.right}>
-          {items.map((item, idx) => (
+          {items.map((item) => (
             <article
               key={item.id}
-              className={`${styles.item} ${idx < items.length - 1 ? styles.itemDivided : ''}`}
+              className={styles.item}
             >
               <blockquote className={styles.quote}>
                 <p>"{item.quote}"</p>
               </blockquote>
               <footer className={styles.itemFooter}>
-                <span className={styles.avatar} aria-hidden="true">{item.initials}</span>
+                <img src={avatarImg} alt={item.name} className={styles.avatar} />
                 <span className={styles.name}>{item.name}</span>
                 <span className={styles.role}>{item.role}</span>
               </footer>

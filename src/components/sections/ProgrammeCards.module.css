@@ -1,37 +1,41 @@
 /* ============================================================
-   PROGRAMME CARDS  – Training page, alternating dark/light cards
+   PROGRAMME CARDS  – Training page, 2-column grid
    Mobile-first
    ============================================================ */
 
 .section {
-  background-color: var(--color-light-bg);
+  background-color: var(--color-badge-bg);
   width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-top: -50px;
+  border-radius: 40px 40px 0 0;
 }
 
 .inner {
-  max-width: var(--max-width-content);
-  margin: 0 auto;
+  /* Full width — no max-width constraint */
+  width: 100%;
   padding: var(--space-4) var(--container-padding) var(--space-16);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+}
+
+/* ── 2-column card grid ── */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
 }
 
 /* ── Base card ── */
 .card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  min-height: 320px;
-}
-
-/* Reverse column order for odd cards to alternate body/meta sides */
-.cardReverse {
-  direction: rtl;
-}
-
-.cardReverse > * {
-  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: var(--space-4);
+  border-radius: 8px;
+  border-bottom-right-radius: 48px;
 }
 
 /* ── Variants ── */
@@ -39,187 +43,235 @@
   background-color: var(--color-brand-green);
   color: #ffffff;
 }
-
 .card--light {
-  background-color: #f0f0ee;
+  background-color: #eeeeee;
+  color: var(--color-text-primary-light);
+}
+.card--white {
+  background-color: #ffffff;
+  color: var(--color-text-primary-light);
+}
+.card--green {
+  background-color: var(--color-brand-card);
   color: var(--color-text-primary-light);
 }
 
-/* ── Card body (left/right alternate) ── */
-.cardBody {
-  padding: var(--space-10) var(--space-10);
+/* ── Top row: icon (left) | badge+price column (right) ── */
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.cardIcon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card--dark .cardIcon img {
+  filter: brightness(10) opacity(0.2);
+}
+.card--light .cardIcon img,
+.card--white .cardIcon img,
+.card--green .cardIcon img {
+  filter: grayscale(1) opacity(0.25);
+}
+
+/* Right column: badge stacked above price */
+.cardTopRight {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  align-items: flex-end;
+  gap: 28px;
 }
 
-.card--light .cardBody {
-  border-right-color: rgba(34, 47, 48, 0.08);
-}
-
-.cardNum {
+/* Certified badge */
+.certBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.08em;
-  opacity: 0.45;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 8px;
+  border-radius: 4px;
 }
 
+/* 1st card (dark): #F7F7F5 at 16% opacity */
+.card--dark .certBadge {
+  background-color: rgba(247, 247, 245, 0.16);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* 2nd card (light/#EEEEEE): white */
+.card--light .certBadge {
+  background-color: #ffffff;
+  color: rgba(34, 47, 48, 0.55);
+}
+
+/* 3rd card (white): #F7F7F5 */
+.card--white .certBadge {
+  background-color: #f7f7f5;
+  color: rgba(34, 47, 48, 0.55);
+}
+
+/* 4th card (green): white */
+.card--green .certBadge {
+  background-color: #ffffff;
+  color: rgba(34, 47, 48, 0.55);
+}
+
+.certDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-brand-green-muted);
+  flex-shrink: 0;
+}
+
+/* ── Price (inside cardTopRight) ── */
+.price {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.5rem, 2.3vw, 2.25rem);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--color-brand-green-muted);
+  margin: 0;
+  text-align: right;
+}
+
+/* ── Title ── */
 .cardTitle {
   font-family: var(--font-family-display);
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-  font-weight: var(--font-weight-black);
-  line-height: var(--line-height-tight);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 
 .card--dark .cardTitle {
   color: #ffffff;
 }
-
-.card--light .cardTitle {
-  color: var(--color-text-primary-light);
+.card--light .cardTitle,
+.card--white .cardTitle,
+.card--green .cardTitle {
+  color: var(--color-brand-green);
 }
 
+/* ── Description ── */
 .cardDesc {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
   margin: 0;
-  opacity: 0.75;
   flex: 1;
 }
 
-/* ── Card meta (right/left alternate) ── */
-.cardMeta {
-  padding: var(--space-10) var(--space-10);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  justify-content: center;
+.card--dark .cardDesc {
+  color: rgba(255, 255, 255, 0.7);
+}
+.card--light .cardDesc,
+.card--white .cardDesc,
+.card--green .cardDesc {
+  color: rgba(34, 47, 48, 0.65);
 }
 
-.price {
-  font-family: var(--font-family-display);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: var(--font-weight-black);
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-.card--dark .price {
-  color: var(--color-brand-green-muted);
-}
-
-.card--light .price {
-  color: var(--color-brand-green-muted);
-}
-
+/* ── Meta list ── */
 .metaList {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  margin: 0;
 }
 
 .metaRow {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: var(--space-2) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   gap: var(--space-4);
-}
-
-.card--light .metaRow {
-  border-bottom-color: rgba(34, 47, 48, 0.1);
+  padding: var(--space-2) 0;
 }
 
 .metaLabel {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.06em;
+  font-size: 16px;
+  font-weight: 400;
   text-transform: uppercase;
-  opacity: 0.55;
+  white-space: nowrap;
+}
+
+.card--dark .metaLabel {
+  color: #C9CBBE;
+}
+.card--light .metaLabel,
+.card--white .metaLabel,
+.card--green .metaLabel {
+  color: rgba(34, 47, 48, 0.7);
 }
 
 .metaValue {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  text-align: right;
-}
-
-/* ── Certified badge ── */
-.certBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.06em;
+  font-size: 16px;
+  font-weight: 400;
   text-transform: uppercase;
+  text-align: right;
+  margin: 0;
 }
 
-.certDot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: var(--color-brand-green-muted);
-  color: #ffffff;
-  font-size: 0.65rem;
-  flex-shrink: 0;
+.card--dark .metaValue {
+  color: rgba(255, 255, 255, 0.9);
 }
-
-.card--dark .certBadge {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.card--light .certBadge {
-  color: rgba(34, 47, 48, 0.55);
-}
-
-/* ── CTA row ── */
-.ctaRow {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-top: auto;
-}
-
-.enrolBtn {
-  font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: 0.08em;
-  border: none;
-  padding: var(--space-3) var(--space-6);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.card--dark .enrolBtn {
-  background-color: #ffffff;
+.card--light .metaValue,
+.card--white .metaValue,
+.card--green .metaValue {
   color: var(--color-brand-green);
 }
 
-.card--dark .enrolBtn:hover {
-  background-color: var(--color-brand-card);
+/* ── Footer ── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2);
 }
 
-.card--light .enrolBtn {
-  background-color: var(--color-brand-green);
-  color: #ffffff;
+.viewLink {
+  font-family: var(--font-family-code);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
 }
 
-.card--light .enrolBtn:hover {
-  background-color: var(--color-brand-green-muted);
+.viewLink:hover {
+  opacity: 0.7;
 }
 
+.card--dark .viewLink {
+  color: rgba(255, 255, 255, 0.85);
+}
+.card--light .viewLink,
+.card--white .viewLink,
+.card--green .viewLink {
+  color: var(--color-text-primary-light);
+}
+
+/* ── Arrow button ── */
 .arrowBtn {
   display: inline-flex;
   align-items: center;
@@ -228,13 +280,21 @@
   min-width: 44px;
   background-color: var(--color-brand-green-muted);
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1;
   border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
-  border: none;
-  cursor: pointer;
+  text-decoration: none;
   flex-shrink: 0;
+  padding: 16px;
+  height: 52px;
+  width: 52px;
   transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
 }
 
 .arrowBtn:hover {
@@ -250,26 +310,11 @@
 }
 
 @media (max-width: 768px) {
-  .card {
+  .grid {
     grid-template-columns: 1fr;
   }
-
-  .cardReverse {
-    direction: ltr;
-  }
-
-  .cardBody {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: var(--space-8) var(--space-6);
-  }
-
-  .card--light .cardBody {
-    border-bottom-color: rgba(34, 47, 48, 0.1);
-  }
-
-  .cardMeta {
-    padding: var(--space-8) var(--space-6);
+  .card {
+    padding: 24px;
   }
 }
 

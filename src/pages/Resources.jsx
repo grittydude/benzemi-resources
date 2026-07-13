@@ -1,8 +1,8 @@
 import RootLayout from '../layouts/RootLayout'
 import ResourcesHero from '../components/sections/ResourcesHero'
-import FeaturedArticles from '../components/sections/FeaturedArticles'
+import IndustryFeaturedCards from '../components/sections/IndustryFeaturedCards'
 import ResourcesGrid from '../components/sections/ResourcesGrid'
-import UpcomingEvents from '../components/sections/UpcomingEvents'
+import IndustryEvents from '../components/sections/IndustryEvents'
 import NewsletterCTA from '../components/sections/NewsletterCTA'
 import Testimonials from '../components/sections/Testimonials'
 import SiteFooter from '../components/sections/SiteFooter'
@@ -12,9 +12,9 @@ function Resources() {
     <RootLayout>
       <main>
         <ResourcesHero />
-        <FeaturedArticles />
+        <IndustryFeaturedCards />
         <ResourcesGrid />
-        <UpcomingEvents />
+        <IndustryEvents />
         <NewsletterCTA />
         <Testimonials />
       </main>

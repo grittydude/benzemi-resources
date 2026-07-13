@@ -1,83 +1,78 @@
 /**
  * ProgrammeCards
  *
- * Vertical stack of alternating dark/light programme cards
- * used on the Training page.
+ * 2-column grid of programme cards on the Training page.
  *
  * Props:
  *  programmes – array from TRAINING_PAGE.programmes
- *  onEnrol    – function(slug) — called when user clicks enrol
  */
 import { navigate } from '../../router'
+import programmeIcon from '../../assets/icons/program_icon.svg'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import styles from './ProgrammeCards.module.css'
 
-function ProgrammeCards({ programmes = [], onEnrol }) {
-  function handleEnrol(slug) {
-    if (onEnrol) { onEnrol(slug); return }
-    navigate('/contact')
-  }
-
+function ProgrammeCards({ programmes = [] }) {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        {programmes.map((prog, idx) => (
-          <article
-            key={prog.id}
-            className={[
-              styles.card,
-              styles[`card--${prog.variant}`],
-              idx % 2 === 0 ? styles.cardReverse : '',
-            ].join(' ')}
-          >
-            {/* Left: number + title + description */}
-            <div className={styles.cardBody}>
-              <span className={styles.cardNum}>
-                {String(idx + 1).padStart(2, '0')} / {String(programmes.length).padStart(2, '0')}
-              </span>
+        <ul className={styles.grid}>
+          {programmes.map((prog) => (
+            <li key={prog.id} className={`${styles.card} ${styles[`card--${prog.variant}`]}`}>
+
+              {/* Top row: icon (left) | badge + price column (right) */}
+              <div className={styles.cardTop}>
+                <span className={styles.cardIcon}>
+                  <img src={programmeIcon} alt="" aria-hidden="true" />
+                </span>
+                <div className={styles.cardTopRight}>
+                  <span className={styles.certBadge}>
+                    <span className={styles.certDot} aria-hidden="true" />
+                    CERTIFIED
+                  </span>
+                  <p className={styles.price}>{prog.price}</p>
+                </div>
+              </div>
+
+              {/* Title + description */}
               <h3 className={styles.cardTitle}>{prog.title}</h3>
               <p className={styles.cardDesc}>{prog.description}</p>
-            </div>
 
-            {/* Right: price + meta + badge + CTA */}
-            <div className={styles.cardMeta}>
-              <p className={styles.price}>{prog.price}</p>
+              {/* Meta rows */}
               <dl className={styles.metaList}>
                 <div className={styles.metaRow}>
-                  <dt className={styles.metaLabel}>Duration</dt>
+                  <dt className={styles.metaLabel}>Duration:</dt>
                   <dd className={styles.metaValue}>{prog.duration}</dd>
                 </div>
                 <div className={styles.metaRow}>
-                  <dt className={styles.metaLabel}>Type</dt>
+                  <dt className={styles.metaLabel}>Training Type:</dt>
                   <dd className={styles.metaValue}>{prog.type}</dd>
                 </div>
                 <div className={styles.metaRow}>
-                  <dt className={styles.metaLabel}>Learning Outcome</dt>
+                  <dt className={styles.metaLabel}>Outcome:</dt>
                   <dd className={styles.metaValue}>{prog.outcome}</dd>
                 </div>
               </dl>
-              <div className={styles.certBadge}>
-                <span className={styles.certDot} aria-hidden="true">✓</span>
-                <span>CPD Certified Programme</span>
-              </div>
-              <div className={styles.ctaRow}>
+
+              {/* Footer */}
+              <div className={styles.footer}>
                 <button
-                  className={styles.enrolBtn}
-                  onClick={() => handleEnrol(prog.slug)}
+                  className={styles.viewLink}
+                  onClick={() => navigate(`/training/${prog.slug}`)}
                 >
-                  ENROL NOW
+                  VIEW CURRICULUM
                 </button>
                 <button
                   className={styles.arrowBtn}
-                  onClick={() => handleEnrol(prog.slug)}
-                  aria-label={`Enrol in ${prog.title}`}
+                  onClick={() => navigate(`/training/${prog.slug}`)}
+                  aria-label={`View curriculum for ${prog.title}`}
                 >
-                  <img src={arrowIcon} alt="" />
+                  <img src={arrowIcon} alt="" aria-hidden="true" />
                 </button>
               </div>
-            </div>
-          </article>
-        ))}
+
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

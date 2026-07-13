@@ -24,12 +24,13 @@
   background-color: white;
   padding: var(--space-1) var(--space-3);
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-primary-light);
-  margin-bottom: var(--space-6);
+  border-radius: 4px;
+  color: var(--color-brand-green);
+  margin-bottom: var(--space-20);
 }
 
 .badgeDot {
@@ -49,9 +50,9 @@
   font-weight: 400;
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;
-  color: var(--color-text-primary-light);
+  color: var(--color-brand-green);
   margin: 0;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .headingLine {

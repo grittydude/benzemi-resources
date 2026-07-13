@@ -111,7 +111,7 @@ export const FEATURED_PROGRAMMES = {
       icon: 'oil-gas',
       title: 'Oil & Gas Industry Fundamentals',
       description:
-        'Equip emerging professionals with foundational oil and gas knowledge and real-world operational awareness.',
+        'Equip emerging professionals with practical industry skills and confidence.',
     },
     {
       id: 'process-prod',
@@ -119,7 +119,7 @@ export const FEATURED_PROGRAMMES = {
       icon: 'process-prod',
       title: 'Process & Production Operations',
       description:
-        'Build practical capability in process operations, production systems, and field-ready engineering skills.',
+        'Build capability that supports future engineering and technical execution.',
     },
     {
       id: 'hse',
@@ -127,7 +127,7 @@ export const FEATURED_PROGRAMMES = {
       icon: 'hse',
       title: 'HSE & Operational Excellence',
       description:
-        'Develop a safety-first mindset and the operational discipline required to meet industry compliance standards.',
+        'Create long-term value through talent development and industrial impact.',
     },
   ],
 }
@@ -248,6 +248,7 @@ export const RESOURCES_PAGE = {
   event: {
     badge: 'Upcoming Events',
     heading: { pre: 'Discover ', accent1: 'Community', mid: ' Events\nThat Keep You ', accent2: 'Connected' },
+    // legacy single item (used by UpcomingEvents)
     item: {
       counter: '01 / 02',
       title: 'Bezimeni Industry Connect: Graduate Networking',
@@ -257,6 +258,23 @@ export const RESOURCES_PAGE = {
       rsvp: '#events',
       image: 'https://picsum.photos/seed/bezimeni-event/480/320',
     },
+    // multi-event array (used by IndustryEvents)
+    items: [
+      {
+        title: 'Bezimeni Industry Connect: Graduate Networking',
+        date: '2nd June, 2026',
+        time: '10:00AM Prompt',
+        venue: 'Villa Marina Hotels and Suites, Ekiti',
+        rsvp: '#events',
+      },
+      {
+        title: 'Technical Skills Workshop: Process Safety Basics',
+        date: '15th July, 2026',
+        time: '9:00AM Prompt',
+        venue: 'Resource Centre, Lagos',
+        rsvp: '#events',
+      },
+    ],
   },
   newsletter: {
     badge: 'No Noise, Just Valuable Content',
@@ -404,14 +422,14 @@ export const TRAINING_PAGE = {
       duration: '4–6 Weeks', type: 'In-Person/Virtual', outcome: 'Industry Awareness',
     },
     {
-      id: 'p3', variant: 'dark', slug: 'oil-gas-fundamentals-3',
+      id: 'p3', variant: 'white', slug: 'oil-gas-fundamentals-3',
       title: 'Oil & Gas Industry Fundamentals',
       description: 'Build foundational understanding of upstream, midstream, and downstream operations and how value is created across the industry.',
       price: '₦208,564',
       duration: '4–6 Weeks', type: 'In-Person/Virtual', outcome: 'Industry Awareness',
     },
     {
-      id: 'p4', variant: 'light', slug: 'oil-gas-fundamentals-4',
+      id: 'p4', variant: 'green', slug: 'oil-gas-fundamentals-4',
       title: 'Oil & Gas Industry Fundamentals',
       description: 'Build foundational understanding of upstream, midstream, and downstream operations and how value is created across the industry.',
       price: '₦208,564',
@@ -452,9 +470,9 @@ export const INDUSTRY_SOLUTIONS_PAGE = {
     heading: { prefix: 'Developing ', accent1: 'Capability', mid: ' Through\nPractical ', accent2: 'Experience' },
     description: 'We believe strong engineering outcomes begin with capable people. Our approach combines training, technical understanding, and real-world exposure to create a foundation for future engineering support services.',
     pillars: [
-      { id: 'a1', variant: 'light', title: 'Develop People', description: 'Equip individuals with practical knowledge, technical confidence, and industry-ready skills.' },
-      { id: 'a2', variant: 'dark', title: 'Build Capability', description: 'Strengthen the systems, processes, and expertise needed to support future growth and performance.' },
-      { id: 'a3', variant: 'light', title: 'Deliver Value', description: 'Translate capability into meaningful outcomes for clients, partners, and the industries we serve.' },
+      { id: 'a1', variant: 'green', icon: 'develop',       title: 'Develop People', description: 'Equip individuals with practical knowledge, technical confidence, and industry-ready skills.' },
+      { id: 'a2', variant: 'dark',  icon: 'buildCapacity', title: 'Build Capability', description: 'Strengthen the systems, processes, and expertise needed to support future growth and performance.' },
+      { id: 'a3', variant: 'gray',  icon: 'deliver',       title: 'Deliver Value', description: 'Translate capability into meaningful outcomes for clients, partners, and the industries we serve.' },
     ],
   },
   solutionAreas: {
@@ -462,10 +480,10 @@ export const INDUSTRY_SOLUTIONS_PAGE = {
     heading: { prefix: 'Areas We Are ', accent: 'Building', suffix: ' Toward' },
     description: 'As Bezimeni grows, these focus areas represent the capabilities we are intentionally developing to support clients and industry partners.',
     areas: [
-      { id: 's1', variant: 'dark', title: 'Technical Training & Workforce Development', description: 'Industry-focused learning experiences that build technical capability for practical environments.' },
-      { id: 's2', variant: 'light', title: 'Engineering Support Services', description: 'Technical assistance and engineering support intended to improve operational understanding and project readiness.' },
-      { id: 's3', variant: 'light', title: 'Research and Development', description: 'Advancing ideas, testing concepts, and developing innovative solutions that support future growth.' },
-      { id: 's4', variant: 'green', title: 'Industry Partnerships', description: 'Collaborating with organisations to strengthen talent pipelines and capability development.' },
+      { id: 's1', variant: 'dark',  icon: 'programmeIcon',               title: 'Technical Training & Workforce Development', description: 'Industry-focused learning experiences that build technical capability for practical environments.' },
+      { id: 's2', variant: 'gray',  icon: 'engrSupport',         title: 'Engineering Support Services', description: 'Technical assistance and engineering support intended to improve operational understanding and project readiness.' },
+      { id: 's3', variant: 'gray',  icon: 'programmeIcon',               title: 'Research and Development', description: 'Advancing ideas, testing concepts, and developing innovative solutions that support future growth.' },
+      { id: 's4', variant: 'green', icon: 'industryPartnership', title: 'Industry Partnerships', description: 'Collaborating with organisations to strengthen talent pipelines and capability development.' },
     ],
   },
   sectors: {
@@ -481,13 +499,14 @@ export const INDUSTRY_SOLUTIONS_PAGE = {
   },
   partnerCta: {
     badge: 'Partner With Us',
-    heading: 'Build Capability Together',
+    heading: { prefix: 'Build Capability ', accent: 'Together' },
     description: 'Whether you are interested in workforce development, collaboration opportunities, or future technical initiatives, we welcome conversations with organisations that share our commitment to growth and practical impact.',
     cta: { label: 'Partner With Us', href: '/contact' },
   },
   darkStrip: {
+    badge: 'Training Programmes',
     text: 'Explore how Bezimeni is building the foundation for stronger capability, meaningful partnerships, and long-term industrial impact.',
-    cta: { label: 'Explore Training', href: '/training' },
+    cta: { label: 'Explore Trainings', href: '/training' },
   },
 }
 

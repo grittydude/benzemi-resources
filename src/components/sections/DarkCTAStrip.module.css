@@ -1,41 +1,79 @@
 /* ============================================================
-   DARK CTA STRIP  – full-width dark banner with CTA
+   DARK CTA STRIP  – white section wrapping a contained dark card
+   Industry Solutions page
    Mobile-first
    ============================================================ */
 
+/* Outer section: white background with padding */
 .section {
-  background-color: var(--color-brand-green);
+  background-color: #ffffff;
   width: 100%;
 }
 
-.inner {
-  max-width: var(--max-width-content);
-  margin: 0 auto;
-  padding: var(--space-12) var(--container-padding);
+/* Dark card: fills padded width, rounded corners */
+.card {
+  background-color: var(--color-brand-green);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--space-10) var(--space-10);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-8);
+  flex-direction: column;
+  gap: var(--space-10);
+  max-width: var(--max-width-content);
+  margin: 0 40px;
+  border-radius: 0 0 48px 0;
 }
 
+/* Badge chip on dark bg */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 8px;
+  border-radius: 4px;
+  width: fit-content;
+  background-color: var(--color-badge-bg18);
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.badge span:last-child {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Large white heading */
 .text {
   font-family: var(--font-family-display);
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-relaxed);
-  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.20;
+  letter-spacing: -0.02em;
+  color: #ffffff;
   margin: 0;
-  flex: 1;
-  max-width: 680px;
+  max-width: 85%;
 }
 
+/* CTA row */
 .ctaRow {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  flex-shrink: 0;
+  gap: var(--space-1);
 }
 
+/* Outlined white button */
 .ctaBtn {
   display: inline-flex;
   align-items: center;
@@ -46,10 +84,11 @@
   text-decoration: none;
   color: var(--color-brand-green);
   background-color: #ffffff;
-  padding: var(--space-3) var(--space-6);
+  padding: var(--space-4) var(--space-6);
   border: none;
   cursor: pointer;
   white-space: nowrap;
+  border-radius: 0 0 24px 0;
   transition: background-color var(--transition-fast);
 }
 
@@ -57,16 +96,14 @@
   background-color: var(--color-brand-card);
 }
 
+/* Arrow button — reusable notched style */
 .arrowBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1;
-  min-width: 44px;
+  width: 48px;
   background-color: var(--color-brand-green-muted);
-  color: #ffffff;
-  font-size: 1.1rem;
-  line-height: 1;
   border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
   border: none;
   cursor: pointer;
@@ -75,21 +112,36 @@
   transition: background-color var(--transition-fast);
 }
 
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
 .arrowBtn:hover {
   background-color: #8bc832;
 }
 
+/* ── Responsive ── */
+
 @media (max-width: 768px) {
-  .inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-6);
-    padding: var(--space-10) var(--space-6);
+  .section {
+    padding: 0 var(--space-6) var(--space-12);
+  }
+
+  .card {
+    padding: var(--space-10) var(--space-8);
+    gap: var(--space-8);
+    border-radius: var(--radius-lg);
   }
 }
 
 @media (max-width: 480px) {
-  .inner {
-    padding: var(--space-10) var(--space-4);
+  .section {
+    padding: 0 var(--space-4) var(--space-10);
+  }
+
+  .card {
+    padding: var(--space-8) var(--space-6);
   }
 }

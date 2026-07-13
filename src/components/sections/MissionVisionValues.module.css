@@ -29,20 +29,19 @@
 .tab {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
-  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  background: rgba(247, 247, 245, 0.16);
   padding: 8px 10px;
   cursor: pointer;
   border-radius: 4px;
   text-align: left;
-  width: 100%;
+  width: fit-content;
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -52,17 +51,15 @@
 }
 
 .tabActive {
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.3);
-  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--color-brand-green);
+  background-color: #ffffff;
 }
 
 .tabDot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   flex-shrink: 0;
-  border-radius: 50%;
   background-color: var(--color-brand-green-muted);
 }
 
@@ -74,9 +71,8 @@
 
 .panelLabel {
   font-family: var(--font-family-code);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  font-size: var(--font-family-base);
+  font-weight: var(--font-weight-regular);;
   color: var(--color-brand-green-muted);
   margin: 0 0 var(--space-6);
 }
@@ -84,7 +80,7 @@
 /* Text variant (Mission / Vision) */
 .panelText {
   font-family: var(--font-family-display);
-  font-size: clamp(1.75rem, 3.1vw, 3rem);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
   font-weight: var(--font-weight-regular);
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -105,8 +101,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  padding: var(--space-8);
-  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  border-radius: 0 0 var(--radius-xxll);
   min-height: 280px;
 }
 
@@ -116,8 +112,8 @@
 
 /* Icon */
 .cardIcon {
-  width: 56px;
-  height: 56px;
+  width: 66px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,7 +134,7 @@
 /* Card title */
 .cardTitle {
   font-family: var(--font-family-display);
-  font-size: 1.5rem;
+  font-size: var(--font-size-2xl);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -148,8 +144,9 @@
 /* Card description */
 .cardDesc {
   font-family: var(--font-family-base);
-  font-size: 1rem;
+  font-size: var(--font-size-lg);
   font-weight: 300;
+  color: var(--color-brand-green);
   line-height: 1.5;
   letter-spacing: 0.005em;
   margin: var(--space-3) 0 0;

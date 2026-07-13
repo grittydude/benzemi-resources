@@ -1,8 +1,8 @@
 /**
  * IndustrySectors
  *
- * Numbered sector list on the Industry Solutions page.
- * Dark background, 4-column numbered items.
+ * Dark 2-col section: left = badge + heading + desc, right = large numbered list.
+ * Industry Solutions page.
  *
  * Props:
  *  data – INDUSTRY_SOLUTIONS_PAGE.sectors
@@ -22,36 +22,36 @@ function IndustrySectors({ data = {} }) {
     <section className={styles.section}>
       <div className={styles.inner}>
 
-        {/* Header */}
-        <div className={styles.header}>
+        {/* Left: badge + heading + description */}
+        <div className={styles.left}>
           {badge && (
             <p className={styles.badge}>
               <span className={styles.badgeDot} aria-hidden="true" />
               <span>{badge}</span>
             </p>
           )}
-          <div className={styles.headerCols}>
-            <h2 className={styles.heading}>
-              {heading.prefix && renderText(heading.prefix)}
-              {heading.accent && <em className={styles.accent}>{renderText(heading.accent)}</em>}
-              {heading.suffix && renderText(heading.suffix)}
-            </h2>
-            {description && <p className={styles.description}>{description}</p>}
-          </div>
+          <h2 className={styles.heading}>
+            {heading?.prefix && renderText(heading.prefix)}
+            {heading?.accent && <em className={styles.accent}>{renderText(heading.accent)}</em>}
+            {heading?.suffix && renderText(heading.suffix)}
+          </h2>
+          {description && <p className={styles.description}>{description}</p>}
         </div>
 
-        {/* Numbered items */}
-        <ol className={styles.items} aria-label="Industry sectors">
+        {/* Right: large numbered list */}
+        <ol className={styles.list} aria-label="Industry sectors">
           {items.map((item) => (
             <li key={item.num} className={styles.item}>
-              <div className={styles.itemCounter}>
-                <span className={styles.itemNum}>{item.num}</span>
-                <span className={styles.itemTotal}>/ {item.total}</span>
-              </div>
-              <span className={styles.itemLabel}>{item.label}</span>
+              <p className={styles.counter}>
+                <span className={styles.counterNum}>{item.num}</span>
+                <span className={styles.counterSlash}> / </span>
+                <span className={styles.counterTotal}>{item.total}</span>
+              </p>
+              <p className={styles.label}>{item.label}</p>
             </li>
           ))}
         </ol>
+
       </div>
     </section>
   )

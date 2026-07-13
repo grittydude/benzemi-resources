@@ -4,6 +4,7 @@ import PageHero from '../components/ui/PageHero'
 import ProgrammeCards from '../components/sections/ProgrammeCards'
 import LearningExperience from '../components/sections/LearningExperience'
 import FAQAccordion from '../components/ui/FAQAccordion'
+import Testimonials from '../components/sections/Testimonials'
 import SiteFooter from '../components/sections/SiteFooter'
 
 function Training() {
@@ -14,9 +15,8 @@ function Training() {
       <PageHero tags={hero.tags} heading={hero.heading} />
       <ProgrammeCards programmes={programmes} />
       <LearningExperience data={learningExperience} />
-
       <FAQAccordion items={faq} />
-
+      <Testimonials />
       <SiteFooter />
     </RootLayout>
   )

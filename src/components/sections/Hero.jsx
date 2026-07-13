@@ -52,10 +52,7 @@ function Hero() {
 
           {/* Description */}
           <p className={styles.description}>
-            Bezimeni Resources equips science and engineering graduates with
-            practical knowledge, technical exposure, and industry-focused
-            training designed to bridge the gap between education and
-            real-world execution.
+            Bezimeni Resources equips science and engineering graduates with practical knowledge, technical exposure, and industry-focused training designed to bridge the gap between education and real-world execution.
           </p>
 
           {/* CTA */}

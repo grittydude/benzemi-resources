@@ -1,10 +1,11 @@
 /* ============================================================
-   LEARNING EXPERIENCE  – Training page numbered pillars
+   LEARNING EXPERIENCE  – Training page
+   2-column: left = badge+heading+desc | right = vertical numbered list
    Mobile-first
    ============================================================ */
 
 .section {
-  background-color: var(--color-brand-green);
+  background-color: #E7E8E1;
   width: 100%;
 }
 
@@ -12,52 +13,27 @@
   max-width: var(--max-width-content);
   margin: 0 auto;
   padding: var(--space-16) var(--container-padding);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
-}
-
-/* ── Header ── */
-.header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-8) var(--space-16);
-  align-items: start;
-}
-
-.badge {
-  display: inline-flex;
+  gap: var(--space-32);
   align-items: center;
-  gap: var(--space-2);
-  margin: 0;
-  grid-column: 1 / -1;
 }
 
-.badgeDot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  background-color: var(--color-brand-green-muted);
-}
-
-.badge span:last-child {
-  font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+/* ── Left column ── */
+.left {
+  display: flex;
+  flex-direction: column;
 }
 
 .heading {
   font-family: var(--font-family-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: var(--font-weight-black);
-  line-height: var(--line-height-tight);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
   letter-spacing: -0.025em;
-  color: #ffffff;
+  color: var(--color-brand-green);
   margin: 0;
+  margin-top: 64px;
   font-style: normal;
 }
 
@@ -67,60 +43,68 @@
 }
 
 .description {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
+  color: var(--color-brand-green);
+  font-weight: var(--font-weight-light);
   margin: 0;
-  align-self: end;
+  margin-top: 40px;
+  max-width: 557px;
 }
 
-/* ── Numbered points ── */
+/* ── Right column: vertical numbered list ── */
 .points {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-1);
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
 }
 
 .point {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: var(--space-8) var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  justify-content: space-between;
+  min-height: 120px;
+  padding: var(--space-5) 0;
 }
 
 .pointCounter {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-1);
+  margin: 0;
+  line-height: 1;
+  
 }
 
 .pointNum {
-  font-family: var(--font-family-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: var(--font-weight-black);
-  line-height: 1;
-  color: #ffffff;
-  letter-spacing: -0.02em;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: var(--color-brand-green-muted);
+}
+
+.pointSlash {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-green-muted);
 }
 
 .pointTotal {
   font-family: var(--font-family-code);
   font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.35);
-}
+  color: var(--color-brand-green-muted);}
 
 .pointLabel {
   font-family: var(--font-family-display);
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-snug);
-  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  color: var(--color-brand-green);
+  margin: 0;
+  width: fit-content;
+  border-bottom: 1px solid rgba(34, 47, 48, 0.15);
+  padding-bottom: var(--space-5);
 }
 
 /* ── Responsive ── */
@@ -132,32 +116,16 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .points {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
-  .header {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-}
-
-@media (max-width: 640px) {
   .inner {
-    padding: var(--space-12) var(--space-4);
+    grid-template-columns: 1fr;
     gap: var(--space-10);
-  }
-
-  .points {
-    grid-template-columns: 1fr 1fr;
+    padding: var(--space-12) var(--space-6);
   }
 }
 
 @media (max-width: 480px) {
-  .points {
-    grid-template-columns: 1fr;
+  .inner {
+    padding: var(--space-10) var(--space-4);
   }
 }

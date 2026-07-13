@@ -1,10 +1,11 @@
 /* ============================================================
-   INDUSTRY SECTORS  – dark section, Industry Solutions page
+   INDUSTRY SECTORS  – dark 2-col section, Industry Solutions page
+   Left: badge + heading + desc | Right: large numbered list
    Mobile-first
    ============================================================ */
 
 .section {
-  background-color: #f7f7f5;
+  background-color: var(--color-brand-green);
   width: 100%;
 }
 
@@ -12,16 +13,18 @@
   max-width: var(--max-width-content);
   margin: 0 auto;
   padding: var(--space-16) var(--container-padding);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-32);
+  align-items: start;
 }
 
-/* ── Header ── */
-.header {
+/* ── Left column ── */
+.left {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  align-self: center;
 }
 
 .badge {
@@ -29,6 +32,10 @@
   align-items: center;
   gap: var(--space-2);
   margin: 0;
+  padding: 8px;
+  width: fit-content;
+  margin-bottom: 24px;
+  background-color: var(--color-badge-bg18);
 }
 
 .badgeDot {
@@ -45,23 +52,16 @@
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(34, 47, 48, 0.45);
-}
-
-.headerCols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8) var(--space-12);
-  align-items: start;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .heading {
   font-family: var(--font-family-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: var(--font-weight-black);
-  line-height: var(--line-height-tight);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
   letter-spacing: -0.025em;
-  color: var(--color-text-primary-light);
+  color: #ffffff;
   margin: 0;
   font-style: normal;
 }
@@ -72,59 +72,58 @@
 }
 
 .description {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  color: rgba(34, 47, 48, 0.65);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
   margin: 0;
-  align-self: end;
 }
 
-/* ── Numbered items ── */
-.items {
+/* ── Right column: numbered list ── */
+.list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-3);
+  display: flex;
+  flex-direction: column;
 }
 
 .item {
-  background-color: var(--color-brand-green);
-  padding: var(--space-8) var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.itemCounter {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-1);
+.item:first-child {
+  padding-top: 0;
 }
 
-.itemNum {
-  font-family: var(--font-family-display);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: var(--font-weight-black);
+/* Counter: 01 / 04 */
+.counter {
+  margin: 0;
   line-height: 1;
-  color: #ffffff;
-  letter-spacing: -0.02em;
 }
 
-.itemTotal {
+.counterNum,
+.counterSlash,
+.counterTotal {
   font-family: var(--font-family-code);
   font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.35);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-brand-green-muted);
 }
 
-.itemLabel {
+/* Large sector label */
+.label {
   font-family: var(--font-family-display);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-snug);
-  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
 }
 
 /* ── Responsive ── */
@@ -137,24 +136,25 @@
 }
 
 @media (max-width: 1024px) {
-  .items {
-    grid-template-columns: repeat(2, 1fr);
+  .inner {
+    grid-template-columns: 1fr 1.2fr;
   }
 }
 
 @media (max-width: 768px) {
-  .headerCols {
+  .inner {
     grid-template-columns: 1fr;
-    gap: var(--space-5);
+    gap: var(--space-10);
+    padding: var(--space-12) var(--space-6);
   }
 }
 
 @media (max-width: 480px) {
   .inner {
-    padding: var(--space-12) var(--space-4);
+    padding: var(--space-10) var(--space-4);
   }
 
-  .items {
-    grid-template-columns: 1fr;
+  .label {
+    font-size: clamp(1.5rem, 7vw, 2rem);
   }
 }

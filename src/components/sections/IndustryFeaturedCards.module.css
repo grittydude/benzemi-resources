@@ -1,0 +1,179 @@
+/* ============================================================
+   INDUSTRY FEATURED CARDS
+   Two horizontal split cards: image left, content right.
+   Industry Solutions page — mobile-first
+   ============================================================ */
+
+.section {
+  background-color: #f7f7f5;
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-6) var(--container-padding);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+/* ── Card ── */
+.card {
+  display: flex;
+  flex-direction: row;
+  border-bottom-right-radius: var(--radius-xxll); /* 48px notch */
+  overflow: hidden;
+  min-height: 320px;
+  cursor: pointer;
+  padding: 24px  0 24px 24px;
+  transition: transform var(--transition-base);
+}
+
+.card:hover { transform: translateY(-2px); }
+
+.card--dark  { background-color: var(--color-brand-green); }
+.card--green { background-color: var(--color-brand-card); }
+
+/* ── Image panel (left ~42%) ── */
+.imagePanel {
+  width: 40%;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+/* ── Content panel (right) ── */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 24px 0 24px;
+}
+
+/* Type badge + date row */
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.type {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-radius: 4px;
+  padding: 4px var(--space-2);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.card--dark  .type { background-color: rgba(255,255,255,0.10); color: rgba(255,255,255,0.80); }
+.card--green .type { background-color: var(--color-badge-bg80);    color: var(--color-brand-green); }
+
+.typeDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.date {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.card--dark  .date { color: var(--color-badge-bg); }
+.card--green .date { color: var(--color-brand-green); }
+
+/* Heading */
+.title {
+  font-family: var(--font-family-display);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  margin: 0;
+}
+.card--dark  .title { color: #ffffff; }
+.card--green .title { color: var(--color-brand-green); }
+
+/* CTA row */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.readLabel {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.card--dark  .readLabel { color: var(--color-badge-bg); }
+.card--green .readLabel { color: var(--color-brand-green); }
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  width: 48px;
+  background-color: var(--color-brand-green-muted);
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    padding: var(--space-4) var(--space-6);
+    gap: var(--space-4);
+  }
+
+  .card {
+    min-height: 260px;
+  }
+
+  .imagePanel {
+    width: 38%;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-4);
+  }
+
+  .card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .imagePanel {
+    width: 100%;
+    height: 200px;
+  }
+}

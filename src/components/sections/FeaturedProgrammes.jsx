@@ -51,9 +51,16 @@ function FeaturedProgrammes() {
             key={prog.id}
             className={`${styles.card} ${styles[`card--${prog.variant}`]}`}
           >
-            <span className={styles.cardIcon}>
-              <img src={PROGRAMME_ICONS[prog.icon]} alt="" aria-hidden="true" />
-            </span>
+            {/* Top row: icon left, arrow right */}
+            <div className={styles.cardTop}>
+              <span className={styles.cardIcon}>
+                <img src={PROGRAMME_ICONS[prog.icon]} alt="" aria-hidden="true" />
+              </span>
+              <a href="/training" className={styles.cardArrow} aria-label={`View ${prog.title}`}>
+                <img src={arrowIcon} alt="" aria-hidden="true" />
+              </a>
+            </div>
+
             <h3 className={styles.cardTitle}>{prog.title}</h3>
             <p className={styles.cardDesc}>{prog.description}</p>
           </li>

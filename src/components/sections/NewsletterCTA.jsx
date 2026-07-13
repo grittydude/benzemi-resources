@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RESOURCES_PAGE } from '../../constants'
-import Button from '../ui/Button'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
+import trainingBg from '../../assets/icons/training_program_bg.svg'
 import styles from './NewsletterCTA.module.css'
 
 function NewsletterCTA() {
@@ -17,7 +17,10 @@ function NewsletterCTA() {
   }
 
   return (
-    <section className={styles.section}>
+    <section
+      className={styles.section}
+      style={{ backgroundImage: `url(${trainingBg})` }}
+    >
       <div className={styles.inner}>
         {/* Badge */}
         <p className={styles.badge}>
@@ -44,16 +47,13 @@ function NewsletterCTA() {
               aria-label="First name"
               required
             />
-            <div className={styles.formCta}>
-              <Button type="submit" variant="dark">{cta}</Button>
-              <button
-                type="submit"
-                className={styles.arrowBtn}
-                aria-label={cta}
-              >
-                <img src={arrowIcon} alt="" />
-              </button>
-            </div>
+            <button
+              type="submit"
+              className={styles.arrowBtn}
+              aria-label={cta}
+            >
+              <img src={arrowIcon} alt="" />
+            </button>
           </form>
         )}
       </div>

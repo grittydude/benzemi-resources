@@ -1,5 +1,5 @@
-import Button from '../ui/Button'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
+import trainingBg from '../../assets/icons/training_program_bg.svg'
 import { GROWING_CTA } from '../../constants'
 import styles from './GrowingCTA.module.css'
 
@@ -8,7 +8,10 @@ function GrowingCTA() {
 
   return (
     <section className={styles.section} id="solutions" aria-label="Industry solutions">
-      <div className={styles.card}>
+      <div
+        className={styles.card}
+        style={{ backgroundImage: `url(${trainingBg})` }}
+      >
 
         {/* Badge */}
         <p className={styles.badge}>
@@ -21,11 +24,11 @@ function GrowingCTA() {
 
         {/* CTA */}
         <div className={styles.actions}>
-          <Button as="a" href={cta.href} variant="ghost">
-            {cta.label}
-          </Button>
+          <a href={cta.href} className={styles.ctaBtn}>
+            {cta.label.toUpperCase()}
+          </a>
           <a href={cta.href} className={styles.arrowBtn} aria-label={cta.label}>
-            <img src={arrowIcon} alt="" />
+            <img src={arrowIcon} alt="" aria-hidden="true" />
           </a>
         </div>
 

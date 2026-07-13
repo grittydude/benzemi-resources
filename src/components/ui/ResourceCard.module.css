@@ -11,7 +11,7 @@
   gap: var(--space-4);
   padding: var(--space-6);
   border-radius: 0 0 var(--radius-xxll) 0;
-  min-height: 240px;
+  min-height: 280px;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -32,9 +32,8 @@
 
 /* ── Color variants ── */
 .card--green {
-  background-color: #cee88a;
-  color: var(--color-text-primary-light);
-}
+  background-color: #CEF79E;
+  color: var(--color-brand-green);}
 
 .card--dark {
   background-color: var(--color-brand-green);
@@ -42,8 +41,8 @@
 }
 
 .card--light {
-  background-color: #f7f7f5;
-  color: var(--color-text-primary-light);
+  background-color: #ffffff;
+  color: var(--color-brand-green);
   border: 1px solid rgba(10, 10, 10, 0.08);
 }
 
@@ -58,35 +57,35 @@
 .type {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  background-color: rgba(247, 247, 245, 0.4);
-  padding: 3px var(--space-2);
+  gap: var(--space-2);
+  background-color: var(--color-badge-bg80);
+  padding: var(--space-2);
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  border-radius: 4px;
 }
 
 /* Square green dot before type label */
 .typeDot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 10px;
+  height: 10px;
   flex-shrink: 0;
   background-color: var(--color-brand-green-muted);
 }
 
 /* Dark card overrides type badge to white-on-translucent */
 .card--dark .type {
-  color: rgba(255, 255, 255, 0.85);
-  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  background-color: var(--color-badge-bg18);
 }
 
 .date {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.04em;
+  font-size: var(--font-size-base);
   text-transform: uppercase;
   opacity: 0.6;
   white-space: nowrap;
@@ -95,10 +94,11 @@
 /* ── Card title ── */
 .cardTitle {
   font-family: var(--font-family-display);
-  font-size: clamp(0.95rem, 1.3vw, 1.125rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.5rem);
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-snug);
-  margin: 0;
+  line-height: 1.2;
+  margin-right: 24px;
+  margin-top: 24px;
   flex: 1;
 }
 
@@ -113,23 +113,21 @@
 
 .readLabel {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.08em;
+  font-size: var(--font-size-base);
   text-transform: uppercase;
-  opacity: 0.65;
+  opacity: 0.65;  
 }
 
 .readArrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   background-color: var(--color-brand-green-muted);
   color: #ffffff;
-  border-radius: 50% 0 50% 0;
-  font-size: 0.9rem;
+  border-radius: 24px 0 24px 0;
   transition: background-color var(--transition-fast);
 }
 

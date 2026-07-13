@@ -1,4 +1,5 @@
 import { INDUSTRY_SOLUTIONS_PAGE } from '../constants'
+import industryBg from '../assets/images/industry_bg.jpg'
 import RootLayout from '../layouts/RootLayout'
 import PageHero from '../components/ui/PageHero'
 import ThreePillarSection from '../components/sections/ThreePillarSection'
@@ -16,7 +17,7 @@ function IndustrySolutions() {
         tags={hero.tags}
         heading={hero.heading}
         cta={hero.cta}
-        imageSrc={hero.image}
+        imageSrc={industryBg}
       />
 
       <ThreePillarSection
@@ -24,6 +25,9 @@ function IndustrySolutions() {
         heading={approach.heading}
         description={approach.description}
         pillars={approach.pillars}
+        columns={3}
+        fullWidth
+        bgColor="var(--color-badge-bg)"
         id="approach"
       />
 
@@ -32,6 +36,10 @@ function IndustrySolutions() {
         heading={solutionAreas.heading}
         description={solutionAreas.description}
         pillars={solutionAreas.areas}
+        columns={2}
+        fullWidth
+        stackedHeader
+        bgColor="#ffffff"
         id="solution-areas"
       />
 

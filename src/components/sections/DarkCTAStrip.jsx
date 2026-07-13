@@ -1,18 +1,19 @@
 /**
  * DarkCTAStrip
  *
- * Full-width dark strip with scrolling text + CTA.
+ * White-bg section containing a full-width dark card with badge, large heading, and CTA.
  * Used at the bottom of the Industry Solutions page.
  *
  * Props:
- *  data – { text, cta: { label, href } }
+ *  data – { badge?, text, cta: { label, href } }
  */
 import { navigate } from '../../router'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
+import trainingBg from '../../assets/icons/training_program_bg.svg'
 import styles from './DarkCTAStrip.module.css'
 
 function DarkCTAStrip({ data = {} }) {
-  const { text, cta } = data
+  const { badge, text, cta } = data
 
   function handleCta(e) {
     if (cta?.href?.startsWith('/')) { e.preventDefault(); navigate(cta.href) }
@@ -20,8 +21,17 @@ function DarkCTAStrip({ data = {} }) {
 
   return (
     <section className={styles.section}>
-      <div className={styles.inner}>
-        <p className={styles.text}>{text}</p>
+      <div
+        className={styles.card}
+        style={{ backgroundImage: `url(${trainingBg})` }}
+      >
+        {badge && (
+          <p className={styles.badge}>
+            <span className={styles.badgeDot} aria-hidden="true" />
+            <span>{badge}</span>
+          </p>
+        )}
+        {text && <p className={styles.text}>{text}</p>}
         {cta && (
           <div className={styles.ctaRow}>
             <a href={cta.href} className={styles.ctaBtn} onClick={handleCta}>
@@ -33,7 +43,7 @@ function DarkCTAStrip({ data = {} }) {
               onClick={handleCta}
               aria-label={cta.label}
             >
-              <img src={arrowIcon} alt="" />
+              <img src={arrowIcon} alt="" aria-hidden="true" />
             </a>
           </div>
         )}

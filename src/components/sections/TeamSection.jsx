@@ -6,7 +6,13 @@
  * Props:
  *  data – ABOUT_PAGE.team  { badge, heading, members }
  */
+import TagChip from '../ui/TagChip'
+import arrowIcon from '../../assets/icons/arrow_icon.svg'
+import teamImg from '../../assets/images/team.jpg'
+import teamPhotoImg from '../../assets/images/team_photo.webp'
 import styles from './TeamSection.module.css'
+
+const MEMBER_IMAGES = [teamImg, teamPhotoImg, teamImg]
 
 function renderText(text = '') {
   return text.split('\n').map((line, i) =>
@@ -21,14 +27,9 @@ function TeamSection({ data = {} }) {
     <section className={styles.section}>
       <div className={styles.inner}>
 
-        {/* Header */}
+        {/* Header: badge left | heading right */}
         <div className={styles.header}>
-          {badge && (
-            <p className={styles.badge}>
-              <span className={styles.badgeDot} aria-hidden="true" />
-              <span>{badge}</span>
-            </p>
-          )}
+          {badge && <TagChip label={badge} bg="#ffffff" />}
           <h2 className={styles.heading}>
             {heading.prefix && renderText(heading.prefix)}
             {heading.accent && <em className={styles.accent}>{renderText(heading.accent)}</em>}
@@ -36,30 +37,41 @@ function TeamSection({ data = {} }) {
           </h2>
         </div>
 
-        {/* Team members grid */}
-        <div className={styles.grid}>
-          {members.map((member) => (
-            <a
-              key={member.id}
-              href={member.href}
-              className={styles.card}
-              aria-label={member.name}
-            >
-              <div className={styles.imageWrap}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className={styles.image}
-                  loading="lazy"
-                />
+        {/* Cards grid */}
+        <ul className={styles.grid}>
+          {members.map((member, i) => (
+            <li key={member.id} className={styles.card}>
+
+              {/* Image + name + role */}
+              <div className={styles.body}>
+                <div className={styles.imageWrap}>
+                  <img
+                    src={MEMBER_IMAGES[i]}
+                    alt={member.name}
+                    className={styles.image}
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <p className={styles.name}>{member.name}</p>
+                  <p className={styles.title}>{member.title.toUpperCase()}</p>
+                </div>
               </div>
-              <div className={styles.info}>
-                <p className={styles.name}>{member.name}</p>
-                <p className={styles.title}>{member.title}</p>
+
+              {/* Footer: VIEW PROFILE + arrow */}
+              <div className={styles.footer}>
+                <a href={member.href} className={styles.profileLink}>
+                  VIEW PROFILE
+                </a>
+                <a href={member.href} className={styles.arrowBtn} aria-label={`View profile of ${member.name}`}>
+                <img src={arrowIcon} alt="" />
+                </a>
               </div>
-            </a>
+
+            </li>
           ))}
-        </div>
+        </ul>
+
       </div>
     </section>
   )

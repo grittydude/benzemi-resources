@@ -7,7 +7,6 @@
 .section {
   background-color: var(--color-brand-card); /* #CEF79E */
   width: 100%;
-  border-radius: 0 0 40px 40px; /* bottom-left + bottom-right only */
 }
 
 /* Tag row spans full width — consistent with other sections */
