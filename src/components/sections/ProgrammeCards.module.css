@@ -1,0 +1,325 @@
+/* ============================================================
+   PROGRAMME CARDS  – Training page, 2-column grid
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-badge-bg);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-top: -50px;
+  border-radius: 40px 40px 0 0;
+}
+
+.inner {
+  /* Full width — no max-width constraint */
+  width: 100%;
+  padding: var(--space-4) var(--container-padding) var(--space-16);
+}
+
+/* ── 2-column card grid ── */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+/* ── Base card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: var(--space-4);
+  border-radius: 8px;
+  border-bottom-right-radius: 48px;
+}
+
+/* ── Variants ── */
+.card--dark {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+}
+.card--light {
+  background-color: #eeeeee;
+  color: var(--color-text-primary-light);
+}
+.card--white {
+  background-color: #ffffff;
+  color: var(--color-text-primary-light);
+}
+.card--green {
+  background-color: var(--color-brand-card);
+  color: var(--color-text-primary-light);
+}
+
+/* ── Top row: icon (left) | badge+price column (right) ── */
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.cardIcon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card--dark .cardIcon img {
+  filter: brightness(10) opacity(0.2);
+}
+.card--light .cardIcon img,
+.card--white .cardIcon img,
+.card--green .cardIcon img {
+  filter: grayscale(1) opacity(0.25);
+}
+
+/* Right column: badge stacked above price */
+.cardTopRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 28px;
+}
+
+/* Certified badge */
+.certBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family-code);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* 1st card (dark): #F7F7F5 at 16% opacity */
+.card--dark .certBadge {
+  background-color: rgba(247, 247, 245, 0.16);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* 2nd card (light/#EEEEEE): white */
+.card--light .certBadge {
+  background-color: #ffffff;
+  color: rgba(34, 47, 48, 0.55);
+}
+
+/* 3rd card (white): #F7F7F5 */
+.card--white .certBadge {
+  background-color: #f7f7f5;
+  color: rgba(34, 47, 48, 0.55);
+}
+
+/* 4th card (green): white */
+.card--green .certBadge {
+  background-color: #ffffff;
+  color: rgba(34, 47, 48, 0.55);
+}
+
+.certDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-brand-green-muted);
+  flex-shrink: 0;
+}
+
+/* ── Price (inside cardTopRight) ── */
+.price {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.5rem, 2.3vw, 2.25rem);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--color-brand-green-muted);
+  margin: 0;
+  text-align: right;
+}
+
+/* ── Title ── */
+.cardTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.card--dark .cardTitle {
+  color: #ffffff;
+}
+.card--light .cardTitle,
+.card--white .cardTitle,
+.card--green .cardTitle {
+  color: var(--color-brand-green);
+}
+
+/* ── Description ── */
+.cardDesc {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+.card--dark .cardDesc {
+  color: rgba(255, 255, 255, 0.7);
+}
+.card--light .cardDesc,
+.card--white .cardDesc,
+.card--green .cardDesc {
+  color: rgba(34, 47, 48, 0.65);
+}
+
+/* ── Meta list ── */
+.metaList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+}
+
+.metaLabel {
+  font-family: var(--font-family-code);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card--dark .metaLabel {
+  color: #C9CBBE;
+}
+.card--light .metaLabel,
+.card--white .metaLabel,
+.card--green .metaLabel {
+  color: rgba(34, 47, 48, 0.7);
+}
+
+.metaValue {
+  font-family: var(--font-family-code);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 0;
+}
+
+.card--dark .metaValue {
+  color: rgba(255, 255, 255, 0.9);
+}
+.card--light .metaValue,
+.card--white .metaValue,
+.card--green .metaValue {
+  color: var(--color-brand-green);
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+}
+
+.viewLink {
+  font-family: var(--font-family-code);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.viewLink:hover {
+  opacity: 0.7;
+}
+
+.card--dark .viewLink {
+  color: rgba(255, 255, 255, 0.85);
+}
+.card--light .viewLink,
+.card--white .viewLink,
+.card--green .viewLink {
+  color: var(--color-text-primary-light);
+}
+
+/* ── Arrow button ── */
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 44px;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  text-decoration: none;
+  flex-shrink: 0;
+  padding: 16px;
+  height: 52px;
+  width: 52px;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-4) var(--space-4) var(--space-12);
+  }
+}

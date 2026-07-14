@@ -1,0 +1,268 @@
+/* ============================================================
+   INDUSTRY EVENTS
+   Lime green section, large photo + event details.
+   Industry Solutions page — mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-brand-card);
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: white;
+  padding: 8px;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brand-green);
+  border-radius: 4px;
+  margin: 0 0 var(--space-8);
+  align-self: flex-start;
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* ── Heading ── */
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-brand-green);
+  margin: 0 0 var(--space-16);
+  font-style: normal;
+}
+
+.accent {
+  font-style: normal;
+  color: var(--color-brand-green-muted);
+}
+
+/* ── Event row: photo | details ── */
+.eventRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+/* Photo */
+.photo {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.photoImg {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Details column ── */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Tab indicators ── */
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+/* Button wrapper — tall hit area, transparent background */
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-3) 0; /* large touch target */
+}
+
+/* Visual line inside the button */
+.tabLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(34, 47, 48, 0.18);
+  transition: background-color var(--transition-base);
+}
+
+.tabActive .tabLine {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Counter + content side by side ── */
+.eventContent {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+/* Counter 01 / 02 */
+.counter {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  color: rgba(34, 47, 48, 0.40);
+  flex-shrink: 0;
+  padding-top: 4px; /* optical alignment with title */
+}
+
+/* Content: title + meta + rsvp */
+.contentRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.eventTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.125rem, 2vw, 2rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-brand-green);
+  margin: 0;
+}
+
+/* Meta: date / time / venue */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin: 0;
+}
+
+.metaItem {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.metaLabel {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(34, 47, 48, 0.70);
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.metaValue {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--color-brand-green);
+  margin: 0;
+}
+
+/* RSVP row */
+.rsvpRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.rsvpBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: var(--color-brand-green);
+  padding: var(--space-4) var(--space-6);
+  border-radius: 0 0 24px 0;
+  transition: background-color var(--transition-fast);
+}
+
+.rsvpBtn:hover { background-color: var(--color-brand-green-muted); }
+
+/* Arrow button */
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  width: 48px;
+  background-color: var(--color-brand-green-muted);
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+.arrowBtn:hover { background-color: var(--color-brand-green); }
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner { padding: var(--space-20) var(--container-padding); }
+  .photoImg { height: 380px; }
+}
+
+@media (max-width: 768px) {
+  .inner { padding: var(--space-12) var(--space-6); }
+
+  .heading {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: var(--space-8);
+  }
+
+  .eventRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .photoImg { height: 240px; }
+}
+
+@media (max-width: 480px) {
+  .inner { padding: var(--space-10) var(--space-4); }
+  .heading { font-size: clamp(1.5rem, 7vw, 2rem); }
+}

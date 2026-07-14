@@ -1,0 +1,120 @@
+/* ============================================================
+   RELATED PUBLICATIONS  (article detail page)
+   Heading row + 3-col card grid.
+   Card appearance lives in src/components/ui/ResourceCard.module.css
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: #f7f7f5;
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+}
+
+/* ── Header: heading + view all CTA ── */
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary-light);
+  margin: 0;
+}
+
+.headerCta {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.viewAll {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: var(--color-brand-green);
+  border: none;
+  padding: var(--space-2) var(--space-5);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--transition-fast);
+}
+
+.viewAll:hover {
+  background-color: var(--color-brand-green-muted);
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  aspect-ratio: 1;
+  background-color: var(--color-brand-green-muted);
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Cards grid ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding: var(--space-20) var(--container-padding);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4);
+  }
+}

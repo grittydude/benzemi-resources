@@ -1,4 +1,5 @@
 import Button from '../ui/Button'
+import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import styles from './Hero.module.css'
 
 function Hero() {
@@ -51,10 +52,7 @@ function Hero() {
 
           {/* Description */}
           <p className={styles.description}>
-            Bezimeni Resources equips science and engineering graduates with
-            practical knowledge, technical exposure, and industry-focused
-            training designed to bridge the gap between education and
-            real-world execution.
+            Bezimeni Resources equips science and engineering graduates with practical knowledge, technical exposure, and industry-focused training designed to bridge the gap between education and real-world execution.
           </p>
 
           {/* CTA */}
@@ -67,7 +65,7 @@ function Hero() {
               className={styles.arrowBtn}
               aria-label="Get started"
             >
-              <span aria-hidden="true">→</span>
+              <img src={arrowIcon} alt="" />
             </a>
           </div>
 

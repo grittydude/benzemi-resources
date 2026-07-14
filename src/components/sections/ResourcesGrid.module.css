@@ -1,0 +1,165 @@
+/* ============================================================
+   RESOURCES GRID  (resources listing page)
+   Filterable 3-col card grid.
+   Card appearance lives in src/components/ui/ResourceCard.module.css
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-badge-bg);
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+}
+
+/* ── Header: heading + tabs ── */
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary-light);
+  margin: 0;
+  font-style: normal;
+}
+
+/* "Resources" word in green */
+.headingAccent {
+  font-style: normal;
+  color: var(--color-brand-green-muted);
+}
+
+/* ── Filter tabs ── */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--color-brand-green);
+  background: white;
+  border: none;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--color-text-primary-light);
+}
+
+/* Active tab: filled dark pill with white text */
+.tabActive {
+  background-color: var(--color-text-primary-light);
+  color: #ffffff;
+  font-weight: var(--font-weight-regular);
+}
+
+.tabActive:hover {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+}
+
+/* Green dot inside active tab */
+.tabDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+/* ── Cards grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+
+/* ── Load more ── */
+.loadMore {
+  display: flex;
+  justify-content: center;
+  padding: 12px 20px;
+  height: fit-content;
+  width: fit-content;
+  background-color: white;
+  align-items: center;
+  justify-self: center;
+}
+
+.loadMoreBtn {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--color-brand-green);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.loadMoreBtn:hover {
+  opacity: 1;
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding: var(--space-20) var(--container-padding);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4);
+  }
+}

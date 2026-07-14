@@ -1,0 +1,107 @@
+/* ============================================================
+   RESOURCES HERO
+   Mobile-first
+   ============================================================ */
+
+.section {
+  position: relative;
+  padding-top: 80px; /* navbar height */
+  background-color: var(--color-light-bg);
+  overflow: hidden;
+}
+
+/* Green radial gradient — anchored bottom-right, fades across full height */
+.gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse 85% 125% at 100% 115%,
+      rgba(105, 170, 44, 0.32) 0%,
+      rgba(105, 170, 44, 0.18) 40%,
+      rgba(105, 170, 44, 0.06) 75%,
+      transparent 100%
+    );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding) var(--space-20);
+}
+
+/* Breadcrumb tag row */
+.tags {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-10);
+}
+
+.tagDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.tagList {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.45);
+}
+
+/* Main heading */
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2.75rem, 5.5vw, 5.5rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary-light);
+  margin: 0;
+  font-style: normal;
+  max-width: 820px;
+}
+
+.accent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-24);
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: var(--space-12) var(--space-6) var(--space-16);
+  }
+
+  .heading {
+    font-size: clamp(2.25rem, 7vw, 3.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4) var(--space-12);
+  }
+
+  .heading {
+    font-size: clamp(1.875rem, 9vw, 2.5rem);
+  }
+}

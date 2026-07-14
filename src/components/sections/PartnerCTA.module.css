@@ -1,0 +1,174 @@
+/* ============================================================
+   PARTNER CTA  – 2-col: badge left | heading+desc+CTA right
+   Industry Solutions page
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-badge-bg);
+  width: 100%;
+}
+
+/* 2-col grid: badge left, content right */
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20%;
+  align-items: start;
+}
+
+/* Left: badge */
+.left {
+  padding-top: 4px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  background-color: #ffffff;
+  padding: 8px;
+  width: fit-content;
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.badge span:last-child {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color:  var(--color-brand-green);
+}
+
+/* Right: heading, then space, then description+CTA */
+.right {
+  display: flex;
+  margin-top: var(--space-20);
+  flex-direction: column;
+  gap: var(--space-6); /* space that pushes description down from heading */
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--color-brand-green);
+  margin: 0;
+  font-style: normal;
+}
+
+.accent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+/* Description + CTA group */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 700px;
+}
+
+.description {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.55;
+  font-weight: 300;
+  color: rgba(34, 47, 48, 1);
+  margin: 0;  
+}
+
+/* CTA row */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: 24px;
+}
+
+/* Dark button */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--color-brand-green);
+  padding: var(--space-4) var(--space-6);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 0 0 24px 0;
+  transition: background-color var(--transition-fast);
+}
+
+.ctaBtn:hover {
+  background-color: var(--color-brand-green-muted);
+}
+
+/* Arrow button */
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  aspect-ratio: 1;
+  background-color: var(--color-brand-green-muted);
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4);
+  }
+}

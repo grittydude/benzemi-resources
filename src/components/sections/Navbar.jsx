@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
 import { NAV_LINKS } from "../../constants";
 import Button from "../ui/Button";
+import { navigate, useRouter } from "../../router";
 import logo from '../../assets/images/benzemi-logo.svg'
 import styles from "./Navbar.module.css";
 
 function Navbar() {
+  const { path } = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  function isActive(href) {
+    if (href === '/') return path === '/'
+    return path === href || path.startsWith(href + '/')
+  }
 
   // Add background when scrolled past 50px
   useEffect(() => {
@@ -46,7 +53,7 @@ function Navbar() {
     >
       <div className={styles.inner}>
         {/* Logo */}
-        <a href="/" className={styles.logo} aria-label="Bezimeni Resources — Home">
+        <a href="/" className={styles.logo} aria-label="Bezimeni Resources — Home" onClick={(e) => { e.preventDefault(); navigate('/') }}>
           <img
             src={logo}
             alt="Bezimeni Resources"
@@ -60,7 +67,12 @@ function Navbar() {
           <ul className={styles.navList} role="list">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className={styles.navLink}>
+                <a
+                  href={link.href}
+                  className={[styles.navLink, isActive(link.href) ? styles.navLinkActive : ''].join(' ')}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                  onClick={link.href.startsWith('/') ? (e) => { e.preventDefault(); navigate(link.href) } : undefined}
+                >
                   {link.label}
                 </a>
               </li>
@@ -107,8 +119,12 @@ function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={styles.mobileNavLink}
-                  onClick={closeMenu}
+                  className={[styles.mobileNavLink, isActive(link.href) ? styles.mobileNavLinkActive : ''].join(' ')}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                  onClick={(e) => {
+                    if (link.href.startsWith('/')) { e.preventDefault(); navigate(link.href) }
+                    closeMenu()
+                  }}
                 >
                   {link.label}
                 </a>

@@ -1,0 +1,221 @@
+/* ============================================================
+   UPCOMING EVENTS
+   Lime green background, white event card
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: #cee88a;
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: rgba(10, 10, 10, 0.10);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.65);
+  margin: 0 0 var(--space-8);
+  align-self: flex-start;
+}
+
+.badgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green);
+}
+
+/* Heading */
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-brand-green);
+  margin: 0 0 var(--space-12);
+  font-style: normal;
+}
+
+.accent {
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-brand-green);
+}
+
+/* White event card */
+.card {
+  background-color: #ffffff;
+  border-radius: var(--radius-xxl);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  gap: 0;
+}
+
+/* Event photo */
+.cardImage {
+  width: 220px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #d0e8a0;
+  border-radius: var(--radius-xxl) 0 0 var(--radius-xxl);
+}
+
+/* Event details */
+.cardDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-10);
+}
+
+/* Counter e.g. 01 / 02 */
+.counter {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  color: rgba(10, 10, 10, 0.4);
+}
+
+.eventTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.125rem, 1.8vw, 1.625rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary-light);
+  margin: 0;
+}
+
+/* Meta: date / time / venue */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+.metaItem {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.metaLabel {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.35);
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.metaValue {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-primary-light);
+  margin: 0;
+}
+
+/* RSVP row */
+.rsvpRow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-width: 44px;
+  background-color: var(--color-brand-green-muted);
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding: var(--space-20) var(--container-padding);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardImage {
+    width: 180px;
+  }
+
+  .cardDetails {
+    padding: var(--space-6) var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: var(--space-12) var(--space-6);
+  }
+
+  .heading {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: var(--space-8);
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: 200px;
+    border-radius: var(--radius-xxl) var(--radius-xxl) 0 0;
+  }
+
+  .cardDetails {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .heading {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+}

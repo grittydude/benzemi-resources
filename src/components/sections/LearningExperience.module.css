@@ -1,0 +1,131 @@
+/* ============================================================
+   LEARNING EXPERIENCE  – Training page
+   2-column: left = badge+heading+desc | right = vertical numbered list
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: #E7E8E1;
+  width: 100%;
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+/* ── Left column ── */
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--color-brand-green);
+  margin: 0;
+  margin-top: 64px;
+  font-style: normal;
+}
+
+.accent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+.description {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
+  color: var(--color-brand-green);
+  font-weight: var(--font-weight-light);
+  margin: 0;
+  margin-top: 40px;
+  max-width: 557px;
+}
+
+/* ── Right column: vertical numbered list ── */
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+}
+
+.point {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  padding: var(--space-5) 0;
+}
+
+.pointCounter {
+  margin: 0;
+  line-height: 1;
+  
+}
+
+.pointNum {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: var(--color-brand-green-muted);
+}
+
+.pointSlash {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-green-muted);
+}
+
+.pointTotal {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-green-muted);}
+
+.pointLabel {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  color: var(--color-brand-green);
+  margin: 0;
+  width: fit-content;
+  border-bottom: 1px solid rgba(34, 47, 48, 0.15);
+  padding-bottom: var(--space-5);
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1280px) {
+  .inner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    padding: var(--space-12) var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-10) var(--space-4);
+  }
+}

@@ -1,0 +1,66 @@
+/* ============================================================
+   CONTACT PAGE  – FAQ wrapper
+   ============================================================ */
+
+.faqSection {
+  background-color: var(--color-light-bg);
+  width: 100%;
+}
+
+.faqInner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
+}
+
+.faqBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-6);
+}
+
+.faqBadgeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background-color: var(--color-brand-green-muted);
+}
+
+.faqBadge span:last-child {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(34, 47, 48, 0.45);
+}
+
+.faqHeading {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary-light);
+  margin: 0 0 var(--space-10);
+}
+
+.faqAccent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+@media (min-width: 1280px) {
+  .faqInner {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+}
+
+@media (max-width: 640px) {
+  .faqInner {
+    padding: var(--space-12) var(--space-4);
+  }
+}

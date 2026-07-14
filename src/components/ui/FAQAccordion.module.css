@@ -1,0 +1,144 @@
+/* ============================================================
+   FAQ ACCORDION  — full section, #CEF79E bg
+   Questions in right 70%, all items open by default
+   Mobile-first
+   ============================================================ */
+
+.section {
+  background-color: var(--color-brand-card); /* #CEF79E */
+  width: 100%;
+}
+
+/* Tag row spans full width — consistent with other sections */
+.tagRow {
+  padding: var(--space-16) var(--container-padding) 0;
+}
+
+/* Inner — 384px left margin, 155px right margin, responsive */
+.inner {
+  width: 100%;
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-20);
+  padding-left: clamp(var(--container-padding), 26.7vw, 384px);
+  padding-right: clamp(var(--container-padding), 10.8vw, 155px);
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Heading ── */
+.heading {
+  font-family: var(--font-family-display); /* Stack Sans Notch */
+  font-size: 3.5rem; /* 56px */
+  font-weight: var(--font-weight-regular); /* 400 */
+  font-style: normal;
+  line-height: 1.2; /* 120% */
+  letter-spacing: -0.02em; /* -2% */
+  color: var(--color-brand-green);
+  margin: 0 0 var(--space-12);
+}
+
+.headingAccent {
+  color: var(--color-brand-green-muted);
+  font-style: normal;
+}
+
+/* ── List ── */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Item — 32px between items via padding ── */
+.item {
+  border-top: 1px solid rgba(34, 47, 48, 0.15);
+}
+
+.item:last-child {
+  border-bottom: 1px solid rgba(34, 47, 48, 0.15);
+}
+
+/* ── Trigger — 90px height ── */
+.trigger {
+  width: 100%;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-4) 0; /* 16px top+bottom */
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.question {
+  font-family: var(--font-family-display); /* Stack Sans Notch */
+  font-size: 2rem; /* 32px */
+  font-weight: var(--font-weight-regular); /* 400 */
+  font-style: normal;
+  line-height: 1.2; /* 120% */
+  letter-spacing: -0.02em; /* -2% */
+  color: var(--color-brand-green);
+  flex: 1;
+}
+
+.icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--color-brand-green);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* ── Answer panel ── */
+.panel {
+  padding: 0 0 var(--space-8);
+}
+
+.answer {
+  font-family: var(--font-family-base); /* Stack Sans Headline */
+  font-size: 1.25rem; /* 20px */
+  font-weight: 300; /* Light */
+  line-height: 1.4; /* 140% */
+  letter-spacing: 0.01em; /* 1% */
+  color: var(--color-brand-green);
+  margin: 0;
+  opacity: 0.75;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .tagRow {
+    padding: var(--space-12) var(--space-6) 0;
+  }
+
+  .inner {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-16);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  .heading {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .question {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .trigger {
+    min-height: auto;
+    padding: var(--space-5) 0;
+  }
+}
