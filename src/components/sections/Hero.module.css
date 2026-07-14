@@ -134,7 +134,7 @@
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-relaxed);
   color: var(--color-brand-green);
-  width: auto important!;
+  width: auto important;
 }
 
 /* ---- CTA row ---- */
