@@ -457,6 +457,95 @@ export const TRAINING_PAGE = {
   ],
 }
 
+// ── Training detail pages (keyed by slug) ────────────────────────
+const OIL_GAS_DETAIL = {
+  slug: 'oil-gas-fundamentals',
+  badge: 'Training Programme',
+  title: 'Oil & Gas Industry Fundamentals',
+  intro:
+    'Build practical understanding of how the oil and gas industry operates—from value chain fundamentals to operational awareness and real-world industry context. Through guided sessions, industry discussions, and applied learning, participants gain the context needed to navigate industrial environments with greater confidence.',
+  sidebar: {
+    duration: '4–6 Weeks',
+    format: 'Virtual / Hybrid',
+    level: 'Beginner–Intermediate',
+    certificate: 'Included',
+    enrollHref: '/contact',
+  },
+  whoFor: {
+    heading: 'Who is this Programme for?',
+    intro: 'This course is designed for learners at different stages of their journey. Ideal Participants are:',
+    items: [
+      'Engineering Students',
+      'Recent Graduates',
+      'Early-Career Engineers',
+      'Technical Professionals Transitioning Industries',
+      'Young Professionals Seeking Industry Exposure',
+    ],
+  },
+  whatYouLearn: {
+    heading: 'What you will learn',
+    intro: 'By the end of this program, participants should be able to:',
+    items: [
+      'Understand the oil and gas value chain',
+      'Interpret basic industry terminology',
+      'Explain operational workflows',
+      'Recognise roles across engineering disciplines',
+      'Apply technical thinking to practical environments',
+      'Build greater confidence for industry conversations',
+    ],
+  },
+  curriculum: {
+    heading: 'Course Curriculum',
+    intro: 'Structured modules designed to progressively build understanding.',
+    modules: [
+      {
+        num: 1,
+        title: 'Introduction to Oil & Gas',
+        items: ['Industry Overview', 'Energy Landscape', 'Industry Terminology', 'Value Creation'],
+      },
+      {
+        num: 2,
+        title: 'Understanding Operations',
+        items: ['Upstream', 'Midstream', 'Downstream', 'Production Systems'],
+      },
+      {
+        num: 3,
+        title: 'Engineering Disciplines',
+        items: ['Process Engineering', 'Mechanical Systems', 'Instrumentation', 'HSE Fundamentals'],
+      },
+      {
+        num: 4,
+        title: 'Industry Readiness',
+        items: ['Professional Conduct', 'Technical Communication', 'Industry Terminology', 'Value Creation'],
+      },
+    ],
+  },
+  howYouLearn: {
+    heading: 'How you will learn',
+    intro: 'Our sessions are designed to connect concepts with application.',
+    items: [
+      'Instructor-Led Sessions',
+      'Industry Case Discussions',
+      'Group Exercises',
+      'Practical Frameworks',
+      'Live Q&A',
+      'Resources & Templates',
+    ],
+  },
+  ctaBox: {
+    heading: 'Take the Next Step Toward Industry Readiness',
+    body: 'Build practical understanding, strengthen your technical confidence, and learn through industry-focused experiences.',
+    note: 'LIMITED SPACES AVAILABLE PER COHORT',
+  },
+}
+
+export const TRAINING_DETAIL = {
+  'oil-gas-fundamentals':   OIL_GAS_DETAIL,
+  'oil-gas-fundamentals-2': { ...OIL_GAS_DETAIL, slug: 'oil-gas-fundamentals-2' },
+  'oil-gas-fundamentals-3': { ...OIL_GAS_DETAIL, slug: 'oil-gas-fundamentals-3' },
+  'oil-gas-fundamentals-4': { ...OIL_GAS_DETAIL, slug: 'oil-gas-fundamentals-4' },
+}
+
 // ── Industry Solutions page ──────────────────────────────────────
 export const INDUSTRY_SOLUTIONS_PAGE = {
   hero: {

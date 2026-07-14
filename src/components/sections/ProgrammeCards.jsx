@@ -17,7 +17,12 @@ function ProgrammeCards({ programmes = [] }) {
       <div className={styles.inner}>
         <ul className={styles.grid}>
           {programmes.map((prog) => (
-            <li key={prog.id} className={`${styles.card} ${styles[`card--${prog.variant}`]}`}>
+            <li
+            key={prog.id}
+            className={`${styles.card} ${styles[`card--${prog.variant}`]}`}
+            onClick={() => navigate(`/training/${prog.slug}`)}
+            style={{ cursor: 'pointer' }}
+          >
 
               {/* Top row: icon (left) | badge + price column (right) */}
               <div className={styles.cardTop}>

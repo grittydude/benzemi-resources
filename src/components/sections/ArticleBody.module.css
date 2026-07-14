@@ -1,43 +1,91 @@
 /* ============================================================
-   ARTICLE BODY
-   Sidebar (share/author) + wide content area
+   ARTICLE BODY — full page layout
+   Single two-column layout: sidebar (back + share + author) | content (header + body)
+   No gradient. Padding matches navbar 40px edge.
    Mobile-first
    ============================================================ */
 
 .article {
   background-color: var(--color-light-bg);
+  padding-top: 80px; /* navbar offset */
   width: 100%;
 }
 
-.container {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 var(--container-padding) var(--space-16);
+/* Full-width container — no max-width centering */
+.outer {
+  padding: var(--space-12) var(--container-padding) var(--space-16);
 }
 
-/* Two-column layout: narrow sidebar + wide body */
+/* Two-column row */
 .layout {
   display: flex;
   align-items: flex-start;
   gap: var(--space-12);
 }
 
-/* ── Sidebar ── */
+/* ══ SIDEBAR ══════════════════════════════════════════════════ */
 .sidebar {
-  width: 140px;
+  width: 23%;
   flex-shrink: 0;
+  align-self: flex-start; /* never stretch to match content height */
   position: sticky;
   top: calc(80px + var(--space-8));
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
-  padding-top: var(--space-2);
+  gap: 382px; /* space between back button and sideGroup */
 }
 
+/* Back button — 234×44, bottom-right notch */
+.back {
+  display: inline-flex;
+  align-items: center;
+  width: 234px;
+  height: 44px;
+  padding: 12px 22px 12px 20px;
+  gap: 8px;
+  border-radius: 0 0 24px 0;
+  background-color: var(--color-badge-bg);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brand-green);
+  white-space: nowrap;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.back:hover {
+  background-color: #e8e8e6;
+  color: var(--color-brand-green);
+}
+
+.backChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Groups share + author together with tighter internal spacing */
+.sideGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Individual side blocks: share / author */
 .sideBlock {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  padding-left: 20px; /* aligns with back button text */
 }
 
 .sideLabel {
@@ -57,6 +105,9 @@
 }
 
 .shareLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
   font-family: var(--font-family-code);
   font-size: var(--font-size-xs);
   letter-spacing: 0.06em;
@@ -71,6 +122,15 @@
   color: var(--color-brand-green-muted);
 }
 
+.shareCount {
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-style: normal;
+  color: rgba(10, 10, 10, 0.4);
+  text-decoration: none;
+}
+
 .authorName {
   font-family: var(--font-family-code);
   font-size: var(--font-size-xs);
@@ -81,8 +141,8 @@
   margin: 0;
 }
 
-/* ── Body ── */
-.body {
+/* ══ CONTENT COLUMN ══════════════════════════════════════════ */
+.content {
   flex: 1;
   min-width: 0;
   display: flex;
@@ -90,7 +150,7 @@
   gap: var(--space-10);
 }
 
-/* Section */
+/* Introduction section */
 .section {
   display: flex;
   flex-direction: column;
@@ -101,7 +161,7 @@
   font-family: var(--font-family-display);
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   font-weight: var(--font-weight-black);
-  line-height: var(--line-height-tight);
+  line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--color-text-primary-light);
   margin: 0;
@@ -110,10 +170,10 @@
 /* Body paragraphs */
 .para {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary-light);
+  font-size: var(--font-size-lg);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-brand-green);
   margin: 0;
 }
 
@@ -126,7 +186,6 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--radius-xxl);
   object-fit: cover;
 }
 
@@ -135,27 +194,25 @@
   margin: 0;
   padding: var(--space-6) var(--space-8);
   border-left: 3px solid var(--color-brand-green-muted);
-  background-color: rgba(206, 232, 138, 0.12);
 }
 
 .pullQuoteText {
   font-family: var(--font-family-display);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(1rem, 1.6vw, 1.5em);
   font-weight: var(--font-weight-regular);
-  font-style: italic;
-  line-height: var(--line-height-snug);
-  color: var(--color-brand-green-muted);
+  line-height: 1.2;
+  color: #4B8145;
   margin: 0 0 var(--space-4);
 }
 
 .pullQuoteAttribution {
   display: block;
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-base);
   font-style: normal;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(10, 10, 10, 0.45);
+  line-height: 1.2;
+  color: var(--color-brand-green);
 }
 
 /* Numbered sections */
@@ -173,18 +230,18 @@
 
 .numberedHeading {
   font-family: var(--font-family-display);
-  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
-  font-weight: var(--font-weight-black);
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
-  letter-spacing: -0.01em;
-  color: var(--color-text-primary-light);
+  color: var(--color-brand-green);
   margin: 0;
 }
 
-/* Conclusion box */
+/* Conclusion box — card notch pattern */
 .conclusionBox {
   background-color: #f7f7f5;
-  border-radius: var(--radius-xxl);
+  border-radius: 0 0 40px;
+  border-bottom-right-radius: var(--radius-xxll);
   padding: var(--space-8) var(--space-10);
   display: flex;
   flex-direction: column;
@@ -193,19 +250,19 @@
 
 .conclusionHeading {
   font-family: var(--font-family-display);
-  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
-  font-weight: var(--font-weight-black);
+  font-size: clamp(1.125rem, 1.6vw, 2rem);
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
-  letter-spacing: -0.01em;
-  color: var(--color-text-primary-light);
+  letter-spacing: -0.02em;
+  color: var(--color-brand-green);
   margin: 0;
 }
 
-/* ── Responsive ── */
+/* ══ RESPONSIVE ══════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0 var(--space-6) var(--space-12);
+  .outer {
+    padding: var(--space-8) var(--space-6) var(--space-12);
   }
 
   .layout {
@@ -217,7 +274,17 @@
     width: 100%;
     position: static;
     flex-direction: row;
-    gap: var(--space-10);
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    align-items: flex-start;
+  }
+
+  .back {
+    width: 100%;
+  }
+
+  .sideBlock {
+    padding-left: 0;
   }
 
   .conclusionBox {
@@ -226,11 +293,11 @@
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 var(--space-4) var(--space-10);
+  .outer {
+    padding: var(--space-6) var(--space-4) var(--space-10);
   }
 
   .pullQuote {
-    padding: var(--space-5) var(--space-5);
+    padding: var(--space-5);
   }
 }

@@ -1,4 +1,7 @@
 import { ARTICLE_PAGE } from '../../constants'
+import { navigate } from '../../router'
+import ArticleHero from './ArticleHero'
+import resourceImg from '../../assets/images/resource_img.jpg'
 import styles from './ArticleBody.module.css'
 
 function ArticleBody() {
@@ -14,26 +17,47 @@ function ArticleBody() {
 
   return (
     <article className={styles.article}>
-      <div className={styles.container}>
+      <div className={styles.outer}>
         <div className={styles.layout}>
 
-          {/* ── Sidebar: share + author ── */}
+          {/* ══ SINGLE SIDEBAR ══════════════════════════════════ */}
           <aside className={styles.sidebar}>
-            <div className={styles.sideBlock}>
-              <p className={styles.sideLabel}>Share</p>
-              <div className={styles.shareLinks}>
-                <a href={share.linkedin} className={styles.shareLink} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href={share.x} className={styles.shareLink} target="_blank" rel="noopener noreferrer">X</a>
+
+            {/* Back button */}
+            <button
+              className={styles.back}
+              onClick={() => navigate('/resources')}
+              type="button"
+            >
+              <span className={styles.backChip} aria-hidden="true">←</span>
+              Back to Resources
+            </button>
+
+            {/* Share + Author grouped */}
+            <div className={styles.sideGroup}>
+              <div className={styles.sideBlock}>
+                <p className={styles.sideLabel}>Share</p>
+                <div className={styles.shareLinks}>
+                  <a href={share.linkedin} className={styles.shareLink} target="_blank" rel="noopener noreferrer">
+                    LinkedIn<span className={styles.shareCount}>5</span>
+                  </a>
+                  <a href={share.x} className={styles.shareLink} target="_blank" rel="noopener noreferrer">X</a>
+                </div>
+              </div>
+
+              <div className={styles.sideBlock}>
+                <p className={styles.sideLabel}>Author</p>
+                <p className={styles.authorName}>{author}</p>
               </div>
             </div>
-            <div className={styles.sideBlock}>
-              <p className={styles.sideLabel}>Author</p>
-              <p className={styles.authorName}>{author}</p>
-            </div>
+
           </aside>
 
-          {/* ── Main article content ── */}
-          <div className={styles.body}>
+          {/* ══ CONTENT COLUMN ══════════════════════════════════ */}
+          <div className={styles.content}>
+
+            {/* Article header (type, date, title, intro) */}
+            <ArticleHero />
 
             {/* Introduction section */}
             <section className={styles.section}>
@@ -46,7 +70,7 @@ function ArticleBody() {
             {/* Article image */}
             <figure className={styles.figure}>
               <img
-                src={image}
+                src={resourceImg}
                 alt="Engineering workspace"
                 className={styles.image}
                 loading="lazy"
@@ -64,7 +88,7 @@ function ArticleBody() {
               {numberedSections.map((s) => (
                 <section key={s.num} className={styles.numberedItem}>
                   <h3 className={styles.numberedHeading}>
-                    {s.num}.{' '}{s.heading}
+                    {s.num}.{' '}{s.heading}
                   </h3>
                   <p className={styles.para}>{s.body}</p>
                 </section>

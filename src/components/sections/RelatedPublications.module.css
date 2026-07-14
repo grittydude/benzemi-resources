@@ -65,17 +65,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 48px;
   aspect-ratio: 1;
-  min-width: 44px;
   background-color: var(--color-brand-green-muted);
-  color: #ffffff;
-  font-size: 1.1rem;
-  line-height: 1;
   border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
   border: none;
   cursor: pointer;
   flex-shrink: 0;
   transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
 }
 
 .arrowBtn:hover {

@@ -49,29 +49,6 @@
     object-fit: contain;
   }
   
-  /* .logoTextGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-  
-  .logoName {
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.08em;
-    color: var(--color-text-primary-light);
-    line-height: 1;
-  }
-  
-  .logoSub {
-    font-family: var(--font-family-code);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-regular);
-    letter-spacing: 0.1em;
-    color: var(--color-text-secondary-light);
-    line-height: 1;
-  } */
   
   /* ---- Desktop Nav — hidden on mobile ---- */
   .nav {
@@ -253,13 +230,8 @@
 
   /* ── Scale nav + button down as screen narrows toward 1024px ── */
 
-  /* 1024–1280px: medium reduction */
+  /* 1024–1280px: scale nav text + gaps, keep 40px edge padding */
   @media (min-width: 1024px) and (max-width: 1280px) {
-    .inner {
-      padding-left: var(--space-8);
-      padding-right: var(--space-8);
-    }
-
     .navList {
       gap: var(--space-5);
     }
@@ -269,18 +241,15 @@
       letter-spacing: 0.04em;
     }
 
-    /* Button slight reduction */
     .cta > * {
       font-size: var(--font-size-xs);
       padding: var(--space-2) var(--space-5);
     }
   }
 
-  /* 1024–1120px: tightest reduction */
+  /* 1024–1120px: tightest text reduction, keep 40px edge padding */
   @media (min-width: 1024px) and (max-width: 1120px) {
     .inner {
-      padding-left: var(--space-6);
-      padding-right: var(--space-6);
       gap: var(--space-3);
     }
 

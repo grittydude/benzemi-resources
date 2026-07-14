@@ -4,6 +4,7 @@ import Resources from './pages/Resources'
 import ResourceArticle from './pages/ResourceArticle'
 import Contact from './pages/Contact'
 import Training from './pages/Training'
+import TrainingDetail from './pages/TrainingDetail'
 import IndustrySolutions from './pages/IndustrySolutions'
 import About from './pages/About'
 
@@ -12,6 +13,7 @@ function Routes() {
   if (path.startsWith('/resources/')) return <ResourceArticle />
   if (path === '/resources') return <Resources />
   if (path === '/contact') return <Contact />
+  if (path.startsWith('/training/')) return <TrainingDetail />
   if (path === '/training') return <Training />
   if (path === '/industry-solutions') return <IndustrySolutions />
   if (path === '/about') return <About />
