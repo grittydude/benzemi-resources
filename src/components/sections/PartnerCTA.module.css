@@ -165,6 +165,10 @@
     gap: var(--space-6);
     padding: var(--space-12) var(--space-6);
   }
+
+  .right {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 480px) {

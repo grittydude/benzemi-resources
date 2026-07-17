@@ -6,7 +6,7 @@
  */
 import { useState, useRef } from 'react'
 import { RESOURCES_PAGE } from '../../constants'
-import arrowIcon from '../../assets/icons/arrow_icon.svg'
+import arrowIcon from '../../assets/icons/arrow-right-filled.svg'
 import eventsBg from '../../assets/images/events_bg.png'
 import styles from './IndustryEvents.module.css'
 

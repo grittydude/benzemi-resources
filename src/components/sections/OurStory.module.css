@@ -47,7 +47,7 @@
 .body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: var(--space-6);
   align-items: start;
   margin-top: 4.5rem;
   padding-right: 6rem;
@@ -56,10 +56,10 @@
 .heading {
   font-family: var(--font-family-display);
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: var(--font-weight-black);
-  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
   letter-spacing: -0.025em;
-  color: var(--color-text-primary-light);
+  color: var(--color-brand-green);
   margin: 0;
   font-style: normal;
 }
@@ -76,10 +76,11 @@
 }
 
 .paragraph {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-relaxed);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
   color: var(--color-brand-green);
+  font-weight: 300;
   margin: 0;
   max-width: 768px;
 }

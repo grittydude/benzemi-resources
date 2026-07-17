@@ -35,24 +35,25 @@
   padding: 8px;
   width: fit-content;
   margin-bottom: 24px;
+  border-radius: 4px;
   background-color: var(--color-badge-bg18);
 }
 
 .badgeDot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   flex-shrink: 0;
   background-color: var(--color-brand-green-muted);
 }
 
 .badge span:last-child {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: white;
 }
 
 .heading {
@@ -67,15 +68,16 @@
 }
 
 .accent {
-  color: var(--color-brand-green-muted);
+  color: var(--color-brand-card);
   font-style: normal;
 }
 
 .description {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
+  font-weight: 300;
+  color: white;
   margin: 0;
 }
 
@@ -112,13 +114,13 @@
   font-family: var(--font-family-code);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
-  color: var(--color-brand-green-muted);
+  color: var(--color-brand-card);
 }
 
 /* Large sector label */
 .label {
   font-family: var(--font-family-display);
-  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-size: clamp(1.75rem, 3.5vw, 3.5rem);
   font-weight: var(--font-weight-regular);
   line-height: 1.15;
   letter-spacing: -0.02em;

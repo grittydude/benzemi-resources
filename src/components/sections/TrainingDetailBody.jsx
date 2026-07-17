@@ -2,6 +2,15 @@ import { navigate } from '../../router'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import styles from './TrainingDetailBody.module.css'
 
+/**
+ * Training detail page layout — CSS grid two-column.
+ * DOM order = mobile reading order:
+ *   1. mobileEnroll (hidden on desktop, fixed chip on mobile)
+ *   2. back button
+ *   3. content header (badge + title)
+ *   4. metaGroup (duration / format / level / cert + desktop enroll CTA)
+ *   5. body (intro + all sections)
+ */
 function TrainingDetailBody({ programme }) {
   const {
     badge,
@@ -18,23 +27,50 @@ function TrainingDetailBody({ programme }) {
   return (
     <article className={styles.article}>
       <div className={styles.outer}>
+
+        {/* Mobile-only: ENROLL row at top right — hidden on desktop */}
+        <div className={styles.mobileEnrollRow}>
+          <button
+            className={styles.mobileEnrollBtn}
+            onClick={() => navigate(sidebar.enrollHref)}
+            type="button"
+          >
+            ENROLL
+          </button>
+          <button
+            className={styles.mobileArrowBtn}
+            onClick={() => navigate(sidebar.enrollHref)}
+            type="button"
+            aria-label="Enroll today"
+          >
+            <img src={arrowIcon} alt="" aria-hidden="true" />
+          </button>
+        </div>
+
         <div className={styles.layout}>
 
-          {/* ══ SIDEBAR ══════════════════════════════════════════ */}
-          <aside className={styles.sidebar}>
+          {/* 1 — Back button (grid: back area | mobile: order 1) */}
+          <button
+            className={styles.back}
+            onClick={() => navigate('/training')}
+            type="button"
+          >
+            <span className={styles.backChip} aria-hidden="true">←</span>
+            <span className={styles.backText}>Back to Training</span>
+          </button>
 
-            {/* Back button */}
-            <button
-              className={styles.back}
-              onClick={() => navigate('/training')}
-              type="button"
-            >
-              <span className={styles.backChip} aria-hidden="true">←</span>
-              Back to Training
-            </button>
+          {/* 2 — Content header: badge + title (grid: header area | mobile: order 2) */}
+          <header className={styles.header}>
+            <span className={styles.badge}>
+              <span className={styles.badgeDot} aria-hidden="true" />
+              {badge}
+            </span>
+            <h1 className={styles.title}>{title}</h1>
+          </header>
 
-            {/* Meta + Enrol grouped */}
-            <div className={styles.sideGroup}>
+          {/* 3 — Meta group (grid: meta area | mobile: order 3 — 2×2 grid) */}
+          <aside className={styles.metaGroup}>
+            <div className={styles.metaGrid}>
               <div className={styles.sideBlock}>
                 <p className={styles.sideLabel}>Duration</p>
                 <p className={styles.sideValue}>{sidebar.duration}</p>
@@ -51,41 +87,32 @@ function TrainingDetailBody({ programme }) {
                 <p className={styles.sideLabel}>Certificate</p>
                 <p className={styles.sideValue}>{sidebar.certificate}</p>
               </div>
-
-              {/* Enrol CTA */}
-              <div className={styles.enrollRow}>
-                <button
-                  className={styles.enrollBtn}
-                  onClick={() => navigate(sidebar.enrollHref)}
-                  type="button"
-                >
-                  ENROLL TODAY
-                </button>
-                <button
-                  className={styles.arrowBtn}
-                  onClick={() => navigate(sidebar.enrollHref)}
-                  type="button"
-                  aria-label="Enroll today"
-                >
-                  <img src={arrowIcon} alt="" aria-hidden="true" />
-                </button>
-              </div>
             </div>
 
+            {/* Enrol CTA — desktop only (hidden on mobile via CSS) */}
+            <div className={styles.enrollRow}>
+              <button
+                className={styles.enrollBtn}
+                onClick={() => navigate(sidebar.enrollHref)}
+                type="button"
+              >
+                ENROLL TODAY
+              </button>
+              <button
+                className={styles.arrowBtn}
+                onClick={() => navigate(sidebar.enrollHref)}
+                type="button"
+                aria-label="Enroll today"
+              >
+                <img src={arrowIcon} alt="" aria-hidden="true" />
+              </button>
+            </div>
           </aside>
 
-          {/* ══ CONTENT COLUMN ══════════════════════════════════ */}
-          <div className={styles.content}>
+          {/* 4 — Body content (grid: body area | mobile: order 4) */}
+          <div className={styles.body}>
 
-            {/* Header */}
-            <header className={styles.header}>
-              <span className={styles.badge}>
-                <span className={styles.badgeDot} aria-hidden="true" />
-                {badge}
-              </span>
-              <h1 className={styles.title}>{title}</h1>
-              <p className={styles.intro}>{intro}</p>
-            </header>
+            <p className={styles.intro}>{intro}</p>
 
             {/* Who is this for */}
             <section className={styles.section}>
@@ -147,7 +174,10 @@ function TrainingDetailBody({ programme }) {
               <a
                 href={sidebar.enrollHref}
                 className={styles.ctaNote}
-                onClick={(e) => { e.preventDefault(); navigate(sidebar.enrollHref) }}
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate(sidebar.enrollHref)
+                }}
               >
                 {ctaBox.note}
               </a>

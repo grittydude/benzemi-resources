@@ -63,7 +63,7 @@
 /* ── Event row: photo | details ── */
 .eventRow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: var(--space-10);
   align-items: start;
 }
@@ -72,6 +72,7 @@
 .photo {
   border-radius: 16px;
   overflow: hidden;
+  background-color: red;
 }
 
 .photoImg {
@@ -130,9 +131,9 @@
 /* Counter 01 / 02 */
 .counter {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   letter-spacing: 0.06em;
-  color: rgba(34, 47, 48, 0.40);
+  color: var(--color-brand-green);
   flex-shrink: 0;
   padding-top: 4px; /* optical alignment with title */
 }
@@ -201,7 +202,7 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.08em;
   text-decoration: none;

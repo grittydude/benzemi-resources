@@ -56,8 +56,8 @@
 }
 
 .scrollTop img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
 }
 
@@ -85,9 +85,9 @@
 /* Big heading — 3 lines with green accents */
 .heading {
   font-family: var(--font-family-display);
-  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-size: clamp(2.25rem, 3.5vw, 3.5rem);
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-tight);
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--color-text-primary-light);
   margin: 0;
@@ -192,7 +192,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-2);
+  gap: var(--space-6);
   position: relative;
   z-index: 1;
 }
@@ -212,10 +212,11 @@
 
 .copyright {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  color: rgba(10, 10, 10, 0.45);
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-green);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  opacity: 60%;
   margin: 0;
 }
 
@@ -229,7 +230,7 @@
   }
 
   .heading {
-    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-size: clamp(3rem, 3.5vw, 3.5rem);
   }
 }
 
@@ -251,7 +252,7 @@
   }
 
   .heading {
-    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-size: clamp(2.25rem, 3.5vw, 3.5rem);
     text-align: center;
   }
 
