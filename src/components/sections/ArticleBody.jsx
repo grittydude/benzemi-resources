@@ -4,11 +4,15 @@ import ArticleHero from './ArticleHero'
 import resourceImg from '../../assets/images/resource_img.jpg'
 import styles from './ArticleBody.module.css'
 
+/**
+ * Full article page layout.
+ * DOM order matches mobile reading order (back → header → share/author → body).
+ * CSS grid repositions items into two columns on desktop.
+ */
 function ArticleBody() {
   const {
     share,
     author,
-    image,
     introSection,
     pullQuote,
     numberedSections,
@@ -20,46 +24,41 @@ function ArticleBody() {
       <div className={styles.outer}>
         <div className={styles.layout}>
 
-          {/* ══ SINGLE SIDEBAR ══════════════════════════════════ */}
-          <aside className={styles.sidebar}>
+          {/* 1 — Back button (sidebar-col top on desktop, first on mobile) */}
+          <button
+            className={styles.back}
+            onClick={() => navigate('/resources')}
+            type="button"
+          >
+            <span className={styles.backChip} aria-hidden="true">←</span>
+            Back to Resources
+          </button>
 
-            {/* Back button */}
-            <button
-              className={styles.back}
-              onClick={() => navigate('/resources')}
-              type="button"
-            >
-              <span className={styles.backChip} aria-hidden="true">←</span>
-              Back to Resources
-            </button>
+          {/* 2 — Article header (content-col top on desktop, second on mobile) */}
+          <div className={styles.articleHeader}>
+            <ArticleHero />
+          </div>
 
-            {/* Share + Author grouped */}
-            <div className={styles.sideGroup}>
-              <div className={styles.sideBlock}>
-                <p className={styles.sideLabel}>Share</p>
-                <div className={styles.shareLinks}>
-                  <a href={share.linkedin} className={styles.shareLink} target="_blank" rel="noopener noreferrer">
-                    LinkedIn<span className={styles.shareCount}>5</span>
-                  </a>
-                  <a href={share.x} className={styles.shareLink} target="_blank" rel="noopener noreferrer">X</a>
-                </div>
-              </div>
-
-              <div className={styles.sideBlock}>
-                <p className={styles.sideLabel}>Author</p>
-                <p className={styles.authorName}>{author}</p>
+          {/* 3 — Share + Author (sidebar-col bottom on desktop, third on mobile) */}
+          <aside className={styles.sideGroup}>
+            <div className={styles.sideBlock}>
+              <p className={styles.sideLabel}>Share</p>
+              <div className={styles.shareLinks}>
+                <a href={share.linkedin} className={styles.shareLink} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+                <a href={share.x} className={styles.shareLink} target="_blank" rel="noopener noreferrer">X</a>
               </div>
             </div>
-
+            <div className={styles.sideBlock}>
+              <p className={styles.sideLabel}>Author</p>
+              <p className={styles.authorName}>{author}</p>
+            </div>
           </aside>
 
-          {/* ══ CONTENT COLUMN ══════════════════════════════════ */}
-          <div className={styles.content}>
+          {/* 4 — Article body (content-col bottom on desktop, fourth on mobile) */}
+          <div className={styles.body}>
 
-            {/* Article header (type, date, title, intro) */}
-            <ArticleHero />
-
-            {/* Introduction section */}
             <section className={styles.section}>
               <h2 className={styles.sectionHeading}>{introSection.heading}</h2>
               {introSection.paragraphs.map((p, i) => (
@@ -67,7 +66,6 @@ function ArticleBody() {
               ))}
             </section>
 
-            {/* Article image */}
             <figure className={styles.figure}>
               <img
                 src={resourceImg}
@@ -77,25 +75,20 @@ function ArticleBody() {
               />
             </figure>
 
-            {/* Pull quote */}
             <blockquote className={styles.pullQuote}>
               <p className={styles.pullQuoteText}>{pullQuote.text}</p>
               <cite className={styles.pullQuoteAttribution}>{pullQuote.attribution}</cite>
             </blockquote>
 
-            {/* Numbered sections */}
             <div className={styles.numberedSections}>
               {numberedSections.map((s) => (
                 <section key={s.num} className={styles.numberedItem}>
-                  <h3 className={styles.numberedHeading}>
-                    {s.num}.{' '}{s.heading}
-                  </h3>
+                  <h3 className={styles.numberedHeading}>{s.num}.{' '}{s.heading}</h3>
                   <p className={styles.para}>{s.body}</p>
                 </section>
               ))}
             </div>
 
-            {/* Conclusion box */}
             <aside className={styles.conclusionBox}>
               <h3 className={styles.conclusionHeading}>{conclusion.heading}</h3>
               <p className={styles.para}>{conclusion.body}</p>

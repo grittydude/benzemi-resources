@@ -13,7 +13,7 @@ function RelatedPublications() {
 
         {/* ── Header: heading + view all CTA ── */}
         <div className={styles.headerRow}>
-          <h2 className={styles.heading}>Related Publications</h2>
+          <h2 className={styles.heading}>Related <span className={styles.accent}>Publications</span></h2>
           <div className={styles.headerCta}>
             <button
               className={styles.viewAll}

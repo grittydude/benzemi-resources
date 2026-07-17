@@ -175,6 +175,8 @@
 .cardDesc {
   font-family: var(--font-family-base);
   font-size: var(--font-size-lg);
+  font-weight: 300;
+  color: var(--color-brand-green);
   line-height: 1.4;
   margin: 0;
   flex: 1;

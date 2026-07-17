@@ -1,45 +1,43 @@
 /* ============================================================
-   ARTICLE BODY — full page layout
-   Single two-column layout: sidebar (back + share + author) | content (header + body)
-   No gradient. Padding matches navbar 40px edge.
-   Mobile-first
+   ARTICLE BODY
+   CSS grid two-column layout.
+   Named grid areas: back + side = left col, header + body = right col.
+   DOM order IS the mobile reading order:
+     1. .back  2. .articleHeader  3. .sideGroup  4. .body
+   On mobile: switch to flex-column so DOM order renders top-to-bottom.
    ============================================================ */
 
 .article {
   background-color: var(--color-light-bg);
-  padding-top: 80px; /* navbar offset */
+  padding-top: 80px;
   width: 100%;
 }
 
-/* Full-width container — no max-width centering */
 .outer {
   padding: var(--space-12) var(--container-padding) var(--space-16);
 }
 
-/* Two-column row */
+/* ══ DESKTOP GRID ════════════════════════════════════════════ */
+
 .layout {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-12);
+  display: grid;
+  grid-template-columns: 234px 1fr;
+  grid-template-areas:
+    "back   header"
+    "side   body";
+  column-gap: var(--space-16);
+  row-gap: 0;
+  align-items: start;
 }
 
-/* ══ SIDEBAR ══════════════════════════════════════════════════ */
-.sidebar {
-  width: 23%;
-  flex-shrink: 0;
-  align-self: flex-start; /* never stretch to match content height */
-  position: sticky;
-  top: calc(80px + var(--space-8));
-  display: flex;
-  flex-direction: column;
-  gap: 382px; /* space between back button and sideGroup */
-}
+/* ══ BACK BUTTON ══════════════════════════════════════════════ */
 
-/* Back button — 234×44, bottom-right notch */
 .back {
+  grid-area: back;
+  align-self: start;
   display: inline-flex;
   align-items: center;
-  width: 234px;
+  width: 248px;
   height: 44px;
   padding: 12px 22px 12px 20px;
   gap: 8px;
@@ -59,7 +57,7 @@
 
 .back:hover {
   background-color: #e8e8e6;
-  color: var(--color-brand-green);
+  color: rgba(10, 10, 10, 0.8);
 }
 
 .backChip {
@@ -68,53 +66,66 @@
   justify-content: center;
   width: 20px;
   height: 20px;
-  font-size: 24px;
+  border-radius: 50%;
+  font-size: 20px;
   line-height: 1;
   flex-shrink: 0;
+  color: var(--color-brand-green);
 }
 
-/* Groups share + author together with tighter internal spacing */
+/* ══ ARTICLE HEADER WRAPPER ══════════════════════════════════ */
+
+.articleHeader {
+  grid-area: header;
+}
+
+/* ══ SHARE + AUTHOR SIDEBAR ══════════════════════════════════ */
+
 .sideGroup {
+  grid-area: side;
+  align-self: start;
+  position: sticky;
+  top: calc(80px + var(--space-8));
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  
+  margin-top: var(--space-10);
 }
 
-/* Individual side blocks: share / author */
 .sideBlock {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  padding-left: 20px; /* aligns with back button text */
 }
 
 .sideLabel {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(10, 10, 10, 0.35);
+  color: var(--color-brand-green-muted);
   margin: 0;
 }
 
 .shareLinks {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-8);
 }
 
 .shareLink {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-text-primary-light);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: var(--color-brand-green);
+  text-decoration: none;
+  text-decoration-line: underline;
   transition: color var(--transition-fast);
 }
 
@@ -122,104 +133,95 @@
   color: var(--color-brand-green-muted);
 }
 
-.shareCount {
-  display: inline-flex;
-  align-items: center;
-  font-size: 9px;
-  font-style: normal;
-  color: rgba(10, 10, 10, 0.4);
-  text-decoration: none;
-}
-
 .authorName {
   font-family: var(--font-family-code);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-text-primary-light);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-brand-green);
   margin: 0;
+  text-transform: uppercase;
 }
 
-/* ══ CONTENT COLUMN ══════════════════════════════════════════ */
-.content {
-  flex: 1;
-  min-width: 0;
+/* ══ BODY CONTENT ════════════════════════════════════════════ */
+
+.body {
+  grid-area: body;
   display: flex;
   flex-direction: column;
-  gap: var(--space-10);
+  gap: var(--space-8);
 }
 
-/* Introduction section */
 .section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .sectionHeading {
   font-family: var(--font-family-display);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-  font-weight: var(--font-weight-black);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--color-text-primary-light);
-  margin: 0;
-}
-
-/* Body paragraphs */
-.para {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-lg);
-  font-weight: 300;
-  line-height: 1.6;
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
   color: var(--color-brand-green);
   margin: 0;
 }
 
-/* Article image */
+.para {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-brand-green);
+  margin: 0;
+  opacity: 0.85;
+}
+
 .figure {
   margin: 0;
+  border-radius: var(--radius-xxl);
+  overflow: hidden;
 }
 
 .image {
-  display: block;
   width: 100%;
-  height: auto;
+  height: 400px;
   object-fit: cover;
+  display: block;
 }
 
-/* Pull quote */
 .pullQuote {
   margin: 0;
-  padding: var(--space-6) var(--space-8);
   border-left: 3px solid var(--color-brand-green-muted);
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-badge-bg);
+  border-radius: 0 var(--radius-xxl) var(--radius-xxl) 0;
 }
 
 .pullQuoteText {
   font-family: var(--font-family-display);
-  font-size: clamp(1rem, 1.6vw, 1.5em);
+  font-size: clamp(1rem, 1.5vw, 1.375rem);
   font-weight: var(--font-weight-regular);
-  line-height: 1.2;
-  color: #4B8145;
-  margin: 0 0 var(--space-4);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-brand-green);
+  margin: 0 0 var(--space-2);
 }
 
 .pullQuoteAttribution {
   display: block;
   font-family: var(--font-family-code);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-xs);
   font-style: normal;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1.2;
-  color: var(--color-brand-green);
+  color: rgba(10, 10, 10, 0.5);
 }
 
-/* Numbered sections */
 .numberedSections {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .numberedItem {
@@ -230,17 +232,16 @@
 
 .numberedHeading {
   font-family: var(--font-family-display);
-  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-tight);
   color: var(--color-brand-green);
   margin: 0;
 }
 
-/* Conclusion box — card notch pattern */
+/* Conclusion box — bottom-right notch */
 .conclusionBox {
-  background-color: #f7f7f5;
-  border-radius: 0 0 40px;
+  background-color: var(--color-badge-bg);
+  border-radius: var(--radius-xxl);
   border-bottom-right-radius: var(--radius-xxll);
   padding: var(--space-8) var(--space-10);
   display: flex;
@@ -250,54 +251,91 @@
 
 .conclusionHeading {
   font-family: var(--font-family-display);
-  font-size: clamp(1.125rem, 1.6vw, 2rem);
+  font-size: clamp(1rem, 1.5vw, 1.375rem);
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-tight);
-  letter-spacing: -0.02em;
   color: var(--color-brand-green);
   margin: 0;
 }
 
 /* ══ RESPONSIVE ══════════════════════════════════════════════ */
 
+@media (max-width: 900px) {
+  .outer {
+    padding: var(--space-10) var(--space-6) var(--space-12);
+  }
+}
+
+/* Mobile — flex column; DOM order = reading order */
 @media (max-width: 768px) {
   .outer {
-    padding: var(--space-8) var(--space-6) var(--space-12);
+    padding: var(--space-8) var(--space-5) var(--space-12);
   }
 
   .layout {
+    display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: 0;
   }
 
-  .sidebar {
-    width: 100%;
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-    align-items: flex-start;
-  }
-
+  /* 1st: back button — full width */
   .back {
     width: 100%;
+    margin-bottom: var(--space-5);
   }
 
-  .sideBlock {
+  /* 2nd: article header — allow some breathing room below */
+  .articleHeader {
+    margin-bottom: var(--space-5);
+  }
+
+  /* 3rd: share + author — horizontal compact row with top/bottom divider */
+  .sideGroup {
+    position: static;
+    margin-top: 0;
     padding-left: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-5);
+    padding: var(--space-4) 0;
+    border-top: 1px solid rgba(10, 10, 10, 0.08);
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+    margin-bottom: var(--space-6);
+  }
+
+  /* Each block: label | value side-by-side */
+  .sideBlock {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  /* Share links row */
+  .shareLinks {
+    flex-direction: row;
+    gap: var(--space-3);
+  }
+
+  /* 4th: body content */
+  .body {
+    gap: var(--space-6);
+  }
+
+  .image {
+    height: 200px;
   }
 
   .conclusionBox {
     padding: var(--space-6);
+  }
+
+  .pullQuote {
+    padding: var(--space-3) var(--space-4);
   }
 }
 
 @media (max-width: 480px) {
   .outer {
     padding: var(--space-6) var(--space-4) var(--space-10);
-  }
-
-  .pullQuote {
-    padding: var(--space-5);
   }
 }

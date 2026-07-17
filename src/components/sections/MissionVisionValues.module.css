@@ -1,12 +1,15 @@
 /* ============================================================
-   MISSION VISION VALUES  – About page tabbed section
-   Vertical tabs left | content panel right
+   MISSION VISION VALUES  – About page swipeable section
+   Vertical tabs left | content panel right (desktop)
+   Swipe left/right to advance slides (all screens)
    Mobile-first
    ============================================================ */
 
 .section {
   background-color: var(--color-brand-green);
   width: 100%;
+  /* prevent horizontal scroll bleed during swipe */
+  overflow: hidden;
 }
 
 .inner {
@@ -42,12 +45,11 @@
   border-radius: 4px;
   text-align: left;
   width: fit-content;
-  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .tab:hover {
   color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .tabActive {
@@ -63,16 +65,35 @@
   background-color: var(--color-brand-green-muted);
 }
 
+/* ── Slide animations ── */
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 /* ── Content panel ── */
 .panel {
   padding-top: var(--space-1);
   margin-left: 20%;
 }
 
+.panelFromRight {
+  animation: slideInFromRight 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.panelFromLeft {
+  animation: slideInFromLeft 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
 .panelLabel {
   font-family: var(--font-family-code);
   font-size: var(--font-family-base);
-  font-weight: var(--font-weight-regular);;
+  font-weight: var(--font-weight-regular);
   color: var(--color-brand-green-muted);
   margin: 0 0 var(--space-6);
 }
@@ -106,9 +127,9 @@
   min-height: 280px;
 }
 
-.card--white { background-color: #ffffff;             color: var(--color-brand-green); }
-.card--green { background-color: var(--color-brand-card); color: var(--color-brand-green); }
-.card--gray  { background-color: #EFEFEF;             color: var(--color-brand-green); }
+.card--white { background-color: #ffffff;                    color: var(--color-brand-green); }
+.card--green { background-color: var(--color-brand-card);    color: var(--color-brand-green); }
+.card--gray  { background-color: #EFEFEF;                    color: var(--color-brand-green); }
 
 /* Icon */
 .cardIcon {
@@ -153,6 +174,27 @@
   opacity: 0.75;
 }
 
+/* ── Dot indicators (mobile only, hidden on desktop) ── */
+.dots {
+  display: none;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: calc(-1 * var(--space-6));
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.30);
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.dotActive {
+  background-color: #ffffff;
+  transform: scale(1.4);
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -173,20 +215,34 @@
 @media (max-width: 768px) {
   .inner {
     gap: var(--space-8);
-    padding: var(--space-12) var(--space-6);
+    padding: var(--space-12) var(--space-5);
   }
 
+  /* Tabs become horizontal pill indicators — still tappable */
   .tabs {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: var(--space-2);
   }
 
   .tab {
     width: auto;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  /* Panel goes full-width, no desktop indent */
+  .panel {
+    margin-left: 0;
+  }
+
+  .panelLabel {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.08em;
   }
 
   .panelText {
-    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    font-size: clamp(1.375rem, 5vw, 2.25rem);
   }
 
   .cards {
@@ -196,10 +252,26 @@
   .card {
     min-height: auto;
   }
+
+  /* Show dot indicators on mobile */
+  .dots {
+    display: flex;
+  }
 }
 
 @media (max-width: 480px) {
   .inner {
     padding: var(--space-10) var(--space-4);
+    gap: var(--space-6);
+  }
+
+  /* Tighten slide animation distance on small screens */
+  @keyframes slideInFromRight {
+    from { opacity: 0; transform: translateX(28px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideInFromLeft {
+    from { opacity: 0; transform: translateX(-28px); }
+    to   { opacity: 1; transform: translateX(0); }
   }
 }

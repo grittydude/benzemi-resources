@@ -223,7 +223,7 @@
   font-weight: var(--font-weight-regular);
   line-height: 1.2;
   letter-spacing: -0.02em;
-  max-width: 300px;
+  max-width: 350px;
   margin: var(--space-8) 0 var(--space-3);
 }
 

@@ -115,9 +115,9 @@
 .heading {
   font-family: var(--font-family-display);
   font-size: clamp(2.5rem, 4.5vw, 5rem); /* 40px → 72px */
-  font-weight: var(--font-weight-black);
-  line-height: var(--line-height-tight);
-  letter-spacing: -0.02em;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--color-text-primary-light);
   margin: 0;
   max-width: 100%;
@@ -134,7 +134,7 @@
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-relaxed);
   color: var(--color-brand-green);
-  width: auto important;
+  max-width: 80%;
 }
 
 /* ---- CTA row ---- */
@@ -174,7 +174,7 @@
 /* Large desktop — give content more breathing room */
 @media (min-width: 1280px) {
   .content {
-    max-width: 100%;
+    max-width: 90%;
     gap: var(--space-6);
   }
 
@@ -192,7 +192,7 @@
 
   /* ---- Body copy ---- */
   .description {
-    max-width: 40%;
+    max-width: 55%;
   }
 }
 

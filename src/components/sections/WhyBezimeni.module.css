@@ -1,9 +1,20 @@
 /* ============================================================
-   WHY BEZIMENI SECTION
-   Mobile-first
+   WHY BEZIMENI SECTION — scroll-pinned
+   .outer creates the scroll space; .section is sticky so it
+   stays in view while the user scrolls through each slide.
    ============================================================ */
 
+/* ── Outer wrapper: creates scroll space ── */
+.outer {
+  position: relative;
+  /* height set inline: slides.length × 100vh */
+}
+
+/* ── Sticky section ── */
 .section {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
   background-color: var(--color-brand-card);
   width: 100%;
   overflow: hidden;
@@ -16,7 +27,7 @@
   padding: var(--space-16) var(--container-padding) var(--space-12);
 }
 
-/* ── Badge (dark pill) ── */
+/* ── Badge ── */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -65,36 +76,29 @@
 }
 
 /* ============================================================
-   SLIDER
+   SLIDE ANIMATIONS
+   .slideImage and .slideContent are re-mounted via React key
+   when the slide changes, which re-triggers these animations.
+   .stat and .logo use inline animationDelay for stagger.
    ============================================================ */
 
-.viewport {
-  width: 100%;
-  overflow: hidden;
-  cursor: grab;
-  user-select: none;
+@keyframes wbImageIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-.viewport:active {
-  cursor: grabbing;
+@keyframes wbContentIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.track {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  transition: transform 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
+@keyframes wbItemIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.track.dragging {
-  transition: none;
-}
-
-/* ── Individual slide ── */
+/* ── Slide layout ── */
 .slide {
-  flex: 0 0 100%;
   display: flex;
   align-items: flex-start;
   gap: var(--space-10);
@@ -102,26 +106,28 @@
   padding: 0 var(--container-padding) var(--space-16);
 }
 
-/* ── Slide image ── */
+/* ── Slide image — animates on re-mount ── */
 .slideImage {
   flex: 0 0 38%;
-  width: 38%;            /* belt-and-suspenders for flex percentage */
+  width: 38%;
   aspect-ratio: 4 / 3;
   border-radius: 20px;
   object-fit: cover;
   object-position: center;
   flex-shrink: 0;
-  pointer-events: none;
   display: block;
+  animation: wbImageIn 680ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-/* ── Content column ── */
+/* ── Content column — animates on re-mount ── */
 .slideContent {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0;           /* control spacing explicitly per child */
+  gap: 0;
   min-width: 0;
+  opacity: 0;
+  animation: wbContentIn 520ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 80ms forwards;
 }
 
 /* ── Divider — bleeds to the right viewport edge ── */
@@ -147,10 +153,10 @@
   flex-shrink: 0;
   letter-spacing: 0.04em;
   min-width: 52px;
-  padding-top: 6px; /* optically align with title baseline */
+  padding-top: 6px;
 }
 
-/* ── Right column: two stacked sections ── */
+/* ── Right column ── */
 .slideMain {
   display: flex;
   flex-direction: column;
@@ -159,14 +165,12 @@
   min-width: 0;
 }
 
-/* Top: title + optional description */
 .slideTop {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
 
-/* Bottom: stats or logos */
 .slideBottom {
   display: flex;
 }
@@ -190,15 +194,18 @@
   margin: 0;
 }
 
+/* stagger delay set via inline style */
 .stat {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  opacity: 0;
+  animation: wbItemIn 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .statValue {
   font-family: var(--font-family-display);
-  font-size: clamp(4rem, 3.5vw, 3.5rem);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: var(--font-weight-black);
   color: var(--color-brand-green-muted);
   line-height: 1;
@@ -213,7 +220,7 @@
   white-space: nowrap;
 }
 
-/* ── Pedigree description (inside slideTop) ── */
+/* ── Pedigree description ── */
 .pedigreeDesc {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
@@ -222,15 +229,15 @@
   margin: 0;
 }
 
+/* ── Partner logos ── */
 .logos {
   display: flex;
   align-items: center;
   gap: clamp(var(--space-6), 4vw, var(--space-10));
-  flex-wrap: wrap;  
-  
+  flex-wrap: wrap;
 }
 
-/* Company logo images — tinted to brand dark green */
+/* stagger delay set via inline style */
 .logo {
   height: 90px;
   width: auto;
@@ -238,14 +245,15 @@
   object-fit: contain;
   object-position: center;
   display: block;
-  filter: brightness(0) saturate(100%) invert(13%) sepia(20%) saturate(500%) hue-rotate(135deg);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  animation: wbItemIn 460ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 
-/* Large desktop */
 @media (min-width: 1280px) {
   .header {
     padding-top: var(--space-20);
@@ -257,16 +265,14 @@
   }
 }
 
-/* Tablet */
-@media (max-width: 1024px) { 
-  
+@media (max-width: 1024px) {
   .header {
     padding-bottom: var(--space-1);
   }
+
   .slide {
     gap: var(--space-8);
     padding: 0 var(--space-6) var(--space-12);
-    
   }
 
   .divider {
@@ -287,7 +293,6 @@
   }
 }
 
-/* Small tablet — stack vertically */
 @media (max-width: 768px) {
   .header {
     padding-top: var(--space-12);
@@ -318,7 +323,7 @@
     flex: none;
     width: 100%;
     max-width: 100%;
-    aspect-ratio: 16 / 9; /* much less tall on mobile */
+    aspect-ratio: 16 / 9;
   }
 
   .divider {
@@ -331,10 +336,6 @@
     flex-wrap: wrap;
   }
 
-  .pedigreeBody {
-    margin-top: var(--space-4);
-  }
-
   .statValue {
     font-size: clamp(1.75rem, 7vw, 2.5rem);
   }
@@ -344,7 +345,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .header {
     padding-top: var(--space-10);

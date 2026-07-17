@@ -111,6 +111,7 @@
   height: fit-content;
   width: fit-content;
   background-color: white;
+  border-radius: 0 0 24px 0;
   align-items: center;
   justify-self: center;
 }
@@ -146,10 +147,24 @@
 }
 
 @media (max-width: 768px) {
+  .inner {
+    padding: var(--space-12) var(--space-5);
+  }
+
   .headerRow {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-5);
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tab {
+    font-size: var(--font-size-xs);
+    padding: var(--space-2) var(--space-3);
   }
 
   .grid {

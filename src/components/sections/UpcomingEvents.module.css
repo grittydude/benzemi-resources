@@ -1,10 +1,20 @@
 /* ============================================================
-   UPCOMING EVENTS
-   Lime green background, white event card
-   Mobile-first
+   UPCOMING EVENTS — scroll-pinned
+   .outer creates the scroll space; .section is sticky so it
+   stays in view while the user scrolls through each event.
    ============================================================ */
 
+/* ── Outer wrapper: creates scroll space ── */
+.outer {
+  position: relative;
+  /* height set inline: items.length × 100vh */
+}
+
+/* ── Sticky section ── */
 .section {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
   background-color: #cee88a;
   width: 100%;
 }
@@ -68,7 +78,7 @@
   gap: 0;
 }
 
-/* Event photo */
+/* Event photo — static, never animates */
 .cardImage {
   width: 220px;
   flex-shrink: 0;
@@ -79,6 +89,12 @@
   border-radius: var(--radius-xxl) 0 0 var(--radius-xxl);
 }
 
+/* ── Card details animation — triggered by key change (remount) ── */
+@keyframes eventsIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Event details */
 .cardDetails {
   flex: 1;
@@ -86,6 +102,8 @@
   flex-direction: column;
   gap: var(--space-4);
   padding: var(--space-8) var(--space-10);
+  opacity: 0;
+  animation: eventsIn 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 /* Counter e.g. 01 / 02 */

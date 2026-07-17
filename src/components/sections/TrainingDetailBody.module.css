@@ -1,9 +1,9 @@
 /* ============================================================
    TRAINING DETAIL BODY
-   Same two-column sidebar pattern as ArticleBody.
-   Sidebar: back btn + meta (duration/format/level/cert) + enrol CTA.
-   Content: header + body sections.
-   Mobile-first
+   CSS grid two-column layout — same pattern as ArticleBody.
+   Named grid areas: back + meta = left col, header + body = right col.
+   DOM order = mobile reading order:
+     mobileEnroll chip → back → header (badge+title) → metaGroup → body
    ============================================================ */
 
 .article {
@@ -16,26 +16,29 @@
   padding: var(--space-12) var(--container-padding) var(--space-16);
 }
 
+/* Mobile enroll row — hidden on desktop */
+.mobileEnrollRow {
+  display: none;
+}
+
+/* ══ DESKTOP GRID ════════════════════════════════════════════ */
+
 .layout {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-12);
+  display: grid;
+  grid-template-columns: 234px 1fr;
+  grid-template-areas:
+    "back   header"
+    "meta   body";
+  column-gap: var(--space-12);
+  row-gap: 0;
+  align-items: start;
 }
 
-/* ══ SIDEBAR ══════════════════════════════════════════════════ */
-.sidebar {
-  width: 23%;
-  flex-shrink: 0;
-  align-self: flex-start;
-  position: sticky;
-  top: calc(80px + var(--space-8));
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-16);
-}
+/* ══ BACK BUTTON ══════════════════════════════════════════════ */
 
-/* Back button — same spec as ArticleBody */
 .back {
+  grid-area: back;
+  align-self: start;
   display: inline-flex;
   align-items: center;
   width: 234px;
@@ -58,7 +61,7 @@
 
 .back:hover {
   background-color: #e8e8e6;
-  color: var(--color-brand-green);
+  color: rgba(10, 10, 10, 0.8);
 }
 
 .backChip {
@@ -67,109 +70,17 @@
   justify-content: center;
   width: 20px;
   height: 20px;
-  font-size: 24px;
+  border-radius: 50%;
+  font-size: 20px;
   line-height: 1;
-  flex-shrink: 0;
-}
-
-/* Grouped: meta rows + enrol CTA */
-.sideGroup {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  padding-left: 20px;
-}
-
-.sideBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.sideLabel {
-  font-family: var(--font-family-code);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-brand-green-muted);
-  margin: 0;
-}
-
-.sideValue {
-  font-family: var(--font-family-code);
-  font-size: var(--font-size-base);
-  text-transform: uppercase;
   color: var(--color-brand-green);
-  font-weight: var(--font-weight-regular);
-  margin: 0;
-}
-
-/* Enrol CTA row */
-.enrollRow {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding-top: var(--space-6);
-}
-
-.enrollBtn {
-  display: inline-flex;
-  align-items: center;
-  height: 44px;
-  padding: 12px 20px;
-  background-color: var(--color-brand-green);
-  color: #ffffff;
-  border: none;
-  border-radius: 0 0 24px 0;
-  font-family: var(--font-family-code);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  text-transform: uppercase;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color var(--transition-fast);
-}
-
-.enrollBtn:hover {
-  background-color: var(--color-brand-green-muted);
-}
-
-.arrowBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  background-color: var(--color-brand-green-muted);
-  border: none;
-  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
-  cursor: pointer;
   flex-shrink: 0;
-  transition: background-color var(--transition-fast);
 }
 
-.arrowBtn img {
-  width: 15px;
-  height: 15px;
-  display: block;
-}
+/* ══ CONTENT HEADER ══════════════════════════════════════════ */
 
-.arrowBtn:hover {
-  background-color: var(--color-brand-green);
-}
-
-/* ══ CONTENT COLUMN ══════════════════════════════════════════ */
-.content {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-10);
-}
-
-/* Header */
 .header {
+  grid-area: header;
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
@@ -186,7 +97,7 @@
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-primary-light);
+  color: var(--color-brand-green);
   background-color: var(--color-badge-bg);
   padding: var(--space-1) var(--space-3);
   border-radius: 4px;
@@ -205,11 +116,122 @@
   font-family: var(--font-family-display);
   font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: var(--font-weight-regular);
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.025em;
   color: var(--color-brand-green);
-  max-width: 80%;
+  max-width: 88%;
   margin: 0;
+}
+
+/* ══ META GROUP (sidebar bottom) ══════════════════════════════ */
+
+.metaGroup {
+  grid-area: meta;
+  align-self: start;
+  position: sticky;
+  top: calc(80px + var(--space-8));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+/* Desktop: meta items in a single column */
+.metaGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.sideBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sideLabel {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.4);
+  margin: 0;
+}
+
+.sideValue {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-brand-green);
+  margin: 0;
+}
+
+/* Enrol CTA row */
+.enrollRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.enrollBtn {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 16px 24px;
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+  border: none;
+  border-radius: 0 0 24px 0;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--transition-fast);
+}
+
+.enrollBtn:hover {
+  background-color: var(--color-brand-green-muted);
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  aspect-ratio: 1;
+  background-color: var(--color-brand-green-muted);
+  border: none;
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
+/* ══ BODY CONTENT ════════════════════════════════════════════ */
+
+.body {
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
 }
 
 .intro {
@@ -221,7 +243,6 @@
   margin: 0;
 }
 
-/* Sections */
 .section {
   display: flex;
   flex-direction: column;
@@ -234,7 +255,7 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;
-  color: #222F30;
+  color: var(--color-brand-green);
   margin: 0;
 }
 
@@ -245,7 +266,7 @@
   line-height: var(--line-height-relaxed);
   color: var(--color-brand-green);
   margin: 0;
-  opacity: 80%;
+  opacity: 0.8;
 }
 
 /* Bullet lists */
@@ -267,7 +288,7 @@
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-relaxed);
   color: var(--color-brand-green);
-  opacity: 80%;
+  opacity: 0.85;
 }
 
 .bulletItem::before {
@@ -313,10 +334,11 @@
   align-items: baseline;
   gap: var(--space-2);
   font-family: var(--font-family-base);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: 300;
   line-height: var(--line-height-relaxed);
   color: var(--color-brand-green);
+  opacity: 0.85;
 }
 
 .moduleItem::before {
@@ -325,9 +347,10 @@
   flex-shrink: 0;
 }
 
-/* CTA box — same card notch pattern */
+/* CTA box — bottom-right notch */
 .ctaBox {
-  background-color: #f7f7f5;  
+  background-color: var(--color-badge-bg);
+  border-radius: var(--radius-xxl);
   border-bottom-right-radius: var(--radius-xxll);
   padding: var(--space-8) var(--space-10);
   display: flex;
@@ -347,7 +370,7 @@
 .ctaNote {
   display: inline-block;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   text-transform: uppercase;
   color: var(--color-brand-green-muted);
   text-decoration: underline;
@@ -363,48 +386,139 @@
 /* ══ RESPONSIVE ══════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
+  .outer {
+    padding: var(--space-10) var(--space-6) var(--space-12);
+  }
+
   .curriculumGrid {
     grid-template-columns: 1fr;
   }
 }
 
+/* Mobile — flex column; DOM order = reading order */
 @media (max-width: 768px) {
   .outer {
-    padding: var(--space-8) var(--space-6) var(--space-12);
-  }
-
-  .layout {
+    display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    padding: var(--space-6) var(--space-5) var(--space-12);
   }
 
-  .sidebar {
-    width: 100%;
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-    align-items: flex-start;
+  /* Mobile ENROLL row — dark button + arrow, right-aligned */
+  .mobileEnrollRow {
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: var(--space-4);
   }
 
+  .mobileEnrollBtn {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 12px 20px;
+    background-color: var(--color-brand-green);
+    color: #ffffff;
+    border: none;
+    border-radius: 0 0 24px 0;
+    font-family: var(--font-family-code);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--transition-fast);
+  }
+
+  .mobileEnrollBtn:hover {
+    background-color: var(--color-brand-green-muted);
+  }
+
+  .mobileArrowBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    aspect-ratio: 1;
+    background-color: var(--color-brand-green-muted);
+    border: none;
+    border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color var(--transition-fast);
+  }
+
+  .mobileArrowBtn img {
+    width: 15px;
+    height: 15px;
+    display: block;
+  }
+
+  .mobileArrowBtn:hover {
+    background-color: var(--color-brand-green);
+  }
+
+  /* Layout: flex column, DOM order is reading order */
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* 1st: back button — compact, text hidden, just the arrow chip */
   .back {
-    width: 100%;
+    width: fit-content;
+    padding: 10px 12px;
+    margin-bottom: var(--space-5);
   }
 
-  .sideGroup {
-    padding-left: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-6);
+  .backText {
+    display: none;
   }
 
-  .enrollRow {
-    flex-basis: 100%;
+  /* 2nd: header — badge + title, softer border */
+  .header {
+    border-bottom: none;
+    padding-bottom: var(--space-4);
   }
 
   .title {
     max-width: 100%;
     font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  /* 3rd: meta group — 2×2 grid with dividers */
+  .metaGroup {
+    position: static;
+    margin-top: 0;
+    padding-left: 0;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-top: 1px solid rgba(10, 10, 10, 0.08);
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+    margin-bottom: var(--space-6);
+  }
+
+  /* Meta items: 2-column grid on mobile */
+  .metaGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Hide desktop enroll CTA — mobile uses the chip */
+  .enrollRow {
+    display: none;
+  }
+
+  /* 4th: body */
+  .body {
+    gap: var(--space-6);
+  }
+
+  .intro {
+    font-size: var(--font-size-base);
   }
 
   .ctaBox {
@@ -414,6 +528,7 @@
 
 @media (max-width: 480px) {
   .outer {
-    padding: var(--space-6) var(--space-4) var(--space-10);
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
   }
 }
