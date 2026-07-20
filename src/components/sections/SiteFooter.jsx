@@ -42,6 +42,15 @@ function SiteFooter() {
               >
                 <img src={arrowIcon} alt="" />
               </a>
+              {/* Scroll-to-top — inline with CTA on mobile */}
+              <button
+                className={styles.scrollTop}
+                onClick={scrollToTop}
+                aria-label="Scroll to top"
+                type="button"
+              >
+                <img src={arrowUpIcon} alt="" />
+              </button>
             </div>
           </div>
 
@@ -91,9 +100,9 @@ function SiteFooter() {
               </ul>
             </div>
 
-            {/* Scroll-to-top — aligned with column headers */}
+            {/* Scroll-to-top — shown only on desktop (hidden on mobile via CSS) */}
             <button
-              className={styles.scrollTop}
+              className={`${styles.scrollTop} ${styles.scrollTopDesktop}`}
               onClick={scrollToTop}
               aria-label="Scroll to top"
               type="button"

@@ -216,40 +216,46 @@
 /* Mobile */
 @media (max-width: 640px) {
   .inner {
-    padding-top: calc(40px + var(--space-10));
-    padding-bottom: var(--space-10);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-6);
+    padding-left: 16px;
   }
 
   .heading {
-    font-size: clamp(2rem, 8vw, 2.75rem);
-    text-align: center;
+    font-size: clamp(2.75rem, 8vw, 2.75rem);
+    text-align: left;
   }
 
   .description {
-    max-width: 85%;
+    max-width: 80%;
     font-size: var(--font-size-sm);
-    text-align: center;
-    margin: 0 auto;
+    text-align: left;
   }
 
   .badge {
-    font-size: 0.6875rem;
-    margin: 0 auto;
-    justify-content: center;
-    text-align: center;
+    font-size: var(--font-size-xs);
   }
 
   .content {
     max-width: 100%;
-    align-items: center;
-  }
-
-  .cta {
-    justify-content: center;
+    align-items: flex-start;
   }
 
   .cta {
     flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .arrowBtn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .arrowBtn img {
+    width: 12px;
+    height: 12px;
+    display: block;
   }
 
   /* On small screens widen the spread so green covers more of the right */

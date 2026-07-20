@@ -46,7 +46,7 @@
   font-size: var(--font-size-xs);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(10, 10, 10, 0.45);
+  color: var(--color-brand-green);
 }
 
 /* H1 */
@@ -76,6 +76,12 @@
   .header {
     gap: var(--space-4);
     padding-bottom: var(--space-6);
+    border-bottom: none;
+  }
+
+  /* Hidden on mobile — ArticleBody renders a separate intro in the right order */
+  .intro {
+    display: none;
   }
 
   .title {
@@ -91,5 +97,8 @@
 @media (max-width: 480px) {
   .title {
     font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+  .intro{
+    font-size: 14px;
   }
 }

@@ -14,9 +14,9 @@
  *  bgColor     – CSS color string
  *  id          – HTML section id
  */
-import developIcon from "../../assets/icons/develop_icon.svg";
-import buildCapacityIcon from "../../assets/icons/drive_icon.svg";
-import deliverIcon from "../../assets/icons/deliver_icon.svg";
+import developIcon from "../../assets/icons/develop.svg";
+import buildCapacityIcon from "../../assets/icons/build_capacity.svg";
+import deliverIcon from "../../assets/icons/deliver.svg";
 import learnIcon from "../../assets/icons/learn.svg";
 import engrSupportIcon from "../../assets/icons/engr_support.png";
 import applyIcon from "../../assets/icons/apply.svg";
@@ -72,6 +72,7 @@ function renderHeading(heading) {
 
 function ThreePillarSection({
   badge,
+  badgeColor,
   heading = {},
   description,
   pillars = [],
@@ -96,7 +97,7 @@ function ThreePillarSection({
         {stackedHeader ? (
           <div className={styles.headerStacked}>
             {badge && (
-              <p className={styles.badge}>
+              <p className={styles.badge} style={badgeColor ? { backgroundColor: badgeColor } : undefined}>
                 <span className={styles.badgeDot} aria-hidden="true" />
                 <span>{badge}</span>
               </p>
@@ -108,7 +109,7 @@ function ThreePillarSection({
           <div className={styles.header}>
             <div className={styles.headerLeft}>
               {badge && (
-                <p className={styles.badge}>
+                <p className={styles.badge} style={badgeColor ? { backgroundColor: badgeColor } : undefined}   >
                   <span className={styles.badgeDot} aria-hidden="true" />
                   <span>{badge}</span>
                 </p>

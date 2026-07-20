@@ -177,8 +177,8 @@
 
   .headlineWrap {
     padding-left: 0;
-    align-items: flex-end;
-    padding-bottom: var(--space-16);
+    align-items: center;
+    padding-bottom: 0;
   }
 
   .headline {
@@ -191,7 +191,16 @@
     padding: var(--space-6) var(--space-5);
   }
 
+  .badge {
+    font-size: var(--font-size-xs);
+  }
+
   .headline {
-    font-size: clamp(1.375rem, 7vw, 2rem);
+    font-size: clamp(2rem, 7vw, 2rem);
+  }
+
+  .counter {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--font-size-xs);
   }
 }

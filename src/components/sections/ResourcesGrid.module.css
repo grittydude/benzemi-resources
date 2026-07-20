@@ -177,4 +177,10 @@
   .inner {
     padding: var(--space-10) var(--space-4);
   }
+  .loadMore{
+    justify-self: flex-start;
+  }
+  .loadMoreBtn{
+    font-size: 12px;
+  }
 }

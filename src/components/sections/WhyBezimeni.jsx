@@ -27,15 +27,20 @@ const COMPANY_LOGOS = [
  * inner section is position:sticky so it stays in view while the user
  * scrolls through each slide. Slide content animates in on change.
  */
+const SWIPE_THRESHOLD = 50
+
 function WhyBezimeni() {
   const { badge, heading, slides } = WHY_BEZIMENI
   const [currentSlide, setCurrentSlide] = useState(0)
   const outerRef = useRef(null)
+  const touchStartX = useRef(null)
   const total = slides.length
 
+  // Desktop: scroll-driven slide change
   useEffect(() => {
     const handleScroll = () => {
       if (!outerRef.current) return
+      if (window.innerWidth <= 768) return  // swipe handles mobile
       const rect = outerRef.current.getBoundingClientRect()
       const scrolled = -rect.top
       const idx = Math.floor(scrolled / window.innerHeight)
@@ -46,10 +51,30 @@ function WhyBezimeni() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [total])
 
+  // Mobile: swipe-driven slide change
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return
+    const delta = touchStartX.current - e.changedTouches[0].clientX
+    touchStartX.current = null
+    if (Math.abs(delta) < SWIPE_THRESHOLD) return
+    if (delta > 0 && currentSlide < total - 1) setCurrentSlide(s => s + 1)
+    else if (delta < 0 && currentSlide > 0)  setCurrentSlide(s => s - 1)
+  }
+
   const slide = slides[currentSlide]
 
+  // Desktop outer height drives scroll-pinning; on mobile CSS overrides to auto
   return (
-    <div ref={outerRef} className={styles.outer} style={{ height: `${total * 100}vh` }}>
+    <div
+      ref={outerRef}
+      className={styles.outer}
+      style={{ height: `${total * 100}vh` }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <section className={styles.section} id="why-bezimeni" aria-labelledby="wb-heading">
 
         {/* ── Static header — stays visible throughout ── */}
@@ -66,6 +91,15 @@ function WhyBezimeni() {
               {heading.line2.suffix}
             </span>
           </h2>
+          {/* Tab progress indicators */}
+          <div className={styles.tabLines} aria-hidden="true">
+            {slides.map((_, i) => (
+              <span
+                key={i}
+                className={`${styles.tabLine} ${i === currentSlide ? styles.tabLineActive : ''}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* ── Slide content — both columns re-mount & animate on change ── */}

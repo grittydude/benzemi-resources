@@ -54,7 +54,7 @@
   flex-direction: column;
   font-family: var(--font-family-display);
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-tight);
+  line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0;
 }
@@ -235,16 +235,13 @@
   .content {
     margin-left: 0;
     gap: var(--space-5);
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .badge {
     margin-bottom: var(--space-8);
-    align-self: center;
     font-size: 0.6875rem;
-    justify-content: center;
-    text-align: center;
   }
 
   .line1,
@@ -254,11 +251,7 @@
 
   .description {
     max-width: 100%;
-    text-align: center;
-  }
-
-  .cta {
-    justify-content: center;
+    text-align: left;
   }
 
   .cards {
@@ -269,47 +262,86 @@
 
   .card {
     min-height: auto;
-    padding: var(--space-10) var(--space-8);
+    padding: var(--space-10) var(--space-8) 40px;
   }
 
   .cardIcon {
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
   }
 
   .cardTitle {
-    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    font-size: 24px;
     margin-top: var(--space-6);
+  }
+
+  .cardDesc {
+    font-size: 14px;
+  }
+
+  .cta {
+    align-items: center;
+  }
+
+  .arrowBtn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .arrowBtn img {
+    width: 12px;
+    height: 12px;
+    display: block;
   }
 }
 
 /* Mobile */
 @media (max-width: 480px) {
   .inner {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
+    padding: 24px;
+    
+  }
+
+  .heading {
+    max-width: fit-content;
   }
 
   .line1,
   .line2 {
-    font-size: clamp(1.5rem, 7vw, 2rem);
+    font-size: clamp(2rem, 7vw, 2rem);
+    line-height: 1.2;
   }
 
+  /* ---- Body copy ---- */
+  .description {
+    font-size: var(--font-size-sm);
+  }
   .badge {
     margin-bottom: var(--space-6);
+    font-size: var(--font-size-xs);
   }
 
   .cards {
-    padding: 0 0 var(--space-8);
-    gap: var(--space-2);
+    padding: 0 0 var(--space-4);
+    gap: 0;
   }
 
   .card {
-    padding: var(--space-8) var(--space-6);
+    padding: 16px;
+    border-radius: 0 0 40px 0 ;
   }
 
   .cardIcon {
-    width: 44px;
-    height: 44px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .cardTitle {
+    font-size: 24px;
+  }
+
+  .cardDesc {
+    font-size: 14px;
   }
 }

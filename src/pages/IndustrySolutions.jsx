@@ -28,6 +28,7 @@ function IndustrySolutions() {
         columns={3}
         fullWidth
         bgColor="var(--color-badge-bg)"
+        badgeColor="#ffffff"
         id="approach"
       />
 
@@ -40,6 +41,7 @@ function IndustrySolutions() {
         fullWidth
         stackedHeader
         bgColor="#ffffff"
+        badgeColor="#F7F7F5"
         id="solution-areas"
       />
 

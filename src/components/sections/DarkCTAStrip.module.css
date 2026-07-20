@@ -42,7 +42,7 @@
   width: 10px;
   height: 10px;
   flex-shrink: 0;
-  background-color: var(--color-brand-green-muted);
+  background-color: var(--color-brand-badge-dot);
 }
 
 .badge span:last-child {
@@ -149,5 +149,19 @@
 
   .card {
     padding: var(--space-8) var(--space-6);
+  }
+  .badge span:last-child {
+    font-size: var(--font-size-xs);
+  }
+  .text {
+    font-size: 32px;
+    padding-right: 24px;
+  }
+  .ctaBtn {
+    padding: 12px 20px;
+  }
+  .arrowBtn{
+    padding: 12px;
+    border-radius: 19px 0;
   }
 }

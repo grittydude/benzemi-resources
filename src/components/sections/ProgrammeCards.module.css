@@ -80,12 +80,12 @@
 }
 
 .card--dark .cardIcon img {
-  filter: brightness(10) opacity(0.2);
+  filter: brightness(10) opacity(0.1);
 }
 .card--light .cardIcon img,
 .card--white .cardIcon img,
 .card--green .cardIcon img {
-  filter: grayscale(1) opacity(0.25);
+  filter: grayscale(1) opacity(0.2);
 }
 
 /* Right column: badge stacked above price */
@@ -112,7 +112,7 @@
 /* 1st card (dark): #F7F7F5 at 16% opacity */
 .card--dark .certBadge {
   background-color: rgba(247, 247, 245, 0.16);
-  color: rgba(255, 255, 255, 0.65);
+  color: white;
 }
 
 /* 2nd card (light/#EEEEEE): white */
@@ -214,7 +214,7 @@
 }
 
 .card--dark .metaLabel {
-  color: #C9CBBE;
+  color: #c9cbbe;
 }
 .card--light .metaLabel,
 .card--white .metaLabel,
@@ -323,5 +323,47 @@
 @media (max-width: 480px) {
   .inner {
     padding: var(--space-4) var(--space-4) var(--space-12);
+  }
+  .grid{
+    gap: 0;
+  }
+  .card {
+    padding: 16px;
+  }
+
+  .cardIcon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cardTopRight {
+    gap: 14px;
+  }
+  .certBadge {
+    font-size: 12px;
+  }
+
+  .cardTitle{
+    font-size: 24px;
+  }
+
+  .cardDesc {
+    display: none;
+  }
+
+  .metaLabel{
+    font-size: 12px;
+  }
+  .metaValue {
+    font-size: 12px;
+  }
+  .viewLink{
+    font-size: 12px;
+  }
+  .arrowBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 19px 0;
+    padding: 12px;
   }
 }

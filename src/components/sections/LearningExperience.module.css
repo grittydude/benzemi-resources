@@ -5,7 +5,7 @@
    ============================================================ */
 
 .section {
-  background-color: #E7E8E1;
+  background-color: #e7e8e1;
   width: 100%;
 }
 
@@ -93,7 +93,8 @@
 .pointTotal {
   font-family: var(--font-family-code);
   font-size: var(--font-size-sm);
-  color: var(--color-brand-green-muted);}
+  color: var(--color-brand-green-muted);
+}
 
 .pointLabel {
   font-family: var(--font-family-display);
@@ -128,4 +129,23 @@
   .inner {
     padding: var(--space-10) var(--space-4);
   }
+
+  .heading {
+    margin-top: 32px;
+  }
+
+  .description {
+    margin-top: 24px;
+    line-height: 1.5;
+  }
+
+  .pointCounter {
+    margin-bottom: 8px;
+  }
+  .pointLabel{
+     min-height: none;
+     font-size: 24px;
+     padding-bottom: var(--space-4);
+  }
+
 }

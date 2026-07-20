@@ -266,4 +266,24 @@
 @media (max-width: 480px) {
   .inner { padding: var(--space-10) var(--space-4); }
   .heading { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .eventContent{
+    flex-direction: column;
+  }
+  .eventTitle{
+    font-size: 24px;
+  }
+  .metaLabel{
+    font-size: 12px;
+  }
+  .metaValue{
+    font-size: 12px;
+  }
+  .rsvpBtn{
+    font-size: 12px;
+    padding: 12px 24px;
+  }
+  .arrowBtn{
+    padding: 12px;
+    border-radius: 19px 0;
+  }
 }

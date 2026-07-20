@@ -38,7 +38,6 @@
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;
   color: #ffffff;
-
   padding-top: 4rem;
 }
 
@@ -70,7 +69,7 @@
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #CEF79E;
+  color: #cef79e;
 }
 
 .contactValue {
@@ -243,7 +242,7 @@ a.contactValue:hover {
   margin-top: 3px;
   border: 1.5px solid rgba(255, 255, 255, 0.35);
   border-radius: 3px;
-  background: transparent;
+  background: white;
   cursor: pointer;
   position: relative;
   transition: border-color var(--transition-fast),
@@ -258,8 +257,8 @@ a.contactValue:hover {
 .checkbox:checked::after {
   content: "";
   position: absolute;
-  left: 4px;
-  top: 1px;
+  left: 5px;
+  top: 2px;
   width: 4px;
   height: 8px;
   border: 2px solid #ffffff;
@@ -302,7 +301,7 @@ a.contactValue:hover {
   background-color: #ffffff;
   border: none;
   border-bottom-right-radius: 24px;
-  padding: 16px 26px 16px 16px ;
+  padding: 16px 26px 16px 16px;
   box-sizing: border-box;
   cursor: pointer;
   white-space: nowrap;
@@ -393,5 +392,42 @@ a.contactValue:hover {
   .phonePrefix {
     font-size: 0.7rem;
     padding: var(--space-3) var(--space-2);
+  }
+
+  .contactDetails {
+    margin-top: 16px;
+  }
+  .contactValue {
+    font-size: 12px;
+  }
+  .contactBlock {
+    padding: 16px 0;
+  }
+  .label {
+    font-size: 12px;
+  }
+  .socialLink{
+    font-size: 12px;
+  }
+  .input::placeholder {
+    font-size: 12px;
+    opacity: 80%;
+  }
+  .phonePrefix{
+    font-size: 14px;
+  }
+  .select{
+    font-size: 14px;
+  }
+  .submitBtn{
+    font-size: 12px;
+    padding: 20px 12px;
+    height: 0;
+  }
+  .arrowBtn{
+    height: 40px;
+    width: 40px;
+    padding: 12px;
+    border-radius: 19px 0;
   }
 }

@@ -191,6 +191,15 @@
     gap: var(--space-8);
   }
 
+  .heading {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
   .imageWrap {
     max-height: 300px;
   }
@@ -206,17 +215,21 @@
 
   .card {
     min-height: auto;
-    padding: var(--space-10) var(--space-8);
+    padding: var(--space-10) var(--space-8) 40px;
   }
 
   .cardIcon {
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
   }
 
   .cardTitle {
-    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    font-size: 24px;
     margin-top: var(--space-6);
+  }
+
+  .cardDesc {
+    font-size: 14px;
   }
 }
 
@@ -234,11 +247,31 @@
   }
 
   .card {
-    padding: var(--space-8) var(--space-6);
+    padding:  var(--space-4)
   }
 
   .cardIcon {
-    width: 44px;
-    height: 44px;
+    width: 64px;
+    height: 64px;
   }
+
+  .heading {
+    max-width: 90%;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .imageWrap {
+    max-height: 200px;
+    max-width: 270px;
+  }
+
+  .image {
+    max-height: 200px;
+    
+  }
+
 }

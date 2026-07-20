@@ -6,10 +6,16 @@
  * Props:
  *  data – ABOUT_PAGE.story
  */
+import { navigate } from '../../router'
+import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import styles from './OurStory.module.css'
 
 function OurStory({ data = {} }) {
-  const { badge, heading, paragraphs = [] } = data
+  const { badge, heading, paragraphs = [], cta } = data
+
+  function handleCta(e) {
+    if (cta?.href?.startsWith('/')) { e.preventDefault(); navigate(cta.href) }
+  }
 
   return (
     <section className={styles.section}>
@@ -33,6 +39,17 @@ function OurStory({ data = {} }) {
               <p key={i} className={styles.paragraph}>{p}</p>
             ))}
           </div>
+
+          {cta && (
+            <div className={styles.ctaRow}>
+              <a href={cta.href} className={styles.ctaBtn} onClick={handleCta}>
+                {cta.label.toUpperCase()}
+              </a>
+              <a href={cta.href} className={styles.arrowBtn} aria-label={cta.label} onClick={handleCta}>
+                <img src={arrowIcon} alt="" />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>
