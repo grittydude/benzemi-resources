@@ -41,8 +41,9 @@
   align-self: flex-start;
   border-radius: 24px 0 24px 0; /* top-left + bottom-right */
   border: none;
-  background: #F7F7F5;
+  background: #e7e8e1;
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,9 +103,10 @@
 /* CTA row */
 .actions {
   display: flex;
-  align-items: stretch;
-  gap: var(--space-2);
+  align-items: center;
   margin-bottom: 48px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .arrowBtn {
@@ -146,12 +148,12 @@
 /* Column header label */
 .navLabel {
   font-family: var(--font-family-code);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: var(--font-weight-regular);
   line-height: 1.2;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: #69AA2C;
+  color: #69aa2c;
   margin: 0;
 }
 
@@ -167,12 +169,12 @@
 
 .navLink {
   font-family: var(--font-family-code);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: var(--font-weight-regular);
   line-height: 1.2;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: #222F30;
+  color: #222f30;
   text-decoration: none;
   transition: opacity var(--transition-fast);
 }
@@ -218,6 +220,12 @@
   text-transform: uppercase;
   opacity: 60%;
   margin: 0;
+}
+
+/* Desktop-only scrollTop (in navArea) — hidden on mobile where the
+   inline one in .actions takes over */
+.scrollTopDesktop {
+  display: flex;
 }
 
 /* ============================================================
@@ -271,7 +279,7 @@
 @media (max-width: 768px) {
   .inner {
     flex-direction: column;
-    padding: var(--space-16) var(--space-6) var(--space-16);
+    padding: var(--space-16) 0 var(--space-16);
     gap: var(--space-10);
   }
 
@@ -279,51 +287,118 @@
     flex: none;
     max-width: 100%;
     gap: var(--space-8);
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 var(--space-6);
   }
 
   .heading {
     font-size: clamp(2rem, 6vw, 3rem);
-    text-align: center;
+    text-align: left;
   }
 
   .actions {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  /* Hide the desktop scrollTop (in navArea); use the inline one instead */
+  .scrollTopDesktop {
+    display: none;
+  }
+
+  /* Inline scrollTop (inside .actions) — match button height */
+  .scrollTop {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    flex-shrink: 0;
+    margin-left: 52px;
   }
 
   .navArea {
     gap: var(--space-12);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
   }
 
   .footerBottom {
-    align-items: center;
+    align-items: flex-start;
     padding-left: var(--space-6);
     padding-right: var(--space-6);
+    gap: var(--space-3);
+  }
+
+  /* Smaller logo on mobile */
+  .logo {
+    height: 28px;
+  }
+
+  .copyright {
+    font-size: 10px;
+    text-align: left;
+    letter-spacing: 0.04em;
   }
 }
 
 @media (max-width: 480px) {
   .inner {
-    padding: var(--space-12) var(--space-4) var(--space-12);
+    padding: var(--space-8) 0 var(--space-8);
+    gap: 0;
+  }
+
+  .left {
+    padding: 0 var(--space-4);
+    max-width: 100%;
+  }
+  .actions {
+    margin-bottom: 40px;
+    gap: var(--space-1);
+  }
+
+  .scrollTop {
+    align-self: flex-end;
+    padding: 12px;
+    height: 40px;
+    border-radius: 19px 0;
+    margin-left: auto;
+  }
+
+  .arrowBtn {
+    max-width: 40px;
+    border-radius: 19px 0;
+    padding: 12px;
   }
 
   .heading {
     font-size: clamp(1.75rem, 8vw, 2.5rem);
-    text-align: center;
+    text-align: left;
   }
 
   .copyright {
-    text-align: center;
+    font-size: 10px;
+    text-align: left;
   }
 
   .navArea {
-    gap: var(--space-8);
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-top: 0;
+    padding-left: 16px;
+  }
+
+  .navCol {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: 16px;
   }
 
   .footerBottom {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
     padding-bottom: var(--space-8);
+    padding-top: 24px;
+    align-items: flex-start;
+    gap: var(--space-4);
   }
 }

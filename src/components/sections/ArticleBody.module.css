@@ -52,7 +52,11 @@
   text-transform: uppercase;
   color: var(--color-brand-green);
   white-space: nowrap;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition: background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+.backText {
+  display: inline;
 }
 
 .back:hover {
@@ -89,7 +93,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  
   margin-top: var(--space-10);
 }
 
@@ -179,7 +182,7 @@
 
 .figure {
   margin: 0;
-  border-radius: var(--radius-xxl);
+  border-radius: 0 0 24px;
   overflow: hidden;
 }
 
@@ -194,7 +197,7 @@
   margin: 0;
   border-left: 3px solid var(--color-brand-green-muted);
   padding: var(--space-4) var(--space-6);
-  background-color: var(--color-badge-bg);
+  
   border-radius: 0 var(--radius-xxl) var(--radius-xxl) 0;
 }
 
@@ -202,9 +205,8 @@
   font-family: var(--font-family-display);
   font-size: clamp(1rem, 1.5vw, 1.375rem);
   font-weight: var(--font-weight-regular);
-  font-style: italic;
   line-height: 1.5;
-  color: var(--color-brand-green);
+  color: var(--color-brand-green-muted);
   margin: 0 0 var(--space-2);
 }
 
@@ -213,9 +215,8 @@
   font-family: var(--font-family-code);
   font-size: var(--font-size-xs);
   font-style: normal;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(10, 10, 10, 0.5);
+  color: var(--color-brand-green);
 }
 
 .numberedSections {
@@ -257,6 +258,11 @@
   margin: 0;
 }
 
+/* Mobile-only intro paragraph (hidden on desktop) */
+.articleIntro {
+  display: none;
+}
+
 /* ══ RESPONSIVE ══════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
@@ -277,30 +283,51 @@
     gap: 0;
   }
 
+  /* Mobile reading order: back → title → share → intro → body */
+  .back          { order: 1; }
+  .articleHeader { order: 2; }
+  .sideGroup     { order: 3; }
+  .articleIntro  { order: 4; }
+  .body          { order: 5; }
+
+  .articleIntro {
+    display: block;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-weight: 300;
+    line-height: 1.6;
+    color: #4B8145;
+    /* Full-bleed bottom border */
+    margin-left: calc(-1 * var(--space-5));
+    margin-right: calc(-1 * var(--space-5));
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+    margin-bottom: var(--space-6);
+  }
+
   /* 1st: back button — full width */
   .back {
     width: 100%;
     margin-bottom: var(--space-5);
   }
 
-  /* 2nd: article header — allow some breathing room below */
+  /* 2nd: article header — breathing room below */
   .articleHeader {
     margin-bottom: var(--space-5);
   }
 
-  /* 3rd: share + author — horizontal compact row with top/bottom divider */
+  /* 3rd: share + author */
   .sideGroup {
     position: static;
     margin-top: 0;
-    padding-left: 0;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: var(--space-5);
     padding: var(--space-4) 0;
-    border-top: 1px solid rgba(10, 10, 10, 0.08);
-    border-bottom: 1px solid rgba(10, 10, 10, 0.08);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-4);
   }
 
   /* Each block: label | value side-by-side */
@@ -337,5 +364,76 @@
 @media (max-width: 480px) {
   .outer {
     padding: var(--space-6) var(--space-4) var(--space-10);
+  }
+
+  .back {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 19px 0;
+    justify-content: center;
+  }
+
+  .backText {
+    display: none;
+  }
+
+  /* Two-column aside: AUTHOR left, SHARE right */
+  .sideGroup {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  /* Full-bleed border moves to articleIntro at 480px */
+  .articleIntro {
+    margin-left: calc(-1 * var(--space-4));
+    margin-right: calc(-1 * var(--space-4));
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    font-size: 14px;
+    text-justify: auto;
+  }
+
+  /* DOM order: Share first, Author second — flip visually */
+  .sideBlock:first-child {
+    order: 2;
+  } /* Share  → right */
+  .sideBlock:last-child {
+    order: 1;
+  } /* Author → left  */
+
+  /* Each block: label on top, value below */
+  .sideBlock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  /* LinkedIn and X stay on the same row */
+  .shareLinks {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+  .sectionHeading {
+    font-size: 24px;
+  }
+
+  .figure {
+    border-radius: 0 0 16px;
+  }
+  .sideLabel {
+    font-size: 12px;
+  }
+  .shareLink {
+    font-size: 12px;
+  }
+  .authorName {
+    font-size: 12px;
+  }
+  .sideGroup {
+    flex-direction: row;
+    width: 80%;
   }
 }

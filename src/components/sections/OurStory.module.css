@@ -85,6 +85,61 @@
   max-width: 768px;
 }
 
+/* ── CTA row (hidden on desktop, shown on mobile) ── */
+.ctaRow {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  font-family: var(--font-family-code);
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--color-brand-green);
+  padding: 0 var(--space-5);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 0 0 var(--radius-xxl) 0;
+  transition: background-color var(--transition-fast);
+}
+
+.ctaBtn:hover {
+  background-color: var(--color-brand-green-muted);
+}
+
+.arrowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background-color: var(--color-brand-green-muted);
+  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.arrowBtn img {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
+
 /* ── Responsive ── */
 
 @media (min-width: 1280px) {
@@ -95,14 +150,37 @@
 }
 
 @media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-6);
+  }
+
   .body {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
+    margin-top: 0;
+    padding-right: 0;
+    gap: var(--space-5);
+    font-size: var(--font-size-sm);
+  }
+
+  .heading {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    max-width: 80%;
+  }
+
+  .paragraph {
+    font-size: 14px;
+    line-height: 1.5;    
+  }
+
+  /* Show CTA on mobile */
+  .ctaRow {
+    display: flex;
   }
 }
 
 @media (max-width: 480px) {
   .inner {
-    padding: var(--space-12) var(--space-4);
+    padding: var(--space-10) var(--space-4);
   }
 }

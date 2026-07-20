@@ -155,7 +155,7 @@
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(10, 10, 10, 0.4);
+  color: var(--color-brand-green-muted);
   margin: 0;
 }
 
@@ -530,5 +530,24 @@
   .outer {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
+  }
+  .title {
+    font-size: 32px;
+  }
+  .sideValue{
+    font-size: 12px;
+  }
+  .metaGroup{
+    gap: var(--space-8);
+    width: 100%;
+  }
+  .bulletItem{
+    font-size: 14px;
+  }
+  .moduleTitle{
+    font-size: 16px;
+  }
+  .ctaNote{
+    font-size: 14px;
   }
 }

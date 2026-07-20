@@ -55,7 +55,7 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;
-  color: var(--color-text-primary-light);
+  color: var(--color-brand-green);
   margin: 0;
 }
 
@@ -63,7 +63,7 @@
 .headerCta {
   display: flex;
   align-items: stretch;
-  gap: var(--space-3);
+  gap: var(--space-1);
   flex-shrink: 0;
 }
 
@@ -139,7 +139,19 @@
     padding: var(--space-12) var(--space-4);
   }
 
+  .headingRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
   .heading {
     font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .arrowBtn {
+    border-radius: 19px 0;
   }
 }

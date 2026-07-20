@@ -22,10 +22,6 @@
   padding: var(--space-6) 0 var(--space-12);
 }
 
-.headingSpacer {
-  /* col 1 — empty, aligns heading with second card */
-}
-
 .heading {
   grid-column: 2 / 4;
   font-family: var(--font-family-display);
@@ -209,8 +205,33 @@
   .tagRow {
     padding: var(--space-10) var(--space-4) 0;
   }
+  .section{
+    padding-bottom: 40px;
+  }
 
   .card {
-    padding: var(--space-8);
+    padding: var(--space-4);
+    margin: 16px;
+  }
+  .heading {
+    max-width: 80%;
+  }
+  .label{
+    font-size: 24px;
+  }
+  .description{
+    display: none;
+  }
+  .cta{
+    font-size: 12px;
+  }
+  .arrow{
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+    border-radius: 19px 0;    
+  }
+  .arrowIcon{
+    width: 80%;
   }
 }

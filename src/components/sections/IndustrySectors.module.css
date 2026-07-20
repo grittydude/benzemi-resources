@@ -157,6 +157,10 @@
   }
 
   .label {
-    font-size: clamp(1.5rem, 7vw, 2rem);
+    font-size: 24px;
+  }
+
+  .description{
+    padding-right: 40px;
   }
 }

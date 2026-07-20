@@ -150,6 +150,18 @@
   }
 
   .text {
-    font-size: clamp(1.125rem, 5vw, 1.5rem);
+    font-size: clamp(2rem, 5vw, 1.5rem);
+    padding: 8px;
+  }
+
+  .ctaBtn {
+    font-size: var(--font-size-xs);
+    padding: 12px 20px;    
+  }
+
+  .arrowBtn {
+    border-radius: 19px 0;
+    width: 40px;
+    padding: 12px;
   }
 }

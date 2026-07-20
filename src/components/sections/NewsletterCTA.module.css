@@ -152,7 +152,23 @@
 }
 
 @media (max-width: 480px) {
+
+  .section{
+    padding: 0 16px;
+  }
   .inner {
-    padding: var(--space-10) var(--space-4);
+    padding: var(--space-10) 0;
+  }
+  .text{
+    font-size: 32px;
+  }
+  .input::placeholder{
+    opacity: 80%;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .arrowBtn {
+    padding: 12px;
+    border-radius: 19px 0;
   }
 }

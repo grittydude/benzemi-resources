@@ -61,11 +61,12 @@
   background-color: var(--color-badge-bg80);
   padding: var(--space-2);
   font-family: var(--font-family-code);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-regular);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-radius: 4px;
+  color: var(--color-brand-green);
 }
 
 /* Square green dot before type label */
@@ -97,7 +98,6 @@
   font-size: clamp(0.95rem, 1.4vw, 1.5rem);
   font-weight: var(--font-weight-regular);
   line-height: 1.2;
-  margin-right: 24px;
   margin-top: 24px;
   flex: 1;
 }
@@ -107,15 +107,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: auto;
-  gap: var(--space-3);
+  
 }
 
 .readLabel {
   font-family: var(--font-family-code);
   font-size: var(--font-size-base);
   text-transform: uppercase;
-  opacity: 0.65;  
 }
 
 .readArrow {
@@ -133,4 +131,42 @@
 
 .cardClickable:hover .readArrow {
   background-color: var(--color-brand-green);
+}
+
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-4);
+    border-radius: 0 0 40px 0;
+    min-height: 280px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .cardTitle {
+    height: fit-content;
+    flex: 0;
+  }
+  .type {
+    font-size: var(--font-size-xs);
+    color: var(--color-brand-green);
+  }
+
+  .date {
+    font-size: var(--font-size-xs);
+  }
+  .readLabel {
+    font-size: var(--font-size-xs);
+  }
+  .readArrow {    
+    width: 40px;
+    height: 40px;
+    border-radius: 19px 0 ;
+    padding: 14px;
+  }
+
+  .cardBottom {
+    margin-top: 24px;
+    
+  }
+
 }

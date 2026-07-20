@@ -225,7 +225,7 @@ export const RESOURCES_PAGE = {
       type: 'News',
       slug: 'engineering-graduates-beyond-technical',
       date: '2nd June, 2026',
-      title: 'What Engineering Graduates Need Beyond Technical Knowledge',
+      title: 'Understanding Hydrocarbon Dewpointing in Natural Gas Processing Systems',
       image: 'https://picsum.photos/seed/bezimeni-eng/900/600',
     },
     {
@@ -243,11 +243,11 @@ export const RESOURCES_PAGE = {
     { id: 'g3', type: 'Publication', variant: 'light',  slug: 'engineer-valuable',              date: '2nd June, 2026', title: 'What Makes an Engineer Valuable Beyond Technical Knowledge' },
     { id: 'g4', type: 'News',        variant: 'green',  slug: 'academic-vs-industrial',         date: '2nd June, 2026', title: 'The Difference Between Academic Learning and Industrial Execution' },
     { id: 'g5', type: 'Publication', variant: 'dark',   slug: 'hydrocarbon-dewpointing',        date: '2nd June, 2026', title: 'Understanding Hydrocarbon Dewpointing in Natural Gas Processing Systems' },
-    { id: 'g6', type: 'Publication', variant: 'light',  slug: 'confidence-technical',           date: '2nd June, 2026', title: 'Developing Confidence in Technical Environments' },
+    { id: 'g6', type: 'Publication', variant: 'light',  slug: 'confidence-technical',           date: '2nd June, 2026', title: 'Understanding Hydrocarbon Dewpointing in Natural Gas Processing Systems' },
   ],
   event: {
     badge: 'Upcoming Events',
-    heading: { pre: 'Discover ', accent1: 'Community', mid: ' Events\nThat Keep You ', accent2: 'Connected' },
+    heading: { pre: 'Discover ', accent1: 'Community', mid: ' Events That Keep You ', accent2: 'Connected' },
     // legacy single item (used by UpcomingEvents)
     item: {
       counter: '01 / 02',
@@ -356,6 +356,7 @@ export const ABOUT_PAGE = {
       'We created Bezimeni Resources to help close that gap. Our goal is to create learning experiences that move beyond theory and prepare people to think critically, solve problems confidently, and contribute meaningfully in real industrial environments.',
       'Today, that begins through training and capability development. Tomorrow, it grows into broader technical and industrial impact.',
     ],
+    cta: { label: 'Get Started', href: '/training' },
   },
   whyWeBuild: {
     badge: 'Why We Exist',
@@ -420,16 +421,16 @@ export const TRAINING_PAGE = {
       description: 'Build foundational understanding of upstream, midstream, and downstream operations and how value is created across the industry.',
       price: '₦208,564',
       duration: '4–6 Weeks', type: 'In-Person/Virtual', outcome: 'Industry Awareness',
-    },
+    },    
     {
-      id: 'p3', variant: 'white', slug: 'oil-gas-fundamentals-3',
+      id: 'p4', variant: 'green', slug: 'oil-gas-fundamentals-4',
       title: 'Oil & Gas Industry Fundamentals',
       description: 'Build foundational understanding of upstream, midstream, and downstream operations and how value is created across the industry.',
       price: '₦208,564',
       duration: '4–6 Weeks', type: 'In-Person/Virtual', outcome: 'Industry Awareness',
     },
     {
-      id: 'p4', variant: 'green', slug: 'oil-gas-fundamentals-4',
+      id: 'p3', variant: 'white', slug: 'oil-gas-fundamentals-3',
       title: 'Oil & Gas Industry Fundamentals',
       description: 'Build foundational understanding of upstream, midstream, and downstream operations and how value is created across the industry.',
       price: '₦208,564',
@@ -578,7 +579,7 @@ export const INDUSTRY_SOLUTIONS_PAGE = {
   sectors: {
     badge: 'Industries We Support',
     heading: { prefix: 'Built for Real-World\n', accent: 'Industry', suffix: ' Needs' },
-    description: 'Our learning and capability approach is informed by sectors that emphasise operational excellence, process awareness, and practical execution.',
+    description: 'Our learning and capability approach is informed by sectors where technical excellence, operational awareness, and practical execution matter most.',
     items: [
       { num: '01', total: '04', label: 'Energy, Oil & Gas' },
       { num: '02', total: '04', label: 'Engineering Services' },
@@ -614,8 +615,8 @@ export const CONTACT_PAGE = {
     ],
   },
   enquiryHeading: {
-    prefix: 'Select the option that fits your enquiry. ',
-    accent: 'How can we help?',
+    prefix: 'Select the option that fits your enquiry.',
+    accent: '\nHow can we help?',
   },
   enquiryTypes: [
     {
