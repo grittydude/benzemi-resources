@@ -4,7 +4,7 @@
    ============================================================ */
 
 .section {
-  background-color: #F7F7F5;
+  background-color: #f7f7f5;
   width: 100%;
 }
 
@@ -60,12 +60,12 @@
 }
 
 .line1 {
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-size: 56px;
   color: var(--color-text-primary-light);
 }
 
 .line2 {
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-size: 56px;
   color: var(--color-brand-green-muted);
 }
 
@@ -75,7 +75,7 @@
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary-light);
+  color: var(--color-brand-green);
   max-width: 650px;
   margin: 0;
 }
@@ -120,13 +120,12 @@
   padding: 0 0 var(--space-16);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  border-radius: 0 0 80px 0 ;
+  border-radius: 0 0 80px 0;
   padding: var(--space-10);
   min-height: 380px;
 }
@@ -134,19 +133,19 @@
 /* ── Card variants ── */
 .card--green {
   background-color: var(--color-brand-card);
-  color: var(--color-text-primary-light);
-  border-radius: 0 0 80px 0 ;
+  color: var(--color-brand-green);
+  border-radius: 0 0 80px 0;
 }
 
 .card--dark {
   background-color: var(--color-brand-green);
-  color: #ffffff;
-  border-radius: 0 0 80px 0 ;
+  color: #eeeeee;
+  border-radius: 0 0 80px 0;
 }
 
 .card--gray {
-  background-color: #E5E5E3;
-  color: var(--color-text-primary-light);
+  background-color: #eeeeee;
+  color: var(--color-brand-green);
 }
 
 /* ── Card icon ── */
@@ -186,10 +185,9 @@
 .cardDesc {
   font-family: var(--font-family-base);
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-light);
   line-height: 1.4;
   margin: 0;
-  opacity: 0.75;
 }
 
 /* ============================================================
@@ -300,7 +298,6 @@
 @media (max-width: 480px) {
   .inner {
     padding: 24px;
-    
   }
 
   .heading {
@@ -329,7 +326,7 @@
 
   .card {
     padding: 16px;
-    border-radius: 0 0 40px 0 ;
+    border-radius: 0 0 40px 0;
   }
 
   .cardIcon {

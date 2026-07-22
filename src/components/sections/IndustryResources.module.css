@@ -51,7 +51,7 @@
 
 .heading {
   font-family: var(--font-family-display);
-  font-size: clamp(2rem, 3vw, 3.25rem);
+  font-size: 56px;
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;

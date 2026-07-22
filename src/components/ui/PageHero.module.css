@@ -83,9 +83,9 @@
 /* ── Main heading ── */
 .heading {
   font-family: var(--font-family-display);
-  font-size: clamp(2.5rem, 5.5vw, 5rem); /* 80px at full width */
+  font-size: 80px; /* 80px at full width */
   font-weight: var(--font-weight-medium);  /* 500 per Figma */
-  line-height: var(--line-height-tight);
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--color-brand-green);
   margin: 0;

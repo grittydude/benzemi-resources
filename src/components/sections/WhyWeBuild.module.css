@@ -93,7 +93,7 @@
 /* Variants */
 .card--green {
   background-color: #CEF79E;
-  color: var(--color-text-primary-light);
+  color: var(--color-brand-green);
   border-radius: 0 0 80px 0;
 }
 
@@ -104,8 +104,8 @@
 }
 
 .card--gray {
-  background-color: #ffffff;
-  color: var(--color-text-primary-light);
+  background-color: #EEEEEE;
+  color: var(--color-brand-green);
   border-radius: 0 0 80px 0;
 }
 

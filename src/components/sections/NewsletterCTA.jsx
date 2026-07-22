@@ -44,7 +44,7 @@ function NewsletterCTA() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={placeholder}
               className={styles.input}
-              aria-label="First name"
+              aria-label="Email Address"
               required
             />
             <button

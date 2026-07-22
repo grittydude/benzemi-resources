@@ -92,14 +92,14 @@ function WhyBezimeni() {
             </span>
           </h2>
           {/* Tab progress indicators */}
-          <div className={styles.tabLines} aria-hidden="true">
+          {/* <div className={styles.tabLines} aria-hidden="true">
             {slides.map((_, i) => (
               <span
                 key={i}
                 className={`${styles.tabLine} ${i === currentSlide ? styles.tabLineActive : ''}`}
               />
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* ── Slide content — both columns re-mount & animate on change ── */}
@@ -116,7 +116,16 @@ function WhyBezimeni() {
 
           {/* Right: content — key forces remount → triggers CSS animation */}
           <div className={styles.slideContent} key={`content-${currentSlide}`}>
-            <hr className={styles.divider} aria-hidden="true" />
+            {/* <hr className={styles.divider} aria-hidden="true" />
+             */}
+              <div className={styles.tabLines} aria-hidden="true">
+            {slides.map((_, i) => (
+              <span
+                key={i}
+                className={`${styles.tabLine} ${i === currentSlide ? styles.tabLineActive : ''}`}
+              />
+            ))}
+          </div>
 
             <div className={styles.slideBody}>
               <span className={styles.counter}>

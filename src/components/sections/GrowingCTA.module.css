@@ -55,7 +55,7 @@
 /* Large white heading text */
 .text {
   font-family: var(--font-family-display);
-  font-size: clamp(1.75rem, 3.5vw, 3.5rem);
+  font-size: 56px;
   font-weight: var(--font-weight-regular);
   line-height: 1.20;  
   color: #ffffff;

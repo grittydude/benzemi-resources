@@ -169,18 +169,19 @@
 
 .card--green .cardTitle,
 .card--gray  .cardTitle { color: var(--color-brand-green); }
-.card--dark  .cardTitle { color: #ffffff; }
+.card--dark  .cardTitle { color: #EEEEEE; }
 
 .cardDesc {
   font-family: var(--font-family-base);
   font-size: var(--font-size-lg);
   line-height: 1.5;
+  font-weight: 300;
   margin: 0;
 }
 
 .card--green .cardDesc,
-.card--gray  .cardDesc { color: rgba(34, 47, 48, 0.90); }
-.card--dark  .cardDesc { color: rgba(255, 255, 255, 0.65); }
+.card--gray  .cardDesc { color: var(--color-brand-green); }
+.card--dark  .cardDesc { color: #EEEEEE; }
 
 /* ── Responsive ── */
 

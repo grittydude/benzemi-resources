@@ -146,7 +146,7 @@
 /* ---- Headline ---- */
 .headline {
   font-family: var(--font-family-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: 56px;
   font-weight: var(--font-weight-regular);
   line-height: 1.2;
   letter-spacing: -0.02em;

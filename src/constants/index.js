@@ -279,7 +279,7 @@ export const RESOURCES_PAGE = {
   newsletter: {
     badge: 'No Noise, Just Valuable Content',
     text: 'Receive practical insights, learning opportunities, technical resources, and updates from Bezimeni directly in your inbox.',
-    placeholder: 'First Name',
+    placeholder: 'Email Address',
     cta: 'Subscribe',
   },
 }

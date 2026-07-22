@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-family-display);
-  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-size: 56px;
   font-weight: 400;
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;
@@ -215,9 +215,9 @@
 
 .slideTitle {
   font-family: var(--font-family-display);
-  font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
   font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary-light);
+  color: var(--color-brand-green);
   line-height: var(--line-height-tight);
   letter-spacing: -0.01em;
   margin: 0;
@@ -228,6 +228,8 @@
   display: flex;
   gap: clamp(var(--space-8), 6vw, var(--space-16));
   list-style: none;
+  width: 100%;
+  justify-content: space-between;
   padding: 0;
   margin: 0;
 }
@@ -262,8 +264,9 @@
 .pedigreeDesc {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-primary-light);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--color-brand-green);
   margin: 0;
 }
 
@@ -273,15 +276,18 @@
   align-items: center;
   gap: clamp(var(--space-6), 4vw, var(--space-10));
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
   background-color: var(--color-brand-card);
 }
 
 /* stagger delay set via inline style */
 .logo {
-  height: 90px;
+  height: 64px;
   width: auto;
   max-width: 110px;
   object-fit: contain;
+  mix-blend-mode: luminosity;
   object-position: center;
   display: block;
   opacity: 0;
