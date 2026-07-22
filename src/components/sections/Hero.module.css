@@ -275,12 +275,18 @@
 @media (max-width: 480px) {
   .inner {
     padding-top: calc(80px + var(--space-6)); 
+    padding-right: 16px;
   }
 
+  .content{
+    margin-bottom: 24px;
+  }
   h1.heading {
     font-size: 44px !important;
     max-width: 100%;
     line-height: 1.2;
+    
+
   }
 
   .arrowBtn{

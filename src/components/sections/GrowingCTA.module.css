@@ -143,7 +143,7 @@
 
 @media (max-width: 480px) {
   .section {
-    padding: 0 var(--space-4) var(--space-10);
+    padding: 0 var(--space-4) var(--space-4);
   }
 
   .card {
@@ -152,7 +152,6 @@
 
   .text {
     font-size: clamp(2rem, 5vw, 1.5rem);
-    padding: 8px;
   }
 
   .ctaBtn {

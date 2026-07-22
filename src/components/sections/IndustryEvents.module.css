@@ -73,7 +73,6 @@
 .photo {
   border-radius: 16px;
   overflow: hidden;
-  background-color: red;
 }
 
 .photoImg {
@@ -284,7 +283,6 @@
   .heading {
     font-size: clamp(1.5rem, 7vw, 2rem);    
     max-width: 90%;
-    background-color: red;
   }
   .eventContent {
     flex-direction: column;

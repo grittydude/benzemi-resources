@@ -59,11 +59,11 @@
   font-family: var(--font-family-display);
   font-size: clamp(1.75rem, 3.5vw, 3rem);
   font-weight: var(--font-weight-regular);
-  line-height: 1.20;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0;
-  max-width: 85%;
+  width: 100%;
 }
 
 /* CTA row */
@@ -161,7 +161,7 @@
   .ctaBtn {
     padding: 12px 20px;
   }
-  .arrowBtn{
+  .arrowBtn {
     padding: 12px;
     border-radius: 19px 0;
   }
