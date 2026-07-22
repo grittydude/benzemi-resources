@@ -142,6 +142,10 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    background-image: none !important; /* solid primary color on mobile */
+  }
+
   .inner {
     padding: var(--space-12) var(--space-6);
     gap: var(--space-6);

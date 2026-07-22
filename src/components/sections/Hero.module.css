@@ -272,3 +272,29 @@
     mask-image: linear-gradient(to left, black 10%, transparent 75%);
   }
 }
+@media (max-width: 480px) {
+  .inner {
+    padding: 48px var(--space-4) var(--space-12);
+  }
+
+  h1.heading {
+    font-size: 44px !important;
+    max-width: 100%;
+    line-height: 1.2;
+  }
+
+  .arrowBtn{
+    height: 40px;
+    width: 40px;
+    border-radius: 19px 0;
+    padding: 12px;
+  }
+
+  .imageWrap {
+    max-height: 220px;
+  }
+
+  .heroImage {
+    max-height: 220px;
+  }
+}

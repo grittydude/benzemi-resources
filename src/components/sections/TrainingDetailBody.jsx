@@ -28,23 +28,33 @@ function TrainingDetailBody({ programme }) {
     <article className={styles.article}>
       <div className={styles.outer}>
 
-        {/* Mobile-only: ENROLL row at top right — hidden on desktop */}
+        {/* Mobile-only: sticky row with back arrow left + ENROLL right */}
         <div className={styles.mobileEnrollRow}>
           <button
-            className={styles.mobileEnrollBtn}
-            onClick={() => navigate(sidebar.enrollHref)}
+            className={styles.mobileBackBtn}
+            onClick={() => navigate('/training')}
             type="button"
+            aria-label="Back to Training"
           >
-            ENROLL
+            ←
           </button>
-          <button
-            className={styles.mobileArrowBtn}
-            onClick={() => navigate(sidebar.enrollHref)}
-            type="button"
-            aria-label="Enroll today"
-          >
-            <img src={arrowIcon} alt="" aria-hidden="true" />
-          </button>
+          <div className={styles.mobileEnrollActions}>
+            <button
+              className={styles.mobileEnrollBtn}
+              onClick={() => navigate(sidebar.enrollHref)}
+              type="button"
+            >
+              ENROLL
+            </button>
+            <button
+              className={styles.mobileArrowBtn}
+              onClick={() => navigate(sidebar.enrollHref)}
+              type="button"
+              aria-label="Enroll today"
+            >
+              <img src={arrowIcon} alt="" aria-hidden="true" />
+            </button>
+          </div>
         </div>
 
         <div className={styles.layout}>
