@@ -29,7 +29,6 @@
 .headerStacked {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
   align-items: flex-start;
   padding: 0 var(--container-padding);
 }
@@ -91,6 +90,7 @@
   color: var(--color-brand-green);
   margin-top: var(--space-16);
   font-style: normal;
+  background-color: red;
 }
 
 .accent {
@@ -106,6 +106,7 @@
   font-weight: 300;
   color: var(--color-brand-green);
   margin: 0;
+  margin-top: 40px;
   max-width: 700px;
 }
 
@@ -232,6 +233,7 @@
   }
   .description{
     padding-right: 32px;
+    margin-top: 24px;
   }
   .card{
     padding: 16px;
