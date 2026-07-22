@@ -209,7 +209,7 @@
 /* Mobile */
 @media (max-width: 640px) {
   .inner {
-    padding-top: var(--space-12);
+    padding-top: var(--space-6);
     padding-bottom: var(--space-6);
     padding-left: 16px;
   }
@@ -274,7 +274,7 @@
 }
 @media (max-width: 480px) {
   .inner {
-    padding: 48px var(--space-4) var(--space-12);
+    padding-top: calc(80px + var(--space-6)); 
   }
 
   h1.heading {

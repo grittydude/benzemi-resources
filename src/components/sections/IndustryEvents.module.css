@@ -58,7 +58,7 @@
 
 .accent {
   font-style: normal;
-  color: #4B8145;
+  color: #4b8145;
 }
 
 /* ── Event row: photo | details ── */
@@ -177,7 +177,7 @@
   font-size: var(--font-size-base);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(34, 47, 48, 0.70);
+  color: rgba(34, 47, 48, 0.7);
   width: 52px;
   flex-shrink: 0;
 }
@@ -215,7 +215,9 @@
   transition: background-color var(--transition-fast);
 }
 
-.rsvpBtn:hover { background-color: var(--color-brand-green-muted); }
+.rsvpBtn:hover {
+  background-color: var(--color-brand-green-muted);
+}
 
 /* Arrow button */
 .arrowBtn {
@@ -240,17 +242,25 @@
   filter: brightness(0) invert(1);
 }
 
-.arrowBtn:hover { background-color: var(--color-brand-green); }
+.arrowBtn:hover {
+  background-color: var(--color-brand-green);
+}
 
 /* ── Responsive ── */
 
 @media (min-width: 1280px) {
-  .inner { padding: var(--space-20) var(--container-padding); }
-  .photoImg { height: 380px; }
+  .inner {
+    padding: var(--space-20) var(--container-padding);
+  }
+  .photoImg {
+    height: 380px;
+  }
 }
 
 @media (max-width: 768px) {
-  .inner { padding: var(--space-12) var(--space-6); }
+  .inner {
+    padding: var(--space-12) var(--space-6);
+  }
 
   .heading {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
@@ -262,29 +272,37 @@
     gap: var(--space-6);
   }
 
-  .photoImg { height: 240px; }
+  .photoImg {
+    height: 240px;
+  }
 }
 
 @media (max-width: 480px) {
-  .inner { padding: var(--space-10) var(--space-4); }
-  .heading { font-size: clamp(1.5rem, 7vw, 2rem); }
-  .eventContent{
+  .inner {
+    padding: var(--space-10) var(--space-4);
+  }
+  .heading {
+    font-size: clamp(1.5rem, 7vw, 2rem);    
+    max-width: 90%;
+    background-color: red;
+  }
+  .eventContent {
     flex-direction: column;
   }
-  .eventTitle{
+  .eventTitle {
     font-size: 24px;
   }
-  .metaLabel{
+  .metaLabel {
     font-size: 12px;
   }
-  .metaValue{
+  .metaValue {
     font-size: 12px;
   }
-  .rsvpBtn{
+  .rsvpBtn {
     font-size: 12px;
     padding: 12px 24px;
   }
-  .arrowBtn{
+  .arrowBtn {
     padding: 12px;
     border-radius: 19px 0;
   }
