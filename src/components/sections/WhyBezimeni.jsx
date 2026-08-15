@@ -7,6 +7,7 @@ import logoShell   from '../../assets/icons/shell.svg'
 import logoSeplat  from '../../assets/icons/spelat.svg'
 import logoTree    from '../../assets/icons/tree.svg'
 import logoSeepco  from '../../assets/icons/seepco.svg'
+import arrowIcon   from '../../assets/icons/arrow_icon.svg'
 import styles from './WhyBezimeni.module.css'
 
 const SLIDE_IMAGES = {
@@ -134,7 +135,18 @@ function WhyBezimeni() {
 
               <div className={styles.slideMain}>
                 <div className={styles.slideTop}>
-                  <h3 className={styles.slideTitle}>{slide.title}</h3>
+                  <div className={styles.titleRow}>
+                    <h3 className={styles.slideTitle}>{slide.title}</h3>
+                    {/* Desktop/tablet: click to advance; hidden on mobile (swipe handles it) */}
+                    <button
+                      className={styles.nextBtn}
+                      onClick={() => setCurrentSlide(s => (s + 1) % total)}
+                      aria-label="Next slide"
+                      type="button"
+                    >
+                      <img src={arrowIcon} alt="" aria-hidden="true" />
+                    </button>
+                  </div>
                   {slide.type === 'logos' && (
                     <p className={styles.pedigreeDesc}>{slide.description}</p>
                   )}
