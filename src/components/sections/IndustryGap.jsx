@@ -35,7 +35,7 @@ function IndustryGap() {
     <div
       ref={outerRef}
       className={styles.outer}
-      style={{ height: `${total * 100}vh` }}
+      style={{ '--slide-total': total }}
     >
       <section
         className={styles.section}

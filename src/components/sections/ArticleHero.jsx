@@ -1,13 +1,12 @@
-import { ARTICLE_PAGE } from '../../constants'
 import styles from './ArticleHero.module.css'
 
 /**
  * Renders only the article header content (type badge, date, title, intro).
  * Layout (sidebar + column) is owned by ArticleBody.
+ *
+ * Props: type, date, title, intro
  */
-function ArticleHero() {
-  const { type, date, title, intro } = ARTICLE_PAGE
-
+function ArticleHero({ type, date, title, intro }) {
   return (
     <header className={styles.header}>
       <div className={styles.meta}>

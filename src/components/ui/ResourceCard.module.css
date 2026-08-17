@@ -95,10 +95,11 @@
 /* ── Card title ── */
 .cardTitle {
   font-family: var(--font-family-display);
-  font-size: clamp(0.95rem, 1.4vw, 1.5rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.5rem);
   font-weight: var(--font-weight-regular);
   line-height: 1.2;
   margin-top: 24px;
+  max-width: 85%;
   flex: 1;
 }
 
@@ -167,6 +168,10 @@
   .cardBottom {
     margin-top: 24px;
     
+  }
+
+  .cardTitle {
+    max-width: 100%;
   }
 
 }

@@ -55,12 +55,12 @@
 /* Large white heading text */
 .text {
   font-family: var(--font-family-display);
-  font-size: 56px;
+  font-size: 54px;
   font-weight: var(--font-weight-regular);
   line-height: 1.20;  
   color: #ffffff;
   margin: 0;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 /* CTA row */

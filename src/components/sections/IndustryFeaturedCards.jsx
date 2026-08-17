@@ -5,8 +5,8 @@
  * Solutions page. Uses real images from assets.
  */
 import { navigate } from '../../router'
-import resourceHeroOne from '../../assets/images/resource_hero_one.png'
-import resourceHeroTwo from '../../assets/images/resource_hero_two.png'
+import resourceHeroOne from '../../assets/images/first-role.webp'
+import resourceHeroTwo from '../../assets/images/valuable-engineer.webp'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import { RESOURCES_PAGE } from '../../constants'
 import styles from './IndustryFeaturedCards.module.css'

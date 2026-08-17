@@ -7,6 +7,11 @@ import logoShell   from '../../assets/icons/shell.svg'
 import logoSeplat  from '../../assets/icons/spelat.svg'
 import logoTree    from '../../assets/icons/tree.svg'
 import logoSeepco  from '../../assets/icons/seepco.svg'
+import logoCoren  from '../../assets/icons/coren.svg'
+import logoCrossRiver  from '../../assets/icons/crossriver.svg'
+import logoNCDMB  from '../../assets/icons/ncdmb.svg'
+import logoNSE  from '../../assets/icons/nse.svg'
+import logoSPE  from '../../assets/icons/spe.svg'
 import arrowIcon   from '../../assets/icons/arrow_icon.svg'
 import styles from './WhyBezimeni.module.css'
 
@@ -21,6 +26,12 @@ const COMPANY_LOGOS = [
   { src: logoSeplat,  alt: 'Seplat Energy' },
   { src: logoTree,    alt: 'Tree'          },
   { src: logoSeepco,  alt: 'SEEPCO'        },
+  { src: logoNCDMB,  alt: 'SEEPCO'        },
+  { src: logoSPE,  alt: 'SEEPCO'        },
+  { src: logoCrossRiver,  alt: 'SEEPCO'        },
+  { src: logoNSE,  alt: 'SEEPCO'        },
+  { src: logoCoren,  alt: 'SEEPCO'        },
+  
 ]
 
 /**

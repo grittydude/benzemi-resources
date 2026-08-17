@@ -122,7 +122,11 @@ function TrainingDetailBody({ programme }) {
           {/* 4 — Body content (grid: body area | mobile: order 4) */}
           <div className={styles.body}>
 
-            <p className={styles.intro}>{intro}</p>
+            {/* Intro — string or string[] */}
+            {Array.isArray(intro)
+              ? intro.map((p, i) => <p key={i} className={styles.intro}>{p}</p>)
+              : <p className={styles.intro}>{intro}</p>
+            }
 
             {/* Who is this for */}
             <section className={styles.section}>
@@ -135,36 +139,40 @@ function TrainingDetailBody({ programme }) {
               </ul>
             </section>
 
-            {/* What you will learn */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionHeading}>{whatYouLearn.heading}</h2>
-              <p className={styles.para}>{whatYouLearn.intro}</p>
-              <ul className={styles.bulletList}>
-                {whatYouLearn.items.map((item, i) => (
-                  <li key={i} className={styles.bulletItem}>{item}</li>
-                ))}
-              </ul>
-            </section>
+            {/* What you will learn — optional */}
+            {whatYouLearn && (
+              <section className={styles.section}>
+                <h2 className={styles.sectionHeading}>{whatYouLearn.heading}</h2>
+                <p className={styles.para}>{whatYouLearn.intro}</p>
+                <ul className={styles.bulletList}>
+                  {whatYouLearn.items.map((item, i) => (
+                    <li key={i} className={styles.bulletItem}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
-            {/* Course Curriculum */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionHeading}>{curriculum.heading}</h2>
-              <p className={styles.para}>{curriculum.intro}</p>
-              <div className={styles.curriculumGrid}>
-                {curriculum.modules.map((mod) => (
-                  <div key={mod.num} className={styles.module}>
-                    <p className={styles.moduleTitle}>
-                      {mod.num}. {mod.title}
-                    </p>
-                    <ul className={styles.moduleList}>
-                      {mod.items.map((item, i) => (
-                        <li key={i} className={styles.moduleItem}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </section>
+            {/* Course Curriculum — optional */}
+            {curriculum && (
+              <section className={styles.section}>
+                <h2 className={styles.sectionHeading}>{curriculum.heading}</h2>
+                <p className={styles.para}>{curriculum.intro}</p>
+                <div className={styles.curriculumGrid}>
+                  {curriculum.modules.map((mod) => (
+                    <div key={mod.num} className={styles.module}>
+                      <p className={styles.moduleTitle}>
+                        {mod.num}. {mod.title}
+                      </p>
+                      <ul className={styles.moduleList}>
+                        {mod.items.map((item, i) => (
+                          <li key={i} className={styles.moduleItem}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* How you will learn */}
             <section className={styles.section}>
@@ -175,6 +183,7 @@ function TrainingDetailBody({ programme }) {
                   <li key={i} className={styles.bulletItem}>{item}</li>
                 ))}
               </ul>
+              {howYouLearn.outro && <p className={styles.para}>{howYouLearn.outro}</p>}
             </section>
 
             {/* CTA box */}
