@@ -9,7 +9,7 @@
 /* ---- Outer wrapper: creates scroll space ---- */
 .outer {
   position: relative;
-  /* height set by inline style: total × 100vh */
+  height: calc(var(--slide-total) * 100vh);
   margin-top: -40px; /* overlap the hero's bottom-radius */
 }
 
@@ -175,7 +175,18 @@
     margin-top: -20px;
   }
 
+  .outer{
+    height: 50svh;
+  }
+  .section {
+    height: 50svh;
+  }
+
   .headlineWrap {
+    flex: 0;
+    margin-top: 56px;
+    display: flex;
+    align-items: center;
     padding-left: 0;
     align-items: center;
     padding-bottom: 0;
@@ -202,5 +213,29 @@
   .counter {
     padding: var(--space-1) var(--space-3);
     font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .outer{
+    height: 50svh;
+  }
+
+  .overlay {
+    padding: var(--space-2) 24px;
+    height: 100px;
+  }
+
+  .section {
+    padding: var(--space-2) 24px;
+    height: 50svh;
+  }
+
+  .headlineWrap {
+    flex: 0;
+    margin-top: 56px;
+    display: flex;
+    align-items: center;
+
   }
 }

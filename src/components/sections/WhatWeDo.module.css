@@ -40,9 +40,95 @@
   background-color: var(--color-brand-green-muted);
 }
 
-/* ---- Content block — offset 40% from left on desktop ---- */
+/* ---- Row: brochure (left) + content (right) ---- */
+.row {
+  display: flex;
+  gap: 141px;
+  align-items: flex-start;
+}
+
+/* ---- Brochure image panel ---- */
+.brochure {
+  flex: 0 0 25%;
+  position: relative;
+  border-radius: 0 0 48px 00;
+  overflow: hidden;
+  align-self: stretch;
+}
+
+.brochureImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  min-height: 284px;
+}
+
+/* Overlay row: label + arrow, floating inside image */
+.brochureOverlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* Wide white label button */
+.brochureBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 var(--space-5);
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0 0 24px 0;
+  cursor: pointer;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-green);
+  white-space: nowrap;
+  transition: background-color var(--transition-fast);
+}
+
+.brochureBtn:hover {
+  background-color: #f0f0ee;
+}
+
+/* Separate arrow button — same style as project-wide arrowBtn */
+.brochureArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-brand-green-muted);
+  border: none;
+  border-radius: var(--radius-xl) 0 var(--radius-xl) 0;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.brochureArrow:hover {
+  background-color: var(--color-brand-green);
+}
+
+.brochureArrow img {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+/* ---- Content block ---- */
 .content {
-  margin-left: 32.5%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
@@ -84,7 +170,7 @@
 .cta {
   display: flex;
   align-items: stretch;
-  gap: var(--space-3);
+  gap: var(--space-1);
   margin-top: var(--space-2);
 }
 
@@ -99,7 +185,7 @@
   color: #ffffff;
   font-size: 1.25rem;
   line-height: 1;
-  border-radius: var(--radius-xxl) 0 var(--radius-xxl) 0;
+  border-radius: var(--radius-xl) 0 var(--radius-xl) 0;
   text-decoration: none;
   flex-shrink: 0;
   transition: background-color var(--transition-fast);
@@ -204,8 +290,12 @@
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .content {
-    margin-left: 30%;
+  .row {
+    gap: var(--space-5);
+  }
+
+  .brochure {
+    flex: 0 0 28%;
   }
 
   .badge {
@@ -228,10 +318,28 @@
   }
 }
 
-/* Small tablet — stack cards vertically */
+/* Small tablet — stack brochure + cards vertically */
 @media (max-width: 768px) {
+  /* Stack brochure below content */
+  .row {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .brochure {
+    order: 2; /* image panel goes below the text */
+    flex: none;
+    width: 100%;
+    align-self: auto;
+  }
+
+  .brochureImg {
+    min-height: 280px;
+    object-position: center 30%;
+  }
+
   .content {
-    margin-left: 0;
+    order: 1;
     gap: var(--space-5);
     align-items: flex-start;
     text-align: left;
@@ -341,4 +449,25 @@
   .cardDesc {
     font-size: 14px;
   }
+
+  /* Wide white label button */
+.brochureBtn {
+  max-width: 65%;
+  height: 40px;
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-xs);
+  
+}
+
+.brochureBtn:hover {
+  background-color: #f0f0ee;
+}
+
+/* Separate arrow button — same style as project-wide arrowBtn */
+.brochureArrow {
+  width: 40px;
+  height: 40px;
+
+}
+
 }

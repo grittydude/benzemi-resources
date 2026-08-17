@@ -17,6 +17,7 @@
   --color-dark-border: #2a2a2a; /* Borders on dark surfaces */
 
   --color-light-bg: #ffffff; /* Light section backgrounds */
+  --color-light-60: #ffffff99 ; /* Light section backgrounds */
   --color-badge-bg: #F7F7F5; /* Light section backgrounds */
   --color-badge-bg18: rgba(247, 247, 245, 0.16); /* Light section backgrounds */
   --color-badge-bg80: rgba(247, 247, 245, 0.80); /* Light section backgrounds */

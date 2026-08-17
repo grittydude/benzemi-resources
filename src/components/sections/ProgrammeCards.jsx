@@ -7,7 +7,7 @@
  *  programmes – array from TRAINING_PAGE.programmes
  */
 import { navigate } from '../../router'
-import programmeIcon from '../../assets/icons/build.svg'
+import programmeIcon from '../../assets/icons/apply.svg'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import styles from './ProgrammeCards.module.css'
 

@@ -1,6 +1,10 @@
 import { TESTIMONIALS } from "../../constants";
-import avatarImg from "../../assets/images/team_photo.webp";
+import amosImg from "../../assets/images/amos.png";
+import mercyImg from "../../assets/images/mercy.png";
+import brightImg from "../../assets/images/bright.png";
 import styles from "./Testimonials.module.css";
+
+const AVATAR_MAP = { amos: amosImg, mercy: mercyImg, bright: brightImg };
 
 function Testimonials() {
   const { badge, headline, items } = TESTIMONIALS;
@@ -40,7 +44,7 @@ function Testimonials() {
               </blockquote>
               <footer className={styles.itemFooter}>
                 <img
-                  src={avatarImg}
+                  src={AVATAR_MAP[item.imageKey]}
                   alt={item.name}
                   className={styles.avatar}
                 />

@@ -1,11 +1,9 @@
-import { ARTICLE_PAGE } from '../../constants'
 import { navigate } from '../../router'
 import arrowIcon from '../../assets/icons/arrow_icon.svg'
 import ResourceCard from '../ui/ResourceCard'
 import styles from './RelatedPublications.module.css'
 
-function RelatedPublications() {
-  const { related } = ARTICLE_PAGE
+function RelatedPublications({ related = [] }) {
 
   return (
     <section className={styles.section}>

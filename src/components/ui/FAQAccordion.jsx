@@ -2,7 +2,7 @@
  * FAQAccordion
  *
  * Self-contained section: #CEF79E bg, two-colour heading, items in right 70%.
- * All items open by default; each can be individually toggled.
+ * All items closed by default; each can be individually toggled.
  *
  * Props:
  *  items   – [{ id, q, a }]
@@ -16,10 +16,10 @@ function FAQAccordion({
   items = [],
   heading = { accent: 'Questions ', suffix: 'You Might Have' },
 }) {
-  const [closed, setClosed] = useState(new Set())
+  const [open, setOpen] = useState(new Set())
 
   function toggle(id) {
-    setClosed(prev => {
+    setOpen(prev => {
       const next = new Set(prev)
       if (next.has(id)) next.delete(id)
       else next.add(id)
@@ -48,7 +48,7 @@ function FAQAccordion({
 
           <ul className={styles.list} role="list">
             {items.map((item) => {
-              const isOpen = !closed.has(item.id)
+              const isOpen = open.has(item.id)
               return (
                 <li key={item.id} className={styles.item}>
                   <button
